@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 let
   #unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
@@ -33,6 +33,23 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable scanning
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+  # Network scanning
+  services.avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        userServices = true;
+      };
+    };
+
+   
+  #warn-dirty = false;
+
   #Enable bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -42,6 +59,7 @@ in
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -58,8 +76,13 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  services.upower.enable = true;
+
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    autoNumlock = true;
+  };
   #services.xserver.desktopManager.gnome.enable = true;
   #services.xserver.windowManager.xmonad = {
 #	enable = true;
@@ -74,28 +97,19 @@ in
   #programs.waybar.package = inputs.hyprland.packages.${system}.waybar-hyprland;
   programs.fish.enable = true;
 
-programs.neovim = {
-  enable = true;
-#  plugins = with pkgs.vimPlugins; [
-#  	nvim-treesitter
-#	];
-  configure = {
-    customRC = ''
-      set number
-      set cc=80 
-      set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
-      if &diff
-        colorscheme blue
-      endif
-    '';
-    packages.myVimPackage = with pkgs.vimPlugins; {
-      start = [ vim-nix nvim-treesitter.withAllGrammars gruvbox-material vimtex];
-    };
+  programs.thunar = {
+  	enable = true;
+	plugins = with pkgs.xfce; [
+		thunar-archive-plugin
+		thunar-volman
+		thunar-media-tags-plugin
+		];
   };
-};
+  services.tumbler.enable = true; # Thumbnail support for images
+
   system.autoUpgrade = {
     enable = true;
-    channel = "https://nixos.org/channels/nixos-23.05";
+    channel = "https://nixos.org/channels/nixos-unstable";
   };
 
   # Configure keymap in X11
@@ -178,15 +192,17 @@ programs.neovim = {
   };
 
 
-  
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  security.polkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.luca = {
     isNormalUser = true;
     description = "Luca";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
     shell = pkgs.fish;
     packages = with pkgs; [
     #  firefox
@@ -219,7 +235,7 @@ programs.neovim = {
 	gparted
 	hyprland
 	onlyoffice-bin
-	xfce.thunar
+	# xfce.thunar
         waybar
 #	eww-wayland
 	mako #notification deamon
@@ -228,7 +244,7 @@ programs.neovim = {
 	networkmanagerapplet
 	killall
 	xfce.mousepad #text edior
-        vscode-with-extensions
+        #vscode-with-extensions
 	flameshot
 	hyprpicker
 	unzip
@@ -238,12 +254,12 @@ programs.neovim = {
 	python3Full
 	gtk3
 	pywal
-	swww
-	#mathematica
+	hyprpaper
+        mathematica
 	wlogout
 	fish
 	starship
-	exa #ls replacement
+	eza #ls replacement
 	bat #cat replacement
 	neofetch
 	wlr-randr
@@ -261,13 +277,23 @@ programs.neovim = {
 	libreoffice-still
 	wireplumber
         vifm
-        libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
-        (texlive.combine { inherit (texlive) scheme-basic hyperref standalone varwidth scontents xcolor; })
+        #libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
+        (texlive.combine { inherit (texlive) scheme-basic mathtools hyperref standalone varwidth scontents xcolor latexmk koma-script csquotes graphics physics siunitx caption cleveref oberdiek txfonts pgf l3packages moreverb listings autobreak booktabs tcolorbox mhchem chemfig enumitem autonum appendix cancel doublestroke wasysym tensor carlisle environ tikzfill pdfcol listingsutf8 simplekv etextools textpos letltxmacro wasy helvetic times ; })
         xournalpp
         rclone
-    gnome.adwaita-icon-theme
+        gnome.adwaita-icon-theme
+	#papirus-icon-theme
         most #remove perhabs and use alias to map on other pager
         owncloud-client
+        libgnome-keyring
+        home-manager
+        evince
+        nomacs
+        gimp
+        #jdownloader
+        upower
+	libimobiledevice-glue
+	pdfarranger
 ];	
 
   nixpkgs.overlays = [
@@ -276,10 +302,17 @@ programs.neovim = {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       });
     })
+    (self: super: {
+      nextcloud-client = super.nextcloud-client.override {
+        withGnomeKeyring = true;
+        libgnome-keyring = self.gnome.libgnome-keyring;
+      };
+    } )
   ];
 
+
   fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
 	nerdfonts
 	font-awesome
 	google-fonts
@@ -324,13 +357,4 @@ programs.neovim = {
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-
-
-  #### HOME MANAGER ##############
- # home-manager.users.luca = { pkgs, ... }: {
- #   home.packages = with pkgs; [
- #       vlc
-#    ];
-#    home.stateVersion = "23.05";
-# };
 }

@@ -2,14 +2,15 @@
   description = "A very basic flake";
   
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz;
+      url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: 
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }: 
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -30,19 +31,9 @@
                 imports = [ ./home.nix ];
               };
             }
+            #hyprland.homeManagerModules.default
+            #{wayland.windowManager.hyprland.enable = true;}
           ];
-        };
-      };
-      hmConfig = {
-        luca = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "luca";
-          homeDirectory = "/home/luca";
-          configuration = {
-            imports = [
-              ./home.nix
-            ];
-          };
         };
       };
     };
