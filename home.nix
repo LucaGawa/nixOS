@@ -5,7 +5,8 @@
  home.homeDirectory = "/home/luca";
 
  home.packages = with pkgs; [
-  # htop
+  glib
+  gsettings-desktop-schemas
 ];
 
  home.sessionVariables = {
@@ -49,8 +50,9 @@ programs.vscode = {
   gtk = {
     enable = true;
     cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Classic";
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 24;
     };
     theme = {
       package = pkgs.adw-gtk3;
@@ -220,15 +222,15 @@ alias icat="kitty +kitten icat"
   xdg.configFile."hypr/hyprpaper.conf".source = ./modules/hypr/hyprpaper.conf;
  #Kitty
  xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
- xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
 
   wayland.windowManager.hyprland = {
   	enable = true;
 	xwayland.enable = true;
   	extraConfig = ''
-		monitor=eDP-1,preferred,auto,1
-		monitor=DP-3,preferred,auto,1 
-		monitor=HDMI-A-1,preferred,auto,1
+		monitor=DP-1,preferred,1241x2364,1.05
+		monitor=DP-2,preferred,3057x1080,0.88 
+		monitor=DP-3,preferred,0x1080,1.12
+		monitor=HDMI-A-3,preferred,1870x0,1
 		# Source a file (multi-file configs)center
 		# source = ~/.config/hypr/myColors.conf
 

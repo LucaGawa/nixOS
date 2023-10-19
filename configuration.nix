@@ -273,6 +273,7 @@ in
 	pdfarranger
 	zathura
 	xdotool #vimTex forword search dependency
+	way-displays
 ];	
 
   nixpkgs.overlays = [
