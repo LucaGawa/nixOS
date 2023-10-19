@@ -62,21 +62,6 @@ let
 in
 {
 
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-     # <home-manager/nixos>
-    ];
-
-  # Bootloader.
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = false;
-
-  networking.hostName = "nixos"; # Define your hostname.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -103,29 +88,12 @@ in
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   
-  # Battery Life Improvemtns
-  #Better scheduling for CPU cycles
-  #services.system76-scheduler.settings.cfsProfiles.enable = true;
- # services.tlp = {
-#	enable = true;
-#	settings = {
-#		CPU_BOOST_ON_AC = 1;
-#		CPU_BOOST_ON_BAT = 0;
-#		CPU_SCALING_GOVERNOR_ON_AC = "performance";
-#		CPU_SCALING_GOVERNOR_ON_BAT = "powersaver";
-#	};
-  #};
-  #services.power-profiles-daemon.enable = false;
-  #powerManagement.powertop.enable = true;
-  #services.thermald.enable = true;
-
-
+  
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -149,18 +117,13 @@ in
     enable = true;
     autoNumlock = true;
   };
-  #services.xserver.desktopManager.gnome.enable = true;
-  #services.xserver.windowManager.xmonad = {
-#	enable = true;
-#	enableContribAndExtras=true;
-#};
+
   services.xserver.displayManager.defaultSession = "hyprland";
   programs.hyprland = {
   	enable = true;
 	xwayland.enable = true;
-#	enableNvidiaPatches = false;
 	};
-  #programs.waybar.package = inputs.hyprland.packages.${system}.waybar-hyprland;
+
   programs.fish.enable = true;
 
   programs.thunar = {
@@ -173,10 +136,6 @@ in
   };
   services.tumbler.enable = true; # Thumbnail support for images
 
-  system.autoUpgrade = {
-    enable = true;
-    channel = "https://nixos.org/channels/nixos-unstable";
-  };
 
   # Configure keymap in X11
   services.xserver = {
