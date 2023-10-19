@@ -218,6 +218,9 @@ alias icat="kitty +kitten icat"
   xdg.configFile."waybar/scripts/reload.sh".source = ./modules/waybar/scripts/reload.sh;
 
   xdg.configFile."hypr/hyprpaper.conf".source = ./modules/hypr/hyprpaper.conf;
+ #Kitty
+ xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
+ xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
 
   wayland.windowManager.hyprland = {
   	enable = true;
