@@ -360,7 +360,8 @@ in
         upower
 	libimobiledevice-glue
 	pdfarranger
-	iwd
+	zathura
+	xdotool #vimTex forword search dependency
 ];	
 
   nixpkgs.overlays = [
