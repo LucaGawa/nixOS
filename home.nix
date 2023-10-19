@@ -81,10 +81,21 @@ programs.vscode = {
 
   programs.neovim = {
   enable = true;
-#  plugins = with pkgs.vimPlugins; [
-#  	nvim-treesitter
-#	];
+  plugins = with pkgs.vimPlugins; [
+  	nvim-treesitter.withAllGrammars
+	vim-commentary
+	nvim-tree-lua
+	coc-pyright
+	# vim-latex-live-preview
+	vimtex
+	luasnip
+  ];
    extraConfig = ''
+   	packadd! nvim-tree.lua
+   	packadd! luasnip.lua
+	lua require("nvim-tree").setup()
+	lua require("luasnip").setup()
+	autocmd FileType nix setlocal commentstring=#\ %s
       set number
       set cc=80 
       set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»

@@ -5,7 +5,60 @@
 { inputs, config, pkgs, ... }:
 
 let
-  #unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  my-python-packages = ps: with ps; [
+	pandas
+	numpy
+	sympy
+	dbus-python #needed for eduroam installer
+  ];
+  latex = (pkgs.texlive.combine { inherit (pkgs.texlive) 
+	  scheme-basic 
+	  mathtools 
+	  hyperref 
+	  standalone 
+	  varwidth 
+	  scontents 
+	  xcolor 
+	  latexmk 
+	  koma-script 
+	  csquotes 
+	  graphics 
+	  physics 
+	  siunitx 
+	  caption 
+	  cleveref 
+	  oberdiek 
+	  txfonts 
+	  pgf 
+	  l3packages 
+	  moreverb 
+	  listings 
+	  autobreak 
+	  booktabs 
+	  tcolorbox 
+	  mhchem 
+	  chemfig 
+	  enumitem 
+	  autonum 
+	  appendix 
+	  cancel 
+	  doublestroke 
+	  wasysym 
+	  tensor 
+	  carlisle 
+	  environ 
+	  tikzfill 
+	  pdfcol 
+	  listingsutf8 
+	  simplekv 
+	  etextools 
+	  textpos 
+	  letltxmacro 
+	  wasy 
+	  helvetic 
+	  times
+  ; });
+
 in
 {
 
@@ -16,7 +69,6 @@ in
     ];
 
   # Bootloader.
-#   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
@@ -24,7 +76,6 @@ in
   boot.loader.grub.efiSupport = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -38,21 +89,36 @@ in
   hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
   # Network scanning
   services.avahi = {
-      enable = true;
-      nssmdns = true;
-      publish = {
-        enable = true;
-        addresses = true;
-        userServices = true;
-      };
-    };
+  	enable = true;
+	nssmdns = true;
+	publish = {
+		enable = true;
+		addresses = true;
+		userServices = true;
+      	};
+  };
 
    
-  #warn-dirty = false;
-
   #Enable bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  
+  # Battery Life Improvemtns
+  #Better scheduling for CPU cycles
+  #services.system76-scheduler.settings.cfsProfiles.enable = true;
+ # services.tlp = {
+#	enable = true;
+#	settings = {
+#		CPU_BOOST_ON_AC = 1;
+#		CPU_BOOST_ON_BAT = 0;
+#		CPU_SCALING_GOVERNOR_ON_AC = "performance";
+#		CPU_SCALING_GOVERNOR_ON_BAT = "powersaver";
+#	};
+  #};
+  #services.power-profiles-daemon.enable = false;
+  #powerManagement.powertop.enable = true;
+  #services.thermald.enable = true;
+
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -114,10 +180,10 @@ in
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "altgr-intl";
-    xkbOptions = "nodeadkeys";
-  };
+  	layout = "us";
+	xkbVariant = "altgr-intl";
+	xkbOptions = "nodeadkeys";
+	};
 
   # Configure console keymap
   console.keyMap = "us-acentos";
@@ -251,7 +317,6 @@ in
 	pavucontrol
 	libgccjit # GNU Compiler Collection
         binutils
-	python3Full
 	gtk3
 	pywal
 	hyprpaper
@@ -278,7 +343,8 @@ in
 	wireplumber
         vifm
         #libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
-        (texlive.combine { inherit (texlive) scheme-basic mathtools hyperref standalone varwidth scontents xcolor latexmk koma-script csquotes graphics physics siunitx caption cleveref oberdiek txfonts pgf l3packages moreverb listings autobreak booktabs tcolorbox mhchem chemfig enumitem autonum appendix cancel doublestroke wasysym tensor carlisle environ tikzfill pdfcol listingsutf8 simplekv etextools textpos letltxmacro wasy helvetic times ; })
+        (python3.withPackages my-python-packages)
+	latex
         xournalpp
         rclone
         gnome.adwaita-icon-theme
@@ -294,6 +360,7 @@ in
         upower
 	libimobiledevice-glue
 	pdfarranger
+	iwd
 ];	
 
   nixpkgs.overlays = [
@@ -341,7 +408,7 @@ in
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  #networking.firewall.enable = false;
 
 
   # This value determines the NixOS release from which the default
