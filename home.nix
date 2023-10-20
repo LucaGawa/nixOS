@@ -118,6 +118,16 @@ programs.vscode = {
 
   programs.fish = {
 	enable = true;
+	shellAbbrs = {
+		wifi = "nmtui";		
+		latexmk = "latexmk -pdf";
+		reload = "sudo nixos-rebuild switch --flake";
+		vim = "nvim";
+		vi = "nvim";
+		ls = "exa --icons";
+		icat = "kitty +kitten icat";
+		cat = "bat";
+	};
 	interactiveShellInit = ''
 		if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -173,9 +183,6 @@ alias rotate-right="mogrify -rotate -90"
 
 alias rotate-left="mogrify -rotate 90"
 
-#clean up dependencies
-alias clean-dependencies="pacman -Qstq | sudo pacman -Rs -"
-
 #grub update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
@@ -185,28 +192,11 @@ alias update-fc='sudo fc-cache -fv'
 #check vulnerabilities microcode
 alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 
-#get fastest mirrors in your neighborhood
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-
-alias wifi='nmtui'
-alias latexmk='latexmk -pdf'
 
 #fixes
 alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
-alias fix-keys="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
-alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
-alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
 
-alias reload="sudo nixos-rebuild switch --flake ~/nixOS/#luca"
 
-alias vim="nvim"
-alias vi="nvim"
-alias cat="bat"
-alias update="paru"
-alias ls="exa --icons"
-alias icat="kitty +kitten icat"
-# alias cd="z"
-# zoxide init fish | source
 	'';
   };
 
