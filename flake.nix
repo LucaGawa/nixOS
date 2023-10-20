@@ -29,12 +29,12 @@
           inherit system;
           modules = [ 
             ./configuration.nix
-	    ./laptop.nix
+	    ./hosts/laptop/configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.luca = {
-                imports = [ ./home.nix ];
+                imports = [ ./home.nix ./hosts/laptop/home.nix ];
               };
             }
           ];
@@ -44,12 +44,12 @@
           inherit system;
           modules = [ 
             ./configuration.nix
-	    ./desktop.nix
+	    ./hosts/desktop/configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.luca = {
-                imports = [ ./home.nix ];
+                imports = [ ./home.nix ./hosts/desktop/home.nix];
               };
             }
           ];

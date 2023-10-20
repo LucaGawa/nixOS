@@ -218,19 +218,101 @@ alias icat="kitty +kitten icat"
   xdg.configFile."waybar/style.css".source = ./modules/waybar/style.css;
   xdg.configFile."waybar/scripts/cliphist.sh".source = ./modules/waybar/scripts/cliphist.sh;
   xdg.configFile."waybar/scripts/reload.sh".source = ./modules/waybar/scripts/reload.sh;
-
   xdg.configFile."hypr/hyprpaper.conf".source = ./modules/hypr/hyprpaper.conf;
- #Kitty
- xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
+  xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
 
   wayland.windowManager.hyprland = {
   	enable = true;
 	xwayland.enable = true;
+	settings = {
+		monitor = [
+			"DP-1,preferred,1241x2364,1.05"
+			"DP-2,preferred,3057x1080,0.88"
+			"DP-3,preferred,0x1080,1.12"
+			"HDMI-A-3,preferred,1870x0,1"
+		];
+		bindm = [
+			"$mainMod, mouse:272, movewindow"
+			"$mainMod, mouse:273, resizewindow"
+			];
+
+		"$mainMod" = "SUPER";
+
+		bind = [
+			"$mainMod, RETURN, exec, kitty"
+			"$mainMod, Q, killactive" 
+			"$mainMod, M, exit" 
+			"$mainMod, E, exec, thunar"
+			"$mainMod, W, exec, brave"
+			"$mainMod, S, exec, spotify"
+			"$mainMod, V, togglefloating" 
+			"$mainMod, R, exec, wofi --show drun"
+			"$mainMod, P, pseudo" # dwindle
+			"$mainMod, SPACE, togglesplit" # dwindle
+			"$mainMod, F, fullscreen"
+			"$mainMod, X, exec, wlogout"
+			"$mainMod SHIFT, RETURN, exec, rofi -modi run -show drun"
+			"$mainMod SHIFT, R, exec, bash ~/.config/waybar/scripts/reload.sh"
+
+			# Move focus 
+			"$mainMod, H, movefocus, l"
+			"$mainMod, L, movefocus, r"
+			"$mainMod, K , movefocus, u"
+			"$mainMod, J, movefocus, d"
+
+			# Resize active Window
+			"$mainMod CONTROL, l, resizeactive, 10 0"
+			"$mainMod CONTROL, h, resizeactive, -10 0"
+			"$mainMod CONTROL, k, resizeactive, 0 -10"
+			"$mainMod CONTROL, j, resizeactive, 0 10"
+
+			# move active window
+			"$mainMod SHIFT, l, movewindow, r"
+			"$mainMod SHIFT, h, movewindow, l"
+			"$mainMod SHIFT, k, movewindow, u"
+			"$mainMod SHIFT, j, movewindow, d"
+
+			# Switch workspaces with mainMod + [0-9]
+			"$mainMod, 1, workspace, 1"
+			"$mainMod, 2, workspace, 2"
+			"$mainMod, 3, workspace, 3"
+			"$mainMod, 4, workspace, 4"
+			"$mainMod, 5, workspace, 5"
+			"$mainMod, 6, workspace, 6"
+			"$mainMod, 7, workspace, 7"
+			"$mainMod, 8, workspace, 8"
+			"$mainMod, 9, workspace, 9"
+			"$mainMod, 0, workspace, 10"
+
+			# Move active window to a workspace with mainMod + SHIFT + [0-9]
+			"$mainMod SHIFT, 1, movetoworkspace, 1"
+			"$mainMod SHIFT, 2, movetoworkspace, 2"
+			"$mainMod SHIFT, 3, movetoworkspace, 3"
+			"$mainMod SHIFT, 4, movetoworkspace, 4"
+			"$mainMod SHIFT, 5, movetoworkspace, 5"
+			"$mainMod SHIFT, 6, movetoworkspace, 6"
+			"$mainMod SHIFT, 7, movetoworkspace, 7"
+			"$mainMod SHIFT, 8, movetoworkspace, 8"
+			"$mainMod SHIFT, 9, movetoworkspace, 9"
+			"$mainMod SHIFT, 0, movetoworkspace, 10"
+
+			# Scroll through existing workspaces with mainMod + scroll
+			"$mainMod, mouse_down, workspace, e+1"
+			"$mainMod, mouse_up, workspace, e-1"
+
+			# Multimedia Keys
+			",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+			",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+			",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+			", XF86AudioPlay, exec, playerctl play-pause"
+			", XF86AudioPrev, exec, playerctl previous"
+			", XF86AudioNext, exec, playerctl next"
+			", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+			", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+		];
+	};
   	extraConfig = ''
-		monitor=DP-1,preferred,1241x2364,1.05
-		monitor=DP-2,preferred,3057x1080,0.88 
-		monitor=DP-3,preferred,0x1080,1.12
-		monitor=HDMI-A-3,preferred,1870x0,1
+
 		# Source a file (multi-file configs)center
 		# source = ~/.config/hypr/myColors.conf
 
@@ -338,86 +420,7 @@ alias icat="kitty +kitten icat"
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-		$mainMod = SUPER
-
-		# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-		bind = $mainMod, RETURN, exec, kitty
-		bind = $mainMod, Q, killactive, 
-		bind = $mainMod, M, exit, 
-		bind = $mainMod, E, exec, thunar
-		bind = $mainMod, W, exec, brave
-		bind = $mainMod, S, exec, spotify
-		bind = $mainMod, V, togglefloating, 
-		bind = $mainMod, R, exec, wofi --show drun
-		bind = $mainMod, P, pseudo, # dwindle
-		bind = $mainMod, SPACE, togglesplit, # dwindle
-		bind = $mainMod, F, fullscreen
-		bind = $mainMod, X, exec, wlogout
-		bind = $mainMod SHIFT, RETURN, exec, rofi -modi run -show drun
-		bind = $mainMod SHIFT, R, exec, bash ~/.config/waybar/scripts/reload.sh
-
-		# Move focus 
-		bind = $mainMod, H, movefocus, l
-		bind = $mainMod, L, movefocus, r
-		bind = $mainMod, K , movefocus, u
-		bind = $mainMod, J, movefocus, d
-
-		# Resize active Window
-		bind = $mainMod CONTROL, l, resizeactive, 10 0
-		bind = $mainMod CONTROL, h, resizeactive, -10 0
-		bind = $mainMod CONTROL, k, resizeactive, 0 -10
-		bind = $mainMod CONTROL, j, resizeactive, 0 10
-
-		# move active window
-		bind = $mainMod SHIFT, l, movewindow, r
-		bind = $mainMod SHIFT, h, movewindow, l
-		bind = $mainMod SHIFT, k, movewindow, u
-		bind = $mainMod SHIFT, j, movewindow, d
-
-		# Switch workspaces with mainMod + [0-9]
-		bind = $mainMod, 1, workspace, 1
-		bind = $mainMod, 2, workspace, 2
-		bind = $mainMod, 3, workspace, 3
-		bind = $mainMod, 4, workspace, 4
-		bind = $mainMod, 5, workspace, 5
-		bind = $mainMod, 6, workspace, 6
-		bind = $mainMod, 7, workspace, 7
-		bind = $mainMod, 8, workspace, 8
-		bind = $mainMod, 9, workspace, 9
-		bind = $mainMod, 0, workspace, 10
-
-		# Move active window to a workspace with mainMod + SHIFT + [0-9]
-		bind = $mainMod SHIFT, 1, movetoworkspace, 1
-		bind = $mainMod SHIFT, 2, movetoworkspace, 2
-		bind = $mainMod SHIFT, 3, movetoworkspace, 3
-		bind = $mainMod SHIFT, 4, movetoworkspace, 4
-		bind = $mainMod SHIFT, 5, movetoworkspace, 5
-		bind = $mainMod SHIFT, 6, movetoworkspace, 6
-		bind = $mainMod SHIFT, 7, movetoworkspace, 7
-		bind = $mainMod SHIFT, 8, movetoworkspace, 8
-		bind = $mainMod SHIFT, 9, movetoworkspace, 9
-		bind = $mainMod SHIFT, 0, movetoworkspace, 10
-
-		# Scroll through existing workspaces with mainMod + scroll
-		bind = $mainMod, mouse_down, workspace, e+1
-		bind = $mainMod, mouse_up, workspace, e-1
-
-		# Move/resize windows with mainMod + LMB/RMB and dragging
-		bindm = $mainMod, mouse:272, movewindow
-		bindm = $mainMod, mouse:273, resizewindow
-
-		# Multimedia Keys
-		bind =, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-		bind =, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-		bind =, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-		bind =, XF86AudioPlay, exec, playerctl play-pause
-		bind =, XF86AudioPrev, exec, playerctl previous
-		bind =, XF86AudioNext, exec, playerctl next
-		bind =, XF86MonBrightnessUp, exec, brightnessctl set +5%
-		bind =, XF86MonBrightnessDown, exec, brightnessctl set 5%-
-
-
-
+	
 		exec-once=waybar
 		exec-once=wal -R
 		exec-once=hyprpaper
