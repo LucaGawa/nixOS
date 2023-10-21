@@ -203,13 +203,12 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 
-  xdg.configFile."waybar/config".source = ./modules/waybar/config;
-  xdg.configFile."waybar/modules.json".source = ./modules/waybar/modules.json;
-  xdg.configFile."waybar/style.css".source = ./modules/waybar/style.css;
-  xdg.configFile."waybar/scripts/cliphist.sh".source = ./modules/waybar/scripts/cliphist.sh;
-  xdg.configFile."waybar/scripts/reload.sh".source = ./modules/waybar/scripts/reload.sh;
+  xdg.configFile."waybar".source = ./modules/waybar;
   xdg.configFile."hypr/hyprpaper.conf".source = ./modules/hypr/hyprpaper.conf;
   xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
+  xdg.configFile."mako/config".source = ./modules/mako/config;
+  xdg.configFile."wlogout".source = ./modules/wlogout;
+  
 
   wayland.windowManager.hyprland = {
   	enable = true;
@@ -318,6 +317,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 		misc {
 			 disable_hyprland_logo = true
 			 disable_splash_rendering = true
+
 		}
 
 		# For all categories, see https://wiki.hyprland.org/Configuring/Variables/
@@ -348,6 +348,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			    col.inactive_border = rgba(595959aa)
 
 			    layout = dwindle
+		    resize_on_border = true
 			}
 
 			decoration {
