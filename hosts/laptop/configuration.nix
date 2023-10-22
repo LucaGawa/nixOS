@@ -10,12 +10,22 @@
       ./hardware-configuration.nix 
     ];
 
+  boot.loader = {
+	efi = {
+		canTouchEfiVariables = true;
+		efiSysMountPoint = "/boot/efi";
+		};
+	grub = {
+		efiSupport = true;
+		device = "nodev";
+		};
+  };
   # Bootloader.
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = true;
+ # boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.grub.enable = true;
+  #boot.loader.grub.device = "nodev";
+  #boot.loader.grub.useOSProber = true;
+  #boot.loader.grub.efiSupport = false;
 
   networking.hostName = "laptop"; # Define your hostname.
 
@@ -35,9 +45,12 @@
   #powerManagement.powertop.enable = true;
   #services.thermald.enable = true;
 
+ environment.systemPackages = with pkgs; [
+	displaylink
+ ];
 
 #wayland.windowManager.hyprland.enableNvidiaPatches = true;
-# Enable OpenGL
+ # Enable OpenGL
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -48,12 +61,12 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia" "intel"];
+  services.xserver.videoDrivers = ["nvidia" "intel" "displaylink" ];
 
   hardware.nvidia = {
 
     # Modesetting is required.
-    modesetting.enable = true;
+   modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     powerManagement.enable = true;
@@ -72,20 +85,21 @@
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+    #nvidiaSettings = true;
     # perhabs solve tearing issue
     #forceFullCompositionPipeline = true;
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     prime = {
-    	#sync.enable = true;
+    	sync.enable = true;
 	intelBusId = "PCI:0:2:0";
 	nvidiaBusId = "PCI:1:0:0";
-    };
-  };
+   };
+ };
 
 
+   services.hardware.bolt.enable = true;
 
 
 }
