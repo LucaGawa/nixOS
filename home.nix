@@ -11,7 +11,7 @@
 
  home.sessionVariables = {
     EDITOR = "nvim";
-    BROWSER = "brave";
+    BROWSER = "firefox";
   };
 
  
@@ -232,7 +232,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			"$mainMod, Q, killactive" 
 			"$mainMod, M, exit" 
 			"$mainMod, E, exec, thunar"
-			"$mainMod, W, exec, brave"
+			"$mainMod, W, exec, firefox"
 			"$mainMod, S, exec, spotify"
 			"$mainMod, V, togglefloating" 
 			"$mainMod, R, exec, wofi --show drun"

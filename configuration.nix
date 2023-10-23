@@ -113,9 +113,9 @@ in
   services.upower.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm = {
+  services.xserver.displayManager.sddm = {
     enable = true;
-    #autoNumlock = true;
+    autoNumlock = true;
     #autoLogin.enable = true;
     #autoLogin.user = luca;
   };
@@ -276,6 +276,7 @@ in
 	zathura
 	xdotool #vimTex forword search dependency
 	way-displays
+	qutebrowser
 ];	
 
   nixpkgs.overlays = [
