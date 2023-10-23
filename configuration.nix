@@ -83,6 +83,13 @@ in
       	};
   };
 
+  #support for wacom tablet
+  hardware.opentabletdriver = {
+  	enable = true;
+	daemon.enable = true;
+	};
+
+
    
   #Enable bluetooth
   hardware.bluetooth.enable = true;
@@ -277,7 +284,8 @@ in
 	xdotool #vimTex forword search dependency
 	way-displays
 	qutebrowser
-];	
+	rambox
+];
 
   nixpkgs.overlays = [
     (self: super: {

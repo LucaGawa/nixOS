@@ -7,8 +7,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration-desktop.nix 
+      ./hardware-configuration.nix 
+      ./vm.nix
     ];
+  
+  environment.systemPackages = with pkgs; [ 
+	piper # config mouse
+  ];
+  
+  services.ratbagd.enable = true; # nessesary for piper
 
   # Bootloader.
   boot.loader.efi.canTouchEfiVariables = true;
