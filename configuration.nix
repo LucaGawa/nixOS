@@ -113,9 +113,11 @@ in
   services.upower.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.sddm = {
+  services.xserver.displayManager.gdm = {
     enable = true;
-    autoNumlock = true;
+    #autoNumlock = true;
+    #autoLogin.enable = true;
+    #autoLogin.user = luca;
   };
 
   services.xserver.displayManager.defaultSession = "hyprland";
