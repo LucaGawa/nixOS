@@ -287,6 +287,15 @@ in
 	rambox
 ];
 
+
+boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+boot.kernelModules = [
+  "v4l2loopback"
+];
+boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+
   nixpkgs.overlays = [
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
@@ -299,6 +308,18 @@ in
         libgnome-keyring = self.gnome.libgnome-keyring;
       };
     } )
+    (self: super:
+{
+zoomUsFixed = pkgs.zoom-us.overrideAttrs (old: {
+  postFixup = old.postFixup + ''
+    wrapProgram $out/bin/zoom-us --unset XDG_SESSION_TYPE
+  '';});
+zoom = pkgs.zoom-us.overrideAttrs (old: {
+  postFixup = old.postFixup + ''
+    wrapProgram $out/bin/zoom --unset XDG_SESSION_TYPE
+  '';});
+  }
+  )
   ];
 
 
@@ -317,6 +338,7 @@ in
   # communication between Apps (screen sharing, opening links,...)
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
