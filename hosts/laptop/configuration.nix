@@ -31,7 +31,7 @@
 
  # Battery Life Improvemtns
   #Better scheduling for CPU cycles
-  services.system76-scheduler.settings.cfsProfiles.enable = true;
+  #services.system76-scheduler.settings.cfsProfiles.enable = true;
   # services.tlp = {
 	# enable = true;
 	# settings = {
@@ -42,8 +42,8 @@
 	# };
 # };
   # services.power-profiles-daemon.enable = false;
-  powerManagement.powertop.enable = true;
-  services.thermald.enable = true;
+  #powerManagement.powertop.enable = true;
+  #services.thermald.enable = true;
 
  environment.systemPackages = with pkgs; [
 	displaylink
