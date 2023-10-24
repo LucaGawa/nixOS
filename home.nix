@@ -223,24 +223,17 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   	enable = true;
 	xwayland.enable = true;
 	settings = {
-		monitor = [
-			"DP-1,preferred,1241x2364,1.05"
-			"DP-2,preferred,3057x1080,0.88"
-			"DP-3,preferred,0x1080,1.12"
-			"HDMI-A-3,preferred,1870x0,1"
-		];
+		
 		bindm = [
 			"$mainMod, mouse:272, movewindow"
 			"$mainMod, mouse:273, resizewindow"
 			];
-
 		"$mainMod" = "SUPER";
 
 		bind = [
 			"$mainMod, RETURN, exec, kitty"
 			"$mainMod, Q, killactive" 
 			"$mainMod, M, exec, mathematica"
-			"$mainMod, z, exec, xournalpp"
 			"$mainMod, E, exec, thunar"
 			"$mainMod, W, exec, firefox"
 			"$mainMod, S, exec, spotify"
