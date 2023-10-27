@@ -83,12 +83,12 @@ programs.vscode = {
     # };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "text/plain" = ["mousepad.desktop"];
-    "text/tex" = ["mousepad.desktop"];
-    "application/pdf" = ["evince.desktop"];
-    "image/*" = ["nomacs.desktop"];
-  };
+  # xdg.mimeApps.defaultApplications = {
+  #   "text/plain" = ["mousepad.desktop"];
+  #   "text/tex" = ["mousepad.desktop"];
+  #   "application/pdf" = ["evince.desktop"];
+  #   "image/*" = ["nomacs.desktop"];
+  # };
 
   programs.neovim = {
   enable = true;
@@ -217,6 +217,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
   xdg.configFile."mako/config".source = ./modules/mako/config;
   xdg.configFile."wlogout".source = ./modules/wlogout;
+  xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/pakete.sty".source = ./modules/tex/pakete.sty;
   
 
   wayland.windowManager.hyprland = {
@@ -241,7 +242,8 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			"$mainMod, R, exec, wofi --show drun"
 			"$mainMod, P, pseudo" # dwindle
 			"$mainMod, SPACE, togglesplit" # dwindle
-			"$mainMod, F, fullscreen"
+			"$mainMod, F, fullscreen, 1" #maximize
+			"$mainMod SHIFT, F, fullscreen" #fullscreen
 			"$mainMod, X, exec, wlogout"
 			"$mainMod SHIFT, RETURN, exec, rofi -modi run -show drun"
 			"$mainMod SHIFT, R, exec, bash ~/.config/waybar/scripts/reload.sh"
@@ -301,6 +303,16 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			", XF86AudioNext, exec, playerctl next"
 			", XF86MonBrightnessUp, exec, brightnessctl set +5%"
 			", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+			              # ## Screenshot
+               ", Print, exec, grimshot --notify save active" # All visible outputs
+               "SHIFT, Print, exec, grimshot --notify save area" # All visible outputs
+              # "SHIFT Print, exec, grimshot --notify save area $(~/Pictures/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')" # Manually select a region
+              # "Alt+Print exec ${grimshot} --notify save active $(${xdg-user-dir} PICTURES)/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"; # Currently active window
+              # "Shift+Alt+Print" = "exec ${grimshot} --notify save window $(${xdg-user-dir} PICTURES)/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')"; # Manually select a window
+              # "Ctrl+Print" = "exec ${grimshot} --notify copy screen";
+              # "Ctrl+Shift+Print" = "exec ${grimshot} --notify copy area";
+              # "Ctrl+Alt+Print" = "exec ${grimshot} --notify copy active";
+              # "Ctrl+Shift+Alt+Print" = "exec ${grimshot} --notify copy window";
 		];
 	};
   	extraConfig = ''

@@ -32,18 +32,19 @@
  # Battery Life Improvemtns
   #Better scheduling for CPU cycles
   #services.system76-scheduler.settings.cfsProfiles.enable = true;
-  # services.tlp = {
-	# enable = true;
-	# settings = {
+  services.tlp = {
+	enable = true;
+	settings = {
 		# CPU_BOOST_ON_AC = 1;
 		# CPU_BOOST_ON_BAT = 0;
 		# CPU_SCALING_GOVERNOR_ON_AC = "performance";
 		# CPU_SCALING_GOVERNOR_ON_BAT = "powersaver";
-	# };
-# };
+	};
+  };
+  powerManagement.enable = true;
   # services.power-profiles-daemon.enable = false;
-  #powerManagement.powertop.enable = true;
-  #services.thermald.enable = true;
+  powerManagement.powertop.enable = true;
+  services.thermald.enable = true;
 
  environment.systemPackages = with pkgs; [
 	displaylink
@@ -72,7 +73,7 @@
     # powerManagement.enable = true;
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+    #powerManagement.finegrained = false;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).

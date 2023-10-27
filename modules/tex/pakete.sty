@@ -1,0 +1,218 @@
+\ProvidesPackage{pakete}
+% Einige KOMA-Script-Optionen
+\KOMAoptions{fontsize=12pt, paper=a4}     % Schriftgröße und Papierformat setzen
+\KOMAoptions{DIV=11}                      % Parameter mit dem man den Seitenrand ändern kann
+\KOMAoptions{listof=totoc}				  % Inhaltsverzeichnis mit Abbildungs- und Literaturverzeichnis
+
+% Hier werden einige Pakete eingebunden
+\RequirePackage[utf8]{inputenc}               % Direkte Eingabe von ä usw.
+\RequirePackage[T1]{fontenc}                  % Font Kodierung für die Ausgabe
+\RequirePackage{babel}                        % Verschiedenste sprach-spezifische Extras
+\RequirePackage[autostyle=true]{csquotes}     % Intelligente Anführungszeichen
+\RequirePackage{graphicx}					  % Dient zur Einbindung von Grafiken
+
+% \RequirePackage[backend=biber, style=numeric, noerroretextools=true]{biblatex} %Literaturverweise
+% \RequirePackage{physics}				      % Physikalische Symbole u. Einheiten		
+\RequirePackage{physics}	 
+% \RequirePackage[version=4]{mhchem}     %chemische Symbole
+\RequirePackage{amsmath}					  % Erweiterer Mathemodus
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+
+\usepackage{lscape} % Querformat
+
+% \usepackage{pgfplots}
+
+\RequirePackage{xfrac}                        % Erweiterete Brüche
+\RequirePackage{siunitx}   % Intelligentes Setzen von Zahlen und Einheiten
+%\sisetup{locale = DE}  % Deutsch als locale für die Zahlen und Einheiten
+%\addto\extrasngerman{\sisetup{locale = DE}} % Deutsch als locale, wenn die Sprache Deutsch (ngerman) ist
+% \sisetup{separate-uncertainty=true}
+% \sisetup{zero-decimal-to-integer}
+%\sisetup{math-micro=\text{µ},text-micro=µ}
+\RequirePackage{enumitem}					  % mehr Optionen in der enumerate-Umgebung
+% \RequirePackage{enumerate}
+\RequirePackage{subcaption}
+% \RequirePackage{hyperref}					  % Anklickbare Hyperlinks
+\usepackage[
+urlcolor=blue
+]{hyperref}
+\RequirePackage{cleveref}
+\RequirePackage[all]{hypcap}				  % Besseres setzen von Abblidungsverweisen
+\RequirePackage[varg]{txfonts}                % Schönere Schriftart
+\RequirePackage{tikz} 				%zeichnen
+\RequirePackage{xspace}						  % Intelligente Leerzeichen nach Befehlen
+% \RequirePackage[section]{placeins}			  % Floatobjekte bleiben im aktuellen Abschnitt
+\RequirePackage{moreverb}                     % Verbatim zentrieren
+\RequirePackage{listings}					  % Code-Blöcke setzen
+\RequirePackage{xcolor}						  % Für Syntax-Highlighting
+\RequirePackage{autobreak}					% autobreak innerhalb von align
+% \usepackage[section]{placeins}    %floatbarriere
+\usepackage{booktabs}		 %irgnedwas mit Tabellen
+\RequirePackage[most]{tcolorbox}
+\usepackage[version=4]{mhchem} % so chemie quatsch
+\usepackage{chemfig}
+\usepackage{enumitem}
+
+% \let\etoolboxforlistloop\forlistloop % save the good meaning of \forlistloop
+%\usepackage{autonum} %nur verlinkte formeln nummerieren
+% \let\forlistloop\etoolboxforlistloop % restore the good meaning of \forlistloop
+
+\usepackage{appendix}
+\usepackage{cancel} % Ausdrücke durchstreichen
+\usepackage{xparse} 
+\usepackage{dsfont} % Identitäts 1 und so 
+\usepackage{wasysym}
+\RequirePackage{tensor} % Indizes richtig setzen bei Tensoren
+\RequirePackage{slashed}
+
+% \usepackage{mwe}
+\definecolor{ultralightgray}{RGB}{222,222,222}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+% Die folgenden listings-Einstellungen sind nötig, um
+% deutsche Umlaute und die Tilde (~) in listings-Umgebungen
+% verwenden zu können.
+\lstset{
+	basicstyle=\ttfamily,    
+	literate={~} {$\sim$}{1} % set tilde as a literal
+	{ö}{{\"o}}1
+	{ä}{{\"a}}1
+	{ü}{{\"u}}1
+	{ß}{{\ss}}1
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+}
+% Farben für Code-Syntaxhighlighting und Weiteres festlegen:
+\lstset{
+	% Keine besondere Markierung für Leerzeichen in Codes
+	showspaces=false,               
+	showstringspaces=false,         
+	% Farebn für Code-Kommentare und Schlüsselworte:
+	backgroundcolor=\color{ultralightgray}, %background color
+	commentstyle=\color{red},       % comment style
+	keywordstyle=\color{blue},      % keyword style
+	breaklines=true,				% automatic linebreak
+	numbers=left,					% numbering the lines
+	frame=l,                        % frame on the left side
+	captionpos=b,					% captions on the bottom
+}
+
+% \mathtoolsset{showonlyrefs=true} % Nur Referenzen wenn Label
+
+\numberwithin{equation}{section}
+
+\newcommand{\latex}{\LaTeX\xspace}
+% \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+% \newcommand{\e}{\mathrm{e}}
+
+\newcommand\circlearound[1]{%
+  \tikz[baseline]\node[draw,shape=circle,anchor=base] {#1} ;}
+
+% tclolorboxes
+\newenvironment{bsp}[1]{
+	\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=blue!5!white,colframe=blue!75!black,title=Example: #1]
+}
+{
+	  \end{tcolorbox}
+}
+
+\newenvironment{defin}[1]{
+	\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=blue!5!white,colframe=red!75!black,title=Def: #1]
+}
+{
+	  \end{tcolorbox}
+}
+
+\newenvironment{bem}[1]{
+	\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=blue!5!white,colframe=green!75!black,title=Bem: #1]
+}
+{
+	  \end{tcolorbox}
+}
+
+\newenvironment{sonst}[1]{
+	\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=blue!5!white,colframe=orange!75!black,title=sonstiges: #1]
+}
+{
+	  \end{tcolorbox}
+}
+\newenvironment{satz}[1]{
+	\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=blue!5!white,colframe=orange!75!black,title=Satz: #1]
+}
+{
+	  \end{tcolorbox}
+}
+\newenvironment{bew}[1]{
+	\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=blue!5!white,colframe=orange!75!black,title=Beweis: #1]
+}
+{
+	  \end{tcolorbox}
+}
+% \newenvironment{note}[1]{
+% 	\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+% 		colback=blue!5!white,colframe=red!75!black,title=Note: #1]
+% }
+% {
+% 	  \end{tcolorbox}
+% }
+
+% Zeug aus Vorlesungen
+\newcommand{\field}[1][]{ \left(\vb*{x_{#1}},t\right)}
+\newcommand{\EM}{electromagnetism}
+\newcommand{\QM}{quantum mechanics}
+\newcommand{\QFT}{quantum field theory}
+\newcommand{\p}{^\prime}
+\newcommand{\vh}[1]{\hat{\vb*{#1}}}
+\newcommand{\e}[1]{\mathrm{e}^{#1}}
+\newcommand{\kb}{k_B}
+\newcommand{\HH}{\hat{H}}
+\newcommand{\fpe}{4\pi\varepsilon_0}
+\newcommand{\rabs}{\abs{\vb*{r}-\vb*{r}'}}
+\newcommand{\Y}{Y_{lm}(\vartheta, \varphi)}
+\newcommand{\vabs}[1]{\abs{\vb*{#1}}}
+
+\newcommand{\fig}[2]{
+        \begin{figure}[htbp]
+                \begin{center}
+                        \includegraphics[width=0.5\textwidth]{#1}
+                        \caption{#2}
+                        \label{fig:#1}
+                \end{center}
+        \end{figure} 
+}
+
+\newcommand{\sfig}[1]{
+        \begin{center}
+                \includegraphics[width=0.5\textwidth]{#1}
+        \end{center}
+}
+ 
+\newenvironment{interbox}{\ulcorner\quad\color{gray}}{\color{black}\quad\lrcorner}
+
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\meq}{\overset{!}{=}}
+\newcommand{\res}[1]{\underline{\underline{#1}}}
+\newcommand{\const}{\text{const.}}
+\newcommand{\maxwell}[3]{\qty(\pdv{#1}{#2})_{#3}}
+\newcommand{\arsinh}[1]{\mathrm{arsinh}\qty(#1)}
+\newcommand{\sgn}[1]{\mathrm{sgn}\qty(#1)}
+\newcommand{\lagrangian}{\mathcal{L}}
+
+
+% nur Theo II
+\newcommand{\bild}{bild fehlt\\} 
+\newcommand{\ee}[1][]{\mathrm{e}^{#1}}
+\newcommand{\sdd}{\,\dd}
+\newcommand{\freeline}{\\ \\}
+
+
+
+

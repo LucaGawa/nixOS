@@ -201,14 +201,15 @@ in
      allowUnfree = true;
   };
 
-  #environment.sessionVariables = {
+  environment.sessionVariables = {
   #Hint electron apps to use wayland
   #NIXOS_OZONE_WL = "1";
-  #};
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
  	#neovim 
+	sway-contrib.grimshot
   	wget
 	brave
 	firefox-wayland
