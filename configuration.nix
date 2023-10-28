@@ -242,6 +242,7 @@ in
 	pywal
 	hyprpaper
         mathematica
+	octaveFull
 	wlogout
 	fish
 	starship

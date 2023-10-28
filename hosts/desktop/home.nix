@@ -6,7 +6,8 @@
 
   	"exec-once" = [
 			"[workspace 10 silent;fullscreen] spotify"
-			"[workspace 9 silent] thunderbird"
+			"[workspace 9 silent] thunderbird rambox"
+			# "[workspace 9 silent] rambox"
 		];
 
 		monitor = [
