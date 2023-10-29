@@ -8,3 +8,4 @@ sleep 0.5
 
 # Start Waybar
 waybar
+waybar -c ~/.config/waybar/config_bottom

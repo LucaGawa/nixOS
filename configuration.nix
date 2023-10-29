@@ -88,7 +88,7 @@ in
   	enable = true;
 	daemon.enable = true;
 	};
-
+ 
 
    
   #Enable bluetooth
@@ -188,7 +188,7 @@ in
   users.users.luca = {
     isNormalUser = true;
     description = "Luca";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "input" ];
     shell = pkgs.fish;
     packages = with pkgs; [
     #  firefox
@@ -287,8 +287,12 @@ in
 	way-displays
 	qutebrowser
 	rambox
+	#nvd #shows nixos diff packages
 ];
-
+  security.sudo.configFile = ''
+	luca ALL = (ALL) ALL
+        luca ALL = (root) NOPASSWD: /run/current-system/sw/bin/nixos-rebuild
+  '';
 
 boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 boot.kernelModules = [

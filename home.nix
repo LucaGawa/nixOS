@@ -23,6 +23,7 @@
     ];
   };
 
+
  
   #xsession.numlock.enable = true;
 
@@ -130,12 +131,12 @@ programs.vscode = {
 	shellAbbrs = {
 		wifi = "nmtui";		
 		latexmk = "latexmk -pdf";
-		reload = "sudo nixos-rebuild switch --flake";
 		vim = "nvim";
 		vi = "nvim";
 		ls = "exa --icons";
 		icat = "kitty +kitten icat";
 		cat = "bat";
+		update = "nix flake update";
 	};
 	interactiveShellInit = ''
 		if status is-interactive
@@ -220,6 +221,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/pakete.sty".source = ./modules/tex/pakete.sty;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/template_xournalpp.tex".source = ./modules/tex/template_xournalpp.tex;
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
+  xdg.configFile."rofi".source = ./modules/rofi;
   
 
   wayland.windowManager.hyprland = {
@@ -247,8 +249,9 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			"$mainMod, F, fullscreen, 1" #maximize
 			"$mainMod SHIFT, F, fullscreen" #fullscreen
 			"$mainMod, X, exec, wlogout"
-			"$mainMod SHIFT, RETURN, exec, rofi -modi run -show drun"
-			"$mainMod SHIFT, R, exec, bash ~/.config/waybar/scripts/reload.sh"
+			"$mainMod SHIFT, RETURN, exec, bash ~/nixOS/scripts/rofi_drun.sh"
+			"$mainMod SHIFT, R, exec, bash ~/nixOS/scripts/reload.sh"
+			"$mainMod, B, exec, pkill waybar || waybar"
 
 			# Move focus 
 			"$mainMod, H, movefocus, l"
@@ -430,6 +433,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
 	
 		exec-once=waybar
+		exec-once=waybar -c ~/.config/waybar/config_bottom
 		exec-once=wal -R
 		exec-once=hyprpaper
 		exec-once=nm-applet --indicator &

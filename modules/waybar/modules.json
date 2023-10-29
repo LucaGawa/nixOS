@@ -59,9 +59,9 @@
     // Cliphist
     "custom/cliphist": {
         "format": "",
-        "on-click": "sleep 0.1 && bash ~/.config/waybar/scripts/cliphist.sh",
-        "on-click-right": "sleep 0.1 && bash ~/.config/waybar/scripts/cliphist.sh d",
-        "on-click-middle": "sleep 0.1 && bash ~/.config/waybar/scripts/cliphist.sh w",
+        "on-click": "sleep 0.1 && bash ~/nixOS/scripts/cliphist.sh",
+        "on-click-right": "sleep 0.1 && bash ~/nixOS/scripts/cliphist.sh d",
+        "on-click-middle": "sleep 0.1 && bash ~/nixOS/scripts/cliphist.sh w",
         "tooltip": false
     },
 
@@ -136,7 +136,7 @@
 
     // Rofi Application Launcher
     "custom/appmenu": {
-        "format": "Apps",
+        "format": " ",
         "on-click": "rofi -modi run -show drun",
         //"on-click": "~/dotfiles/scripts/applauncher.sh",
         "tooltip": false
@@ -152,13 +152,23 @@
     // Keyboard State
     "keyboard-state": {
         "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
+        "capslock": false ,
+        // "format": "{name} {icon}",
+	"format": "{icon}",
         "format-icons": {
             "locked": "",
             "unlocked": ""
         }
     },
+
+ "temperature": {
+	// "thermal-zone": 2,
+	 "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+	// "critical-threshold": 80,
+	// "format-critical": "{temperatureC}°C ",
+	//"format": "{temperatureC}°C "
+	"format": " Temp "
+},
 
     // System tray
     "tray": {
@@ -175,20 +185,20 @@
 
     // CPU
     "cpu": {
-        "format": "/ C {usage}% ",
+        "format": "/   {usage}% ",
         "on-click": "alacritty -e htop"
     },
 
     // Memory
     "memory": {
-        "format": "/ M {}% ",
+        "format": "/ 󰍛 {}% ",
         "on-click": "alacritty -e htop"
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
-        "format": "   {percentage_used}% ",
+        "format": "   {percentage_used}% ",
         "path": "/",
         "on-click": "alacritty -e htop"
     }, 
@@ -238,7 +248,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", " ", " "]
+            "default": ["", "", " "]
         },
         "on-click": "pavucontrol"
     },

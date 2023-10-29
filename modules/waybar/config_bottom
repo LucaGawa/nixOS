@@ -11,18 +11,14 @@
 {
     // General Settings
 
-    // Position TOP
-    "layer": "top",
-    "margin-top": 14,
-    "margin-bottom": 0,
-
+    
     // Position BOTTOM
-    // "position": "bottom",
-    // "margin-top": 0,
-    // "margin-bottom": 14,
+     "position": "bottom",
+     "margin-top": 0,
+     "margin-bottom": 14,
     
     "layer": "top",
-    "height": 16,
+    "height": 8,
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
@@ -30,33 +26,11 @@
     // Load Modules
     "include": ["~/.config/waybar/modules.json"],
 
-    // Modules Left
-    "modules-left": [
-    "custom/appmenu",
-   //     "custom/wallpaper",
-        "wlr/taskbar",
-     //   "group/quicklinks",
-        "hyprland/window"
-    ],
-
-    // Modules Center
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-
+  
     // Modules Right    
     "modules-right": [
-      //  "custom/updates",
-        "pulseaudio",
-        "bluetooth",
-        "battery", 
-        "backlight",
-        "custom/cliphist",
-        "network", 
-	"sway/language",
-	"tray",
-        "clock",
-        "custom/exit",
+        "group/hardware",
+	"keyboard-state",
     ],
 
     // Group Quicklinks
@@ -74,7 +48,8 @@
         "modules": [
             "disk",
             "cpu",
-            "memory"
+            "memory",
+	    "temperature",
         ]
     }
 }

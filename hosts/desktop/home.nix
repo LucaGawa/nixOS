@@ -29,4 +29,9 @@
 		];
 };
   };
+programs.fish = {
+	shellAbbrs = {
+		reload = "sudo nixos-rebuild switch --flake ~/nixOS/#desktop";
+	};
+  };
 	}
