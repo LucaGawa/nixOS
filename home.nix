@@ -219,6 +219,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."wlogout".source = ./modules/wlogout;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/pakete.sty".source = ./modules/tex/pakete.sty;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/template_xournalpp.tex".source = ./modules/tex/template_xournalpp.tex;
+  xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
   
 
   wayland.windowManager.hyprland = {
