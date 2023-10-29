@@ -62,7 +62,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia" "intel" "displaylink" ];
+  services.xserver.videoDrivers = ["nvidia" "intel" ];
 
   hardware.nvidia = {
 
