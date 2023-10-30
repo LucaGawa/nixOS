@@ -29,7 +29,11 @@
   
     // Modules Right    
     "modules-right": [
-        "group/hardware",
+    	"disk",
+        "cpu",
+        "memory",
+	"temperature",
+        //"group/hardware",
 	"keyboard-state",
     ],
 

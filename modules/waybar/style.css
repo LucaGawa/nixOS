@@ -235,7 +235,7 @@ window#waybar.empty #window {
  * Hardware Group
  * ----------------------------------------------------- */
 
-#disk,#memory,#cpu {
+#disk,#memory,#cpu,#temperature {
     margin:0px;
     padding:0px;
     font-size:16px;

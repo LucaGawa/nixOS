@@ -136,7 +136,7 @@ programs.vscode = {
 		ls = "exa --icons";
 		icat = "kitty +kitten icat";
 		cat = "bat";
-		update = "nix flake update";
+		update = "sudo nix flake update ~/nixOS/";
 	};
 	interactiveShellInit = ''
 		if status is-interactive

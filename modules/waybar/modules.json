@@ -137,7 +137,7 @@
     // Rofi Application Launcher
     "custom/appmenu": {
         "format": " ",
-        "on-click": "rofi -modi run -show drun",
+        "on-click": "bash ~/nixOS/scripts/rofi_drun.sh",
         //"on-click": "~/dotfiles/scripts/applauncher.sh",
         "tooltip": false
     },
@@ -166,8 +166,7 @@
 	 "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
 	// "critical-threshold": 80,
 	// "format-critical": "{temperatureC}°C ",
-	//"format": "{temperatureC}°C "
-	"format": " Temp "
+	"format": " {temperatureC}°C  "
 },
 
     // System tray
@@ -185,20 +184,20 @@
 
     // CPU
     "cpu": {
-        "format": "/   {usage}% ",
+        "format": " 󰍛 {usage}% ",
         "on-click": "alacritty -e htop"
     },
 
     // Memory
     "memory": {
-        "format": "/ 󰍛 {}% ",
+        "format": "   {}% ",
         "on-click": "alacritty -e htop"
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
-        "format": "   {percentage_used}% ",
+        "format": "   {percentage_used} %",
         "path": "/",
         "on-click": "alacritty -e htop"
     }, 

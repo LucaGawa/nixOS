@@ -31,7 +31,7 @@
   };
 programs.fish = {
 	shellAbbrs = {
-		reload = "sudo nixos-rebuild switch --flake ~/nixOS/#desktop";
+		rebuild = "sudo nixos-rebuild switch --flake ~/nixOS/#desktop";
 	};
   };
 	}

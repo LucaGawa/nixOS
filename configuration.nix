@@ -123,6 +123,7 @@ in
   services.xserver.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
+    # theme = "${import ./modules/sddm/sddm-theme.nix { inherit pkgs; }}";
     #autoLogin.enable = true;
     #autoLogin.user = luca;
   };

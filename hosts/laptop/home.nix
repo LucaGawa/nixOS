@@ -11,4 +11,9 @@
 	};
 	};
 	
+programs.fish = {
+	shellAbbrs = {
+		rebuild = "sudo nixos-rebuild switch --flake ~/nixOS/#laptop";
+	};
+  };
 }
