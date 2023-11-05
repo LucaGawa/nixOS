@@ -46,11 +46,11 @@ programs.vscode = {
   enable = true;
   extensions = with pkgs.vscode-extensions; [
     #dracula-theme.theme-dracula
-    vscodevim.vim
+    # vscodevim.vim
     yzhang.markdown-all-in-one
     james-yu.latex-workshop
     ms-toolsai.jupyter
-    # ms-python.python
+    #ms-python.python
   ];
 };
 
@@ -246,6 +246,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			"$mainMod, E, exec, thunar"
 			"$mainMod, W, exec, firefox"
 			"$mainMod, S, exec, spotify"
+			"$mainMod, c, exec, brave --app=https://chat.openai.com"
 			"$mainMod, V, togglefloating" 
 			"$mainMod, R, exec, wofi --show drun"
 			"$mainMod, P, pseudo" # dwindle
