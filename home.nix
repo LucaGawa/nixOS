@@ -224,7 +224,9 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/template_xournalpp.tex".source = ./modules/tex/template_xournalpp.tex;
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
   xdg.configFile."rofi".source = ./modules/rofi;
-  
+  xdg.configFile.".config/Code/User/keybindings.json".source = ./modules/code/keybindings.json;
+  xdg.configFile.".config/Code/User/settings.json".source = ./modules/code/settings.json;
+
 
   wayland.windowManager.hyprland = {
   	enable = true;

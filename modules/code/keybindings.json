@@ -1,0 +1,49 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+1",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "f5",
+        "command": "latex-workshop.build",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /latex|rsweave|jlweave/"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-latex-workshop.build",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /latex|rsweave|jlweave/"
+    },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+backspace",
+        "command": "-search.searchEditor.action.deleteFileResults",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "f5",
+        "command": "npm.runScript"
+    },
+    {
+        "key": "f5",
+        "command": "workbench.action.tasks.build"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "-workbench.action.tasks.build"
+    },
+    {
+        "key": "f5",
+        "command": "python.execInTerminal-icon"
+    }
+]
