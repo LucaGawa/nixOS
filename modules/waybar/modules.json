@@ -17,8 +17,8 @@
         "format": "{}",
         "format-icons": {
 			"urgent": "",
-			"active": "",
-			"default": ""
+			"active": ":D",
+			"default": ":O"
         },
        // "persistent_workspaces": {
         //     "*": 5
@@ -33,7 +33,7 @@
         "on-click": "activate",
         "on-click-middle": "close",
         "ignore-list": [
-           "Alacritty"
+           "kitty"
         ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
@@ -166,7 +166,7 @@
 	 "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
 	// "critical-threshold": 80,
 	// "format-critical": "{temperatureC}°C ",
-	"format": " {temperatureC}°C  "
+	"format": "  {temperatureC}°C "
 },
 
     // System tray

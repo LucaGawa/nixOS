@@ -10,6 +10,9 @@ let
 	numpy
 	sympy
 	dbus-python #needed for eduroam installer
+	jupyter
+	# python311Packages.jupyter-core
+	matplotlib
   ];
   latex = (pkgs.texlive.combine { inherit (pkgs.texlive) 
 	  scheme-basic 
@@ -57,6 +60,7 @@ let
 	  wasy 
 	  helvetic 
 	  times
+	  braket
   ; });
 
 in
@@ -120,6 +124,7 @@ in
   services.upower.enable = true;
 
   # Enable the GNOME Desktop Environment.
+  services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
@@ -343,8 +348,8 @@ zoom = pkgs.zoom-us.overrideAttrs (old: {
   services.gvfs.enable = true;
 
   # communication between Apps (screen sharing, opening links,...)
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  #xdg.portal.enable = true;
+  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
 
   # Some programs need SUID wrappers, can be configured further or are

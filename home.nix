@@ -49,6 +49,8 @@ programs.vscode = {
     vscodevim.vim
     yzhang.markdown-all-in-one
     james-yu.latex-workshop
+    ms-toolsai.jupyter
+    # ms-python.python
   ];
 };
 
@@ -439,7 +441,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 		exec-once=nm-applet --indicator &
 		exec-once=mako
 		exec-once=wl-paste --watch cliphist store
-		exec-once=owncloud
+		exec-once=sleep 1; owncloud
 		exec-once=rclone mount --network-mode Gdrive:/ ~/Gdrive/
 		  '';
 	  };
