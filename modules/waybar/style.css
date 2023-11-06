@@ -81,9 +81,9 @@ window#waybar {
 /* 	background: yellow; */
 /* } */
 
-#workspaces button.focused{
-	color: green;
-}
+/* #workspaces button.focused{ */
+/* 	color: green; */
+/* } */
 
 #workspaces button:hover {
     color: #FFFFFF;
