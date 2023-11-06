@@ -65,7 +65,6 @@ window#waybar {
 #workspaces button.active {
     color: #FFFFFF;
     background: @color11;
-    /* background: blue; */
     border-radius: 15px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
@@ -73,17 +72,9 @@ window#waybar {
 }
 
 #workspaces button.visible{
-	background: green;
-	color: #3a3b3c;
+	background:@color11;
+	opacity:1.0;
 }
-
-/* #workspaces button.persistent{ */
-/* 	background: yellow; */
-/* } */
-
-/* #workspaces button.focused{ */
-/* 	color: green; */
-/* } */
 
 #workspaces button:hover {
     color: #FFFFFF;
