@@ -15,6 +15,7 @@ let
 	matplotlib
 	pygobject3 
 	gst-python
+	tables
   ];
   latex = (pkgs.texlive.combine { inherit (pkgs.texlive) 
 	  scheme-basic 
