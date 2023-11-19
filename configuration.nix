@@ -298,6 +298,7 @@ in
 	rambox
 	#nvd #shows nixos diff packages
 	htop
+	swaynotificationcenter
 ];
   security.sudo.configFile = ''
 	luca ALL = (ALL) ALL

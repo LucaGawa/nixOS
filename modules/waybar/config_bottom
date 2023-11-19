@@ -25,11 +25,13 @@
 
     // Load Modules
     "include": ["~/.config/waybar/modules.json"],
-
+    
+    "modules-left": [
+    	"custom/spotify",
+	],
   
     // Modules Right    
     "modules-right": [
-    	"custom/spotify",
 	"disk",
         "cpu",
         "memory",

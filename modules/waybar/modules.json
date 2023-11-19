@@ -64,6 +64,11 @@
         "on-click-middle": "sleep 0.1 && bash ~/nixOS/scripts/cliphist.sh w",
         "tooltip": false
     },
+    
+    "custom/notification": {
+	"format": "",
+	"on-click": "swaync-client -t -sw"
+    },
 
     "custom/spotify": {
 "format": "{} ",
