@@ -13,6 +13,8 @@ let
 	jupyter
 	# python311Packages.jupyter-core
 	matplotlib
+	pygobject3 
+	gst-python
   ];
   latex = (pkgs.texlive.combine { inherit (pkgs.texlive) 
 	  scheme-basic 

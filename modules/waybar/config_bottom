@@ -29,7 +29,8 @@
   
     // Modules Right    
     "modules-right": [
-    	"disk",
+    	"custom/spotify",
+	"disk",
         "cpu",
         "memory",
 	"temperature",
