@@ -442,7 +442,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-	
+		exec-once=wal -i "~/nixOS/wallpaper/road.jpg"
 		exec-once=waybar
 		exec-once=waybar -c ~/.config/waybar/config_bottom
 		exec-once=wal -R

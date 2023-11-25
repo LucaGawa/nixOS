@@ -299,6 +299,8 @@ in
 	#nvd #shows nixos diff packages
 	htop
 	swaynotificationcenter
+	pywal
+	feh
 ];
   security.sudo.configFile = ''
 	luca ALL = (ALL) ALL

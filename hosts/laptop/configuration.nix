@@ -10,22 +10,24 @@
       ./hardware-configuration.nix 
     ];
 
-  boot.loader = {
-	efi = {
-		canTouchEfiVariables = true;
-		efiSysMountPoint = "/boot/efi";
-		};
-	grub = {
-		efiSupport = true;
-		device = "nodev";
-		};
-  };
-  # Bootloader.
- # boot.loader.efi.canTouchEfiVariables = true;
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.device = "nodev";
-  #boot.loader.grub.useOSProber = true;
-  #boot.loader.grub.efiSupport = false;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader = {
+	# efi = {
+		# canTouchEfiVariables = true;
+		# efiSysMountPoint = "/boot/efi";
+		# };
+	# grub = {
+		# efiSupport = true;
+		# device = "nodev";
+		# };
+  # };
+  # # Bootloader.
+  # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "nodev";
+  # boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.efiSupport = false;
 
   networking.hostName = "laptop"; # Define your hostname.
 
@@ -47,7 +49,7 @@
   services.thermald.enable = true;
 
  environment.systemPackages = with pkgs; [
-	displaylink
+#	displaylink
  ];
 
 #wayland.windowManager.hyprland.enableNvidiaPatches = true;
@@ -57,7 +59,7 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-	vulkan-validation-layers
+#	vulkan-validation-layers
     ];
   };
 
