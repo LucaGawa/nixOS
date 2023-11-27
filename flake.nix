@@ -2,6 +2,7 @@
   description = "A very basic flake";
   
   inputs = {
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = github:nix-community/home-manager;
@@ -14,7 +15,7 @@
 	};
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... }: 
     let
       system = "x86_64-linux";
       # user = "luca";
@@ -22,8 +23,19 @@
         inherit system;
         config.allowUnfree = true;
       };
+      pkgs-stable = import nixpkgs-stable {
+	inherit system;
+	config.allowUnfree = true;
+      };
       lib = nixpkgs.lib;
     in {
+	# overlays = {
+	# 	 add-stable-packages = final: _prev: {
+    	         # stable = import nixpkgs-stable {
+      		 # inherit system;
+    # };
+  # };
+	# };
       nixosConfigurations = {
 	laptop = lib.nixosSystem {
           inherit system;

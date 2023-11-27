@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, pkgs-stable, lib, ... }:
 
 let
   my-python-packages = ps: with ps; [
@@ -216,92 +212,98 @@ in
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
- 	#neovim 
-	sway-contrib.grimshot
-  	wget
-	brave
-	firefox-wayland
-	thunderbird
-	spotify
-	xwayland
-	sddm
-	kitty
-	git
-	gparted
-	hyprland
-	onlyoffice-bin
-	# xfce.thunar
-        waybar
-#	eww-wayland
-	mako #notification deamon
-	libnotify #dependency for deamon
-	rofi-wayland 	
-	networkmanagerapplet
-	killall
-	xfce.mousepad #text edior
-        #vscode-with-extensions
-	flameshot
-	hyprpicker
-	unzip
-	pavucontrol
-	libgccjit # GNU Compiler Collection
-        binutils
-	gtk3
-	pywal
-	hyprpaper
-        mathematica
-	octaveFull
-	wlogout
-	fish
-	starship
-	eza #ls replacement
-	bat #cat replacement
-	neofetch
-	wlr-randr
-	wdisplays
-	lshw
-        libsForQt5.qt5ct
-        libsForQt5.qt5.qtwayland
-        qt6.qtwayland
-	libva
-	zoom-us
-	cliphist
-	wl-clipboard
-	playerctl
-	brightnessctl
-	libreoffice-still
-	wireplumber
-        vifm
-        #libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
-        (python3.withPackages my-python-packages)
-	latex
-        xournalpp
-        rclone
-        gnome.adwaita-icon-theme
-	#papirus-icon-theme
-        most #remove perhabs and use alias to map on other pager
-        owncloud-client
-        libgnome-keyring
-        home-manager
-        evince
-        nomacs
-        gimp
-        #jdownloader
-        upower
-	libimobiledevice-glue
-	pdfarranger
-	zathura
-	xdotool #vimTex forword search dependency
-	way-displays
-	qutebrowser
-	rambox
-	#nvd #shows nixos diff packages
-	htop
-	swaynotificationcenter
-	pywal
-	feh
+environment.systemPackages = [
+# pkgs.#neovim 
+pkgs.sway-contrib.grimshot
+pkgs.wget
+pkgs.brave
+pkgs.firefox-wayland
+pkgs.thunderbird
+pkgs.spotify
+pkgs.xwayland
+pkgs.sddm
+pkgs.ktty
+pkgs.git
+pkgs.gparted
+pkgs.hyprland
+pkgs.onlyoffice-bin
+# pkgs.# xfce.thunar
+pkgs.waybar
+# pkgs.#eww-wayland
+pkgs.mako #notification deamon
+pkgs.libnotify #dependency for deamon
+pkgs.rofi-wayland 	
+pkgs.networkmanagerapplet
+pkgs.killall
+pkgs.xfce.mousepad #text edior
+# pkgs.#vscode-with-extensions
+pkgs.flameshot
+pkgs.hyprpicker
+pkgs.unzip
+pkgs.pavucontrol
+ pkgs.libgccjit # gnu compiler collection
+pkgs.binutils
+pkgs.gtk3
+pkgs.pywal
+pkgs.hyprpaper
+pkgs.mathematica
+pkgs.octaveFull
+pkgs.wlogout
+pkgs.fish
+pkgs.starship
+pkgs.eza #ls replacement
+pkgs.bat #cat replacement
+pkgs.neofetch
+pkgs.wlr-randr
+pkgs.wdisplays
+pkgs.lshw
+pkgs.libsForQt5.qt5ct
+pkgs.libsForQt5.qt5.qtwayland
+pkgs.qt6.qtwayland
+pkgs.libva
+pkgs.zoom-us
+pkgs.cliphist
+pkgs.wl-clipboard
+pkgs.playerctl
+pkgs.brightnessctl
+pkgs.libreoffice-still
+pkgs.wireplumber
+pkgs.vifm
+# pkgs.#libsforqt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
+(pkgs.python3.withPackages my-python-packages)
+latex
+# pkgs.# stable.xournalpp
+pkgs.rclone
+pkgs.gnome.adwaita-icon-theme
+# pkgs.#papirus-icon-theme
+pkgs.most #remove perhabs and use alias to map on other pager
+pkgs.owncloud-client
+pkgs.libgnome-keyring
+pkgs.home-manager
+pkgs.evince
+pkgs.nomacs
+pkgs.gimp
+# pkgs.#jdownloader
+pkgs.upower
+pkgs.libimobiledevice-glue
+pkgs.pdfarranger
+pkgs.zathura
+pkgs.xdotool #vimtex forword search dependency
+pkgs.way-displays
+pkgs.qutebrowser
+pkgs.rambox
+# pkgs.#nvd #shows nixos diff packages
+pkgs.htop
+pkgs.swaynotificationcenter
+pkgs.xournalpp
+pkgs.feh
+pkgs.pywal
 ];
+# with pkgs-stable;
+# [
+# 	stable.xournalpp
+# ];
+
   security.sudo.configFile = ''
 	luca ALL = (ALL) ALL
         luca ALL = (root) NOPASSWD: /run/current-system/sw/bin/nixos-rebuild
@@ -316,6 +318,7 @@ boot.extraModprobeConfig = ''
   '';
 
   nixpkgs.overlays = [
+    # (outputs.add-stable-packages)
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];

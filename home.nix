@@ -263,6 +263,8 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			"$mainMod SHIFT, RETURN, exec, bash ~/nixOS/scripts/rofi_drun.sh"
 			"$mainMod SHIFT, R, exec, bash ~/nixOS/scripts/reload.sh"
 			"$mainMod, B, exec, pkill waybar || waybar"
+			# "$mainMod, G, exec, kitty"
+			
 
 			# Move focus 
 			"$mainMod, H, movefocus, l"
