@@ -131,7 +131,9 @@ programs.vscode = {
 	syntax enable
 	" Use Zathura as the default VimTeX PDF viewer
 	let g:vimtex_view_method = 'zathura'
-	lua require("luasnip.loaders.from_lua").load(paths = "~/.config/nvim/LuaSnip/"})
+	lua require("luasnip").setup()
+	luafile ${./modules/nvim/nvim.lua}
+	" lua require("luasnip.loaders.from_lua").load(paths = "~/nixOS/modules/nvim/LuaSnip/"})
     '';
 };
 
@@ -233,7 +235,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."rofi".source = ./modules/rofi;
   xdg.configFile.".config/Code/User/keybindings.json".source = ./modules/code/keybindings.json;
   xdg.configFile.".config/Code/User/settings.json".source = ./modules/code/settings.json;
-  xdg.configFile."nvim".source = ./modules/nvim;
+  xdg.configFile.".config/nvim".source = ./modules/nvim;
 
 
   wayland.windowManager.hyprland = {
