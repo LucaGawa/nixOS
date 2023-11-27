@@ -222,7 +222,7 @@ pkgs.thunderbird
 pkgs.spotify
 pkgs.xwayland
 pkgs.sddm
-pkgs.ktty
+pkgs.kitty
 pkgs.git
 pkgs.gparted
 pkgs.hyprland
