@@ -298,6 +298,7 @@ pkgs.swaynotificationcenter
 pkgs.xournalpp
 pkgs.feh
 pkgs.pywal
+pkgs.lynx
 ];
 # with pkgs-stable;
 # [

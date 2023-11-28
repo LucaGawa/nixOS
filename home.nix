@@ -115,7 +115,6 @@ programs.vscode = {
    	packadd! nvim-tree.lua
 	lua require("nvim-tree").setup()
 	autocmd FileType nix setlocal commentstring=#\ %s
-      	set number
       	set cc=80 
       	set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
       	if &diff
@@ -131,6 +130,7 @@ programs.vscode = {
 	syntax enable
 	" Use Zathura as the default VimTeX PDF viewer
 	let g:vimtex_view_method = 'zathura'
+	" luaSnip
 	lua require("luasnip").setup()
 	luafile ${./modules/nvim/nvim.lua}
 	" lua require("luasnip.loaders.from_lua").load(paths = "~/nixOS/modules/nvim/LuaSnip/"})
