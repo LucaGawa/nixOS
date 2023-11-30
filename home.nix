@@ -102,14 +102,21 @@ programs.vscode = {
   programs.neovim = {
   enable = true;
   plugins = with pkgs.vimPlugins; [
-  	nvim-treesitter.withAllGrammars
-	vim-commentary
-	nvim-tree-lua
+  	nvim-treesitter.withAllGrammars # syntax highlighting
+	comment-nvim # comment and uncomment code
+	nvim-tree-lua # file explorer 
 	coc-pyright
 	# vim-latex-live-preview
-	vimtex
-	luasnip
+	vimtex # LaTeX plugin
+	luasnip # Snipets
 	deoplete-nvim
+	nvim-lspconfig #communtication with language server	
+	nvim-cmp #completion
+	cmp-nvim-lsp
+	cmp_luasnip
+	friendly-snippets # bunch of snippets
+	neodev-nvim
+	gitsigns-nvim
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua
@@ -131,7 +138,7 @@ programs.vscode = {
 	" Use Zathura as the default VimTeX PDF viewer
 	let g:vimtex_view_method = 'zathura'
 	" luaSnip
-	lua require("luasnip").setup()
+	" lua require("luasnip").setup()
 	luafile ${./modules/nvim/nvim.lua}
 	" lua require("luasnip.loaders.from_lua").load(paths = "~/nixOS/modules/nvim/LuaSnip/"})
     '';

@@ -299,6 +299,7 @@ pkgs.xournalpp
 pkgs.feh
 pkgs.pywal
 pkgs.lynx
+pkgs.lua-language-server
 ];
 # with pkgs-stable;
 # [
