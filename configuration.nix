@@ -5,6 +5,7 @@ let
 	pandas
 	numpy
 	sympy
+	scipy
 	dbus-python #needed for eduroam installer
 	jupyter
 	# python311Packages.jupyter-core
