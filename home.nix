@@ -116,7 +116,8 @@ programs.vscode = {
 	cmp_luasnip
 	friendly-snippets # bunch of snippets
 	neodev-nvim
-	gitsigns-nvim
+	gitsigns-nvim 
+	better-escape-nvim
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua
