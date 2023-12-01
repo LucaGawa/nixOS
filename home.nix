@@ -277,25 +277,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			"$mainMod, B, exec, pkill waybar || waybar"
 			# "$mainMod, G, exec, kitty"
 			
-
-			# Move focus 
-			"$mainMod, H, movefocus, l"
-			"$mainMod, L, movefocus, r"
-			"$mainMod, K , movefocus, u"
-			"$mainMod, J, movefocus, d"
-
-			# Resize active Window
-			"$mainMod CONTROL, l, resizeactive, 10 0"
-			"$mainMod CONTROL, h, resizeactive, -10 0"
-			"$mainMod CONTROL, k, resizeactive, 0 -10"
-			"$mainMod CONTROL, j, resizeactive, 0 10"
-
-			# move active window
-			"$mainMod SHIFT, l, movewindow, r"
-			"$mainMod SHIFT, h, movewindow, l"
-			"$mainMod SHIFT, k, movewindow, u"
-			"$mainMod SHIFT, j, movewindow, d"
-
+	
 			# Switch workspaces with mainMod + [0-9]
 			"$mainMod, 1, workspace, 1"
 			"$mainMod, 2, workspace, 2"
@@ -324,16 +306,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			"$mainMod, mouse_down, workspace, e+1"
 			"$mainMod, mouse_up, workspace, e-1"
 
-			# Multimedia Keys
-			",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-			",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-			",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-			", XF86AudioPlay, exec, playerctl play-pause"
-			", XF86AudioPrev, exec, playerctl previous"
-			", XF86AudioNext, exec, playerctl next"
-			", XF86MonBrightnessUp, exec, brightnessctl set +5%"
-			", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-			              # ## Screenshot
+			             # ## Screenshot
                ", Print, exec, grimshot --notify save active" # All visible outputs
                "SHIFT, Print, exec, grimshot --notify save area" # All visible outputs
               # "SHIFT Print, exec, grimshot --notify save area $(~/Pictures/$(TZ=utc date +'screenshot_%Y-%m-%d-%H%M%S.%3N.png')" # Manually select a region
@@ -343,6 +316,38 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
               # "Ctrl+Shift+Print" = "exec ${grimshot} --notify copy area";
               # "Ctrl+Alt+Print" = "exec ${grimshot} --notify copy active";
               # "Ctrl+Shift+Alt+Print" = "exec ${grimshot} --notify copy window";
+		];
+		# bindings with repetition
+		binde=[
+
+     		# Move focus 
+			"$mainMod, H, movefocus, l"
+			"$mainMod, L, movefocus, r"
+			"$mainMod, K , movefocus, u"
+			"$mainMod, J, movefocus, d"
+
+			# Resize active Window
+			"$mainMod CONTROL, l, resizeactive, 10 0"
+			"$mainMod CONTROL, h, resizeactive, -10 0"
+			"$mainMod CONTROL, k, resizeactive, 0 -10"
+			"$mainMod CONTROL, j, resizeactive, 0 10"
+
+			# move active window
+			"$mainMod SHIFT, l, movewindow, r"
+			"$mainMod SHIFT, h, movewindow, l"
+			"$mainMod SHIFT, k, movewindow, u"
+			"$mainMod SHIFT, j, movewindow, d"
+
+		    # Multimedia Keys
+			",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+			",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+			",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+			", XF86AudioPlay, exec, playerctl play-pause"
+			", XF86AudioPrev, exec, playerctl previous"
+			", XF86AudioNext, exec, playerctl next"
+			", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+			", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+			 
 		];
 	};
   	extraConfig = ''
