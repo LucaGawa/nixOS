@@ -242,6 +242,8 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile.".config/Code/User/keybindings.json".source = ./modules/code/keybindings.json;
   xdg.configFile.".config/Code/User/settings.json".source = ./modules/code/settings.json;
   xdg.configFile.".config/nvim".source = ./modules/nvim;
+  xdg.configFile.".config/Thunar/uca.xml".source = ./modules/thunar/uca.xml;
+	
 
 
   wayland.windowManager.hyprland = {
