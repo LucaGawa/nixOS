@@ -138,10 +138,7 @@ programs.vscode = {
 	syntax enable
 	" Use Zathura as the default VimTeX PDF viewer
 	let g:vimtex_view_method = 'zathura'
-	" luaSnip
-	" lua require("luasnip").setup()
 	luafile ${./modules/nvim/nvim.lua}
-	" lua require("luasnip.loaders.from_lua").load(paths = "~/nixOS/modules/nvim/LuaSnip/"})
     '';
 };
 
@@ -240,6 +237,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/pakete.sty".source = ./modules/tex/pakete.sty;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/template_xournalpp.tex".source = ./modules/tex/template_xournalpp.tex;
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
+  xdg.configFile."xournalpp/settings.xml".source = ./modules/xournalpp/settings.xml;
   xdg.configFile."rofi".source = ./modules/rofi;
   xdg.configFile.".config/Code/User/keybindings.json".source = ./modules/code/keybindings.json;
   xdg.configFile.".config/Code/User/settings.json".source = ./modules/code/settings.json;
