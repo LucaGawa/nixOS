@@ -1,6 +1,13 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, inputs, ... }:
+let
+				customIcons = import ./icons.nix { inherit pkgs; };
+in
 {
+ # imports = [
+	# 			inputs.nix-colors.homeManagerModules.default
+	# 			];
+ #
+ # colorScheme = inputs.nix-colors.colorSchemes.material;
  home.username = "luca";
  home.homeDirectory = "/home/luca";
 
@@ -68,8 +75,8 @@ programs.vscode = {
   gtk = {
     enable = true;
     cursorTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
       size = 24;
     };
     theme = {
@@ -77,19 +84,19 @@ programs.vscode = {
       name = "adw-gtk3";
     };
     iconTheme = {
-      package = pkgs.deepin.deepin-icon-theme;
-      name = "deepin-icon-theme";
+      package = customIcons;
+      name = "customIcons";
     };
   };
 
   qt = {
     enable = true;
     platformTheme = "gtk";
-    style.name = "gtk";
-    # style = {
-    #  name = "adwaita-dark";
-    #  package = pkgs.adwaita-qt;
-    # };
+    # style.name = "gtk";
+    style = {
+     name = "adwaita-dark";
+     package = pkgs.adwaita-qt;
+    };
   };
 
   # xdg.mimeApps.defaultApplications = {
@@ -230,6 +237,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   programs.home-manager.enable = true;
 
   xdg.configFile."waybar".source = ./modules/waybar;
+  xdg.configFile."swaync".source = ./modules/swaync;
   xdg.configFile."hypr/hyprpaper.conf".source = ./modules/hypr/hyprpaper.conf;
   xdg.configFile."kitty/kitty.conf".source = ./modules/kitty/kitty.conf;
   xdg.configFile."mako/config".source = ./modules/mako/config;
@@ -239,10 +247,9 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
   xdg.configFile."xournalpp/settings.xml".source = ./modules/xournalpp/settings.xml;
   xdg.configFile."rofi".source = ./modules/rofi;
-  xdg.configFile.".config/Code/User/keybindings.json".source = ./modules/code/keybindings.json;
-  xdg.configFile.".config/Code/User/settings.json".source = ./modules/code/settings.json;
-  xdg.configFile.".config/nvim".source = ./modules/nvim;
-  xdg.configFile.".config/Thunar/uca.xml".source = ./modules/thunar/uca.xml;
+  xdg.configFile."Code/User/keybindings.json".source = ./modules/code/keybindings.json;
+  xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;
+  xdg.configFile."Thunar/uca.xml".source = ./modules/thunar/uca.xml;
 	
 
 
@@ -467,7 +474,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 		exec-once=wal -R
 		exec-once=hyprpaper
 		exec-once=nm-applet --indicator &
-		exec-once=swaync
+		exec-once=swaync -C ~/nixOS/modules/swaync/style.css
 		exec-once=wl-paste --watch cliphist store
 		exec-once=sleep 1; owncloud
 		exec-once=rclone mount --network-mode Gdrive:/ ~/Gdrive/

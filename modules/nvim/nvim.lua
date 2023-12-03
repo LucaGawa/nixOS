@@ -68,7 +68,7 @@ require('lspconfig').lua_ls.setup {
  }
 
  -- nvim/after/plugin/cmp.lua
-local cmp = require('cmp')
+-- local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 -- require('luasnip.loaders.from_vscode').lazy_load()

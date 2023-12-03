@@ -128,7 +128,7 @@ in
   services.xserver.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
-    # theme = "${import ./modules/sddm/sddm-theme.nix { inherit pkgs; }}";
+    theme = "${import ./modules/sddm/sddm-theme.nix { inherit pkgs; }}";
     #autoLogin.enable = true;
     #autoLogin.user = luca;
   };
@@ -261,6 +261,8 @@ pkgs.lshw
 pkgs.libsForQt5.qt5ct
 pkgs.libsForQt5.qt5.qtwayland
 pkgs.qt6.qtwayland
+pkgs.libsForQt5.qt5.qtgraphicaleffects
+pkgs.libsForQt5.qt5.qtquickcontrols2
 pkgs.libva
 pkgs.zoom-us
 pkgs.cliphist
@@ -275,7 +277,7 @@ pkgs.vifm
 latex
 # pkgs.# stable.xournalpp
 pkgs.rclone
-pkgs.gnome.adwaita-icon-theme
+# pkgs.gnome.adwaita-icon-theme
 # pkgs.#papirus-icon-theme
 pkgs.most #remove perhabs and use alias to map on other pager
 pkgs.owncloud-client
@@ -301,6 +303,7 @@ pkgs.feh
 pkgs.pywal
 pkgs.lynx
 pkgs.lua-language-server
+pkgs.nix-prefetch-git
 ];
 # with pkgs-stable;
 # [

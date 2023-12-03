@@ -13,9 +13,12 @@
     	url = "github:hyprwm/hyprpaper";
 	inputs.nixpkgs.follows = "nixpkgs";
 	};
+
+   nix-colors.url = "github:misterio77/nix-colors";
+
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... }: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... }@inputs: 
     let
       system = "x86_64-linux";
       # user = "luca";
@@ -39,9 +42,10 @@
       nixosConfigurations = {
 	laptop = lib.nixosSystem {
           inherit system;
+					specialArgs = { inherit inputs; };
           modules = [ 
             ./configuration.nix
-	    ./hosts/laptop/configuration.nix
+				   ./hosts/laptop/configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -54,6 +58,7 @@
 
         desktop = lib.nixosSystem {
           inherit system;
+					specialArgs = { inherit inputs; };
           modules = [ 
             ./configuration.nix
 	    ./hosts/desktop/configuration.nix
