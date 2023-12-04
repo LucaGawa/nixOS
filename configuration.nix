@@ -124,7 +124,7 @@ in
   services.upower.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
@@ -304,6 +304,9 @@ pkgs.pywal
 pkgs.lynx
 pkgs.lua-language-server
 pkgs.nix-prefetch-git
+pkgs.xdg-desktop-portal-hyprland
+pkgs.swaylock-effects
+# pkgs.swaylock
 ];
 # with pkgs-stable;
 # [
@@ -364,8 +367,8 @@ zoom = pkgs.zoom-us.overrideAttrs (old: {
   services.gvfs.enable = true;
 
   # communication between Apps (screen sharing, opening links,...)
-  #xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
 
   # Some programs need SUID wrappers, can be configured further or are
