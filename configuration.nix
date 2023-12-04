@@ -277,7 +277,7 @@ pkgs.vifm
 latex
 # pkgs.# stable.xournalpp
 pkgs.rclone
-# pkgs.gnome.adwaita-icon-theme
+pkgs.gnome.adwaita-icon-theme
 # pkgs.#papirus-icon-theme
 pkgs.most #remove perhabs and use alias to map on other pager
 pkgs.owncloud-client
