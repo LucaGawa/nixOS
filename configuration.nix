@@ -61,6 +61,8 @@ let
 	  helvetic 
 	  times
 	  braket
+		tikz-feynman
+		luatex85
   ; });
 
 in
@@ -306,6 +308,7 @@ pkgs.lua-language-server
 pkgs.nix-prefetch-git
 pkgs.xdg-desktop-portal-hyprland
 pkgs.swaylock-effects
+# pkgs.caps2esc
 # pkgs.swaylock
 ];
 # with pkgs-stable;

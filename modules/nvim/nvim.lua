@@ -117,9 +117,12 @@ luasnip.config.setup {}
 
 -- luasnip.lua
 vim.cmd[[
-" Use Tab to expand and jump through snippets
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+" Expand snippets in insert mode with Tab
+imap <silent><expr> <Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<Tab>'
+
+" Jump forward in through tabstops in insert and visual mode with jk
+imap <silent><expr> jk luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : 'jk'
+smap <silent><expr> jk luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : 'jk'
 
 " Use Shift-Tab to jump backwards through snippets
 imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
@@ -156,4 +159,4 @@ ls.config.set_config({
 		update_events = 'TextChanged,TextChangedI' --update reps while typing
 })
 require("luasnip.loaders.from_lua").lazy_load({paths= "~/nixOS/modules/nvim/LuaSnip/"})
-
+vim.keymap.set('n', '<Leader>L', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/nixOS/modules/nvim/LuaSnip/"})<CR>')

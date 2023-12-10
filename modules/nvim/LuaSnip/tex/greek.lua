@@ -34,7 +34,7 @@ return {
     generateSnippet('r', 'rho'),
     generateSnippet('s', 'sigma'),
     generateSnippet('S', 'Sigma'),
-    generateSnippet('t', 'tau'),
+    generateSnippet('ta', 'tau'),
     generateSnippet('ph', 'phi'),
     generateSnippet('vph', 'varphi'),
     generateSnippet('Ph', 'Phi'),

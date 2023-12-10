@@ -98,7 +98,22 @@ programs.vscode = {
      package = pkgs.adwaita-qt;
     };
   };
+ 
 
+  xdg.mimeApps = {
+	enable = true;
+	associations.added = {
+	"application/pdf" = ["org.gnome.Evince.desktop"];
+	};
+	defaultApplications = {
+	"application/pdf" = ["org.gnome.Evince.desktop"];
+	 "text/html" = ["firefox.desktop"];
+    "x-scheme-handler/http" = ["firefox.desktop"];
+    "x-scheme-handler/https" = ["firefox.desktop"];
+    "x-scheme-handler/about" = ["firefox.desktop"];
+    "x-scheme-handler/unknown" = ["firefox.desktop"];
+	};
+	};
   # xdg.mimeApps.defaultApplications = {
   #   "text/plain" = ["mousepad.desktop"];
   #   "text/tex" = ["mousepad.desktop"];
@@ -160,6 +175,8 @@ programs.vscode = {
 		icat = "kitty +kitten icat";
 		cat = "bat";
 		update = "sudo nix flake update ~/nixOS/";
+		config = "nvim ~/nixOS/configuration.nix";
+		home = "nvim ~/nixOS/home.nix";
 	};
 	interactiveShellInit = ''
 		if status is-interactive
@@ -250,6 +267,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."Code/User/keybindings.json".source = ./modules/code/keybindings.json;
   xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;
   xdg.configFile."Thunar/uca.xml".source = ./modules/thunar/uca.xml;
+  xdg.configFile."nvim/lua".source = ./modules/nvim/lua;
 	
 
 
@@ -382,7 +400,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 		    kb_layout = us
 		    kb_variant = altgr-intl
 		    kb_model =
-		    kb_options = nodeadkeys
+		    kb_options = nodeadkeys, caps:escape
 		    kb_rules =
 
 		    follow_mouse = 1
