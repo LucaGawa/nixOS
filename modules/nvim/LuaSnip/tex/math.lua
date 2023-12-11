@@ -12,34 +12,18 @@ end
 
 return {
 				fracSnippet('ff','frac'),
+				fracSnippet('dv','dv'),
+				fracSnippet('pdv','pdv'),
+				fracSnippet('fdv','fdv'),
 
-s({trig="dv"},
-  fmta(
-    "\\dv{<>}{<>}",
-    {
-      i(1),
-      i(2)
-    }
-		)
-),
-s({trig="pdv"},
-  fmta(
-    "\\pdv{<>}{<>}",
-    {
-      i(1),
-      i(2)
-    }
-		)
-),
-s({trig="fdv"},
-  fmta(
-    "\\fdv{<>}{<>}",
-    {
-      i(1),
-      i(2)
-    }
-		)
-),
+s({trig="([^%a])ev" , wordTrig=false, regTrig=true, snippetType="autosnippet"},
+				fmta(
+								"<>\\expval{<>}",
+								{ f( function(_, snip) return snip.captures[1] end ),
+								  i(1)}
+				    )
+				),
+
 s({trig="sum"},
   fmta(
     "\\sum_{<>}^{<>}",

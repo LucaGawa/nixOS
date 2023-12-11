@@ -19,4 +19,12 @@ s({trig="ga"},
      { i(1) }
   )
 ),
+s({trig="mm", snippetType='autosnippet'},
+  fmta(
+     [[
+       $<>$
+     ]],
+     { i(1) }
+  )
+),
 }

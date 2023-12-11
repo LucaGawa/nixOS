@@ -44,5 +44,6 @@ return {
     generateSnippet('o', 'omega'),
     generateSnippet('O', 'Omega'),
     generateSnippet('N', 'nabla'),
-    -- generateSnippet('', 'nabla'),
+		generateSnippet('h', 'eta'),
+    generateSnippet('pp', 'partial'),
 }

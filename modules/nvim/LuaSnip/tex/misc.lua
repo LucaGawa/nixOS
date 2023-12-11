@@ -44,5 +44,29 @@ s({trig="_",wordTrig=false},
 			{i(1)}
   )
 ),
+s({trig="kk",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "(<>)",
+			{i(1)}
+  )
+),
+s({trig="qk",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "\\qty(<>)",
+			{i(1)}
+  )
+),
 
+s({trig="sk",wordTrig=false},
+  fmta(
+      "[<>]",
+			{i(1)}
+  )
+),
+s({trig="ee",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "\\e{<>}",
+			{i(1)}
+  )
+),
 }
