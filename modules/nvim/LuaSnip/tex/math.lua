@@ -23,6 +23,16 @@ s({trig="([^%a])ev" , wordTrig=false, regTrig=true, snippetType="autosnippet"},
 								  i(1)}
 				    )
 				),
+s({trig="([^%a])me" , wordTrig=false, regTrig=true, snippetType="autosnippet"},
+				fmta(
+								"<>\\mel{<>}{<>}{<>}",
+								{ f( function(_, snip) return snip.captures[1] end ),
+								  i(1),
+								  i(2),
+								  i(3)}
+				    )
+				),
+
 
 s({trig="sum"},
   fmta(

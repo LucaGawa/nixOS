@@ -79,10 +79,10 @@ programs.vscode = {
       name = "Bibata-Modern-Ice";
       size = 24;
     };
-    # theme = {
-    #   package = pkgs.adw-gtk3;
-    #   name = "adw-gtk3";
-    # };
+    theme = {
+      package = pkgs.solarc-gtk-theme;
+      name = "SolArc-Dark";
+    };
     iconTheme = {
       package = customIcons;
       name = "customIcons";
