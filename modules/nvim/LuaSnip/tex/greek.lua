@@ -1,7 +1,7 @@
 local function generateSnippet(trig, symbol)
     return s({trig=";" .. trig, snippetType="autosnippet", wordTrig=false},
         {
-            t("\\" .. symbol),
+            t("\\" .. symbol .. " "),
         }
     )
 end
@@ -43,4 +43,6 @@ return {
     generateSnippet('Ps', 'Psi'),
     generateSnippet('o', 'omega'),
     generateSnippet('O', 'Omega'),
+    generateSnippet('N', 'nabla'),
+    -- generateSnippet('', 'nabla'),
 }

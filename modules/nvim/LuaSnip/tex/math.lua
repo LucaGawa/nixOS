@@ -1,24 +1,18 @@
 local function fracSnippet(trig,expr)
 				-- function for text snippets like \frac oder \dv
-				return s({trig="" .. trig, wordTrig=false, regTrig=true, autosnippet=true},
+				return s({trig="([^%a])" .. trig, wordTrig=false, regTrig=true, snippetType="autosnippet"},
 				fmta(
-								"\\".. expr .. "{<>}{<>}",
-								{i(1),i(2)}
+								"<>\\".. expr .. "{<>}{<>}",
+								{ f( function(_, snip) return snip.captures[1] end ),
+								  i(1),
+									i(2)}
 				    )
 				)
 end
 
 return {
 				fracSnippet('ff','frac'),
---   s({trig="ff"},
---   fmta(
---     "\\frac{<>}{<>}",
---     {
---       i(1),
---       i(2)
---     }
--- 		)
--- ),
+
 s({trig="dv"},
   fmta(
     "\\dv{<>}{<>}",
