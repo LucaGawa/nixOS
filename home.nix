@@ -496,6 +496,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 		exec-once=wl-paste --watch cliphist store
 		exec-once=sleep 1; owncloud
 		exec-once=rclone mount --network-mode Gdrive:/ ~/Gdrive/
+		exec-once=bash ~/nixOS/scripts/read_cursor_theme.sh
 		  '';
 	  };
 	}
