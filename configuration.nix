@@ -308,6 +308,7 @@ pkgs.lua-language-server
 pkgs.nix-prefetch-git
 pkgs.xdg-desktop-portal-hyprland
 pkgs.swaylock-effects
+pkgs.nordic
 # pkgs.caps2esc
 # pkgs.swaylock
 ];

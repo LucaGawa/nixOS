@@ -79,14 +79,25 @@ programs.vscode = {
       name = "Bibata-Modern-Ice";
       size = 24;
     };
-    theme = {
-      package = pkgs.solarc-gtk-theme;
-      name = "SolArc-Dark";
-    };
+# font = {
+#       package = (pkgs.nerdfonts.override { fonts = [ "Mononoki" ]; });
+#       name = "Mononoki Nerd Font Regular";
+#       size = 18;
+#     };
     iconTheme = {
-      package = customIcons;
-      name = "customIcons";
+      # (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; })
+			package = (pkgs.nordzy-icon-theme.override { nordzy-themes = [ "all" ]; });
+			name  = "Nordzy";
     };
+    # theme = {
+      # package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
+      # name = "Catppuccin-Mocha-Standard-Peach-Dark";
+    # };
+		theme = {
+      package = pkgs.nordic;
+			name = "Nordic";
+    };
+
   };
 
   qt = {
@@ -104,6 +115,7 @@ programs.vscode = {
 	enable = true;
 	associations.added = {
 	"application/pdf" = ["org.gnome.Evince.desktop"];
+	"image/vnd.djvu+multipage"=["org.gnome.Evince.desktop"];
 	};
 	defaultApplications = {
 	"application/pdf" = ["org.gnome.Evince.desktop"];
