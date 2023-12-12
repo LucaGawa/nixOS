@@ -2,27 +2,14 @@ local helpers = require('luasnip-helper-funcs')
 local get_visual = helpers.get_visual
 
 return {
-s({trig="env", snippetType="autosnippet"},
-  fmta(
-    [[
-      \begin{<>}
-          <>
-      \end{<>}
-    ]],
-    {
-      i(1),
-      i(2),
-      rep(1),  -- this node repeats insert node i(1)
-    }
-  )
-),
 s({trig="ub"},
   fmta(
     [[
-      \underbrace{<>}
+      \underbrace{<>}_{<>}
     ]],
     {
       d(1,get_visual),
+			i(2)
     }
   )
 ),

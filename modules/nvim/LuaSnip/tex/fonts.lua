@@ -3,8 +3,9 @@ local conditions = require('luasnip-conditions')
 local mathzone = conditions.in_mathzone
 local textzone = conditions.in_textzone
 local get_visual = helpers.get_visual
-local function textSnippets(trig,expr)
-				-- function for text snippets like \textit{}
+
+local function text(trig,expr)
+-- function for text snippets like \textit{}
 				return s({trig="" .. trig, wordTrig=false},
   fmta(
       "\\" .. expr .. "{<>}",
@@ -14,23 +15,23 @@ local function textSnippets(trig,expr)
 )
 end
 
-return{
-     textSnippets('tt','texttt'),
-     textSnippets('tbb','textbf'),
-     textSnippets('tii','textit'),
+local function mathtext(trig,expr)
+-- function for text snippets like \textit{}
+				return s({trig="" .. trig, wordTrig=false},
+  fmta(
+      "\\" .. expr .. "{<>}",
+			{d(1,get_visual)}
+  ),
+	{condition = mathzone}
+)
+end
 
-s({trig="te",wordTrig=false},
-  fmta(
-      "\\text{<>}",
-			{d(1, get_visual)}
-  )
-),
-s({trig="it",wordTrig=false},
-  fmta(
-      "\\intertext{<>}",
-			{i(1)}
-  )
-),
+return{
+     text('tt','texttt'),
+     text('tbb','textbf'),
+     text('tii','textit'),
+     mathtext('tt', 'text'),
+     mathtext('it', 'intertext'),
 s({trig="cal",wordTrig=false},
   fmta(
       "\\mathcal{<>}",

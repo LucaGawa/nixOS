@@ -1,7 +1,7 @@
 local function generateSnippet(trig, symbol)
     return s({trig=";" .. trig, snippetType="autosnippet", wordTrig=false},
         {
-            t("\\" .. symbol .. " "),
+            t("\\" .. symbol),
         }
     )
 end
