@@ -31,6 +31,31 @@ s({trig="_",wordTrig=false},
 			{i(1)}
   )
 ),
+s({trig="ss",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "^{<>}",
+			{i(1)}
+  )
+),
+s({trig="ts",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "^{\\text{<>}}",
+			{i(1)}
+  )
+),
+s({trig="ll",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "_{<>}",
+			{i(1)}
+  )
+),
+s({trig="tl",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "_{\\text{<>}}",
+			{i(1)}
+  )
+),
+
 s({trig="kk",wordTrig=false, snippetType='autosnippet'},
   fmta(
       "(<>)",

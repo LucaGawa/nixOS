@@ -12,7 +12,7 @@ return s({trig="" .. trig, wordTrig=false},
   fmta(
       [[\begin{]] .. expr .. [[*}
 				<>
-\begin{]] .. expr .. [[*}]],
+\end{]] .. expr .. [[*}]],
 			{d(1,get_visual)}
   ),
 	{condition = textzone}
