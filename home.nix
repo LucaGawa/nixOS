@@ -75,8 +75,8 @@ programs.vscode = {
   gtk = {
     enable = true;
     cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
+      package = pkgs.nordzy-cursor-theme;
+      name = "Nordzy-cursors";
       size = 24;
     };
 # font = {
@@ -110,7 +110,7 @@ programs.vscode = {
     };
   };
  
-
+  xdg.configFile."mimeapps.list".force = true;
   xdg.mimeApps = {
 	enable = true;
 	associations.added = {
