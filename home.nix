@@ -1,13 +1,14 @@
-{ config, pkgs, inputs, ... }:
-let
-				customIcons = import ./icons.nix { inherit pkgs; };
-in
+{ config, pkgs, nix-colors, ... }:
+# let
+# 				
+# 				customIcons = import ./icons.nix { inherit pkgs; };
+# in
 {
- # imports = [
-	# 			inputs.nix-colors.homeManagerModules.default
-	# 			];
+ imports = [
+				nix-colors.homeManagerModules.default
+				];
  #
- # colorScheme = inputs.nix-colors.colorSchemes.material;
+ # colorScheme = inputs.nix-colors.colorSchemes.nord;
  home.username = "luca";
  home.homeDirectory = "/home/luca";
 
@@ -152,6 +153,7 @@ programs.vscode = {
 	neodev-nvim
 	gitsigns-nvim 
 	better-escape-nvim
+	nord-nvim
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua
@@ -173,6 +175,7 @@ programs.vscode = {
 	" Use Zathura as the default VimTeX PDF viewer
 	let g:vimtex_view_method = 'zathura'
 	luafile ${./modules/nvim/nvim.lua}
+	colorscheme nord
     '';
 };
 

@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-colors.url = "github:misterio77/nix-colors";
     home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,11 +15,10 @@
 	inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-   nix-colors.url = "github:misterio77/nix-colors";
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... }@nix-colors: 
     let
       system = "x86_64-linux";
       # user = "luca";
@@ -42,7 +42,7 @@
       nixosConfigurations = {
 	laptop = lib.nixosSystem {
           inherit system;
-					specialArgs = { inherit inputs; };
+					specialArgs = { inherit nix-colors; };
           modules = [ 
             ./configuration.nix
 				   ./hosts/laptop/configuration.nix
@@ -58,10 +58,10 @@
 
         desktop = lib.nixosSystem {
           inherit system;
-					specialArgs = { inherit inputs; };
+					specialArgs = { inherit nix-colors; };
           modules = [ 
             ./configuration.nix
-	    ./hosts/desktop/configuration.nix
+				    ./hosts/desktop/configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
