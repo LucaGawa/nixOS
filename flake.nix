@@ -5,7 +5,19 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
-    home-manager = {
+		base16.url = "github:SenchoPens/base16.nix";
+
+base16-schemes = {
+    url = "github:base16-project/base16-schemes";
+    flake = false;
+  };
+  base16-zathura = {
+    url = "github:haozeke/base16-zathura";
+    flake = false;
+  };
+
+
+		home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -18,7 +30,7 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... }@nix-colors: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... } @ inputs: 
     let
       system = "x86_64-linux";
       # user = "luca";
@@ -42,7 +54,7 @@
       nixosConfigurations = {
 	laptop = lib.nixosSystem {
           inherit system;
-					specialArgs = { inherit nix-colors; };
+					specialArgs = { inherit inputs; };
           modules = [ 
             ./configuration.nix
 				   ./hosts/laptop/configuration.nix
@@ -58,10 +70,14 @@
 
         desktop = lib.nixosSystem {
           inherit system;
-					specialArgs = { inherit nix-colors; };
+					specialArgs = { inherit inputs; };
           modules = [ 
             ./configuration.nix
 				    ./hosts/desktop/configuration.nix
+						# base 16
+						inputs.base16.nixosModule
+						{ scheme = "${inputs.base16-schemes}/nord.yaml"; }
+						./theming.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

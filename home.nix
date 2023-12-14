@@ -5,7 +5,7 @@
 # in
 {
  imports = [
-				nix-colors.homeManagerModules.default
+				# nix-colors.homeManagerModules.default
 				];
  #
  # colorScheme = inputs.nix-colors.colorSchemes.nord;
