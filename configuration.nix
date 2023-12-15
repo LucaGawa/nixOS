@@ -81,7 +81,7 @@ in
   # Network scanning
   services.avahi = {
   	enable = true;
-	nssmdns = true;
+	nssmdns4 = true;
 	publish = {
 		enable = true;
 		addresses = true;
@@ -226,6 +226,7 @@ pkgs.spotify
 pkgs.xwayland
 pkgs.sddm
 pkgs.kitty
+pkgs.alacritty
 pkgs.git
 pkgs.gparted
 pkgs.hyprland
@@ -309,6 +310,7 @@ pkgs.nix-prefetch-git
 pkgs.xdg-desktop-portal-hyprland
 pkgs.swaylock-effects
 pkgs.nordic
+pkgs.scribus
 # pkgs.caps2esc
 # pkgs.swaylock
 ];

@@ -4,6 +4,10 @@
   home-manager.users.luca.programs.zathura.extraConfig =
     builtins.readFile (config.scheme inputs.base16-zathura);
 
+
+  home-manager.users.luca.programs.kitty.extraConfig =
+    builtins.readFile (config.scheme inputs.base16-kitty);
+
   # # Theme `neovim` — more complex, but the principle is the same.
   # home-manager.users.sencho.programs.neovim = {
   #   plugins = [ (pkgs.vimPlugins.base16-vim.overrideAttrs (old:
@@ -23,14 +27,14 @@
   # # Notice that we now use `config.scheme` as an attrset, and that this attrset,
   # # besides from having attributes `base00`...`base0F`, has mnemonic attributes (`red`, etc.) -
   # # read more on that in the next section.
-  # home-manager.users.sencho.programs.alacritty.settings.colors =
-  #   with config.scheme.withHashtag; let default = {
-  #       black = base00; white = base07;
-  #       inherit red green yellow blue cyan magenta;
-  #     };
-  #   in {
-  #     primary = { background = base00; foreground = base07; };
-  #     cursor = { text = base02; cursor = base07; };
-  #     normal = default; bright = default; dim = default;
-  #   };
+  home-manager.users.luca.programs.alacritty.settings.colors =
+    with config.scheme.withHashtag; let default = {
+        black = base00; white = base07;
+        inherit red green yellow blue cyan magenta;
+      };
+    in {
+      primary = { background = base00; foreground = base07; };
+      cursor = { text = base02; cursor = base07; };
+      normal = default; bright = default; dim = default;
+    };
 }

@@ -7,14 +7,22 @@
     nix-colors.url = "github:misterio77/nix-colors";
 		base16.url = "github:SenchoPens/base16.nix";
 
-base16-schemes = {
+  base16-schemes = {
     url = "github:base16-project/base16-schemes";
     flake = false;
   };
   base16-zathura = {
     url = "github:haozeke/base16-zathura";
-    flake = false;
+    flake = false;  
   };
+
+  base16-kitty = {
+    url = "github:kdrag0n/base16-kitty";
+    flake = false;
+
+  
+  };
+
 
 
 		home-manager = {
@@ -76,7 +84,7 @@ base16-schemes = {
 				    ./hosts/desktop/configuration.nix
 						# base 16
 						inputs.base16.nixosModule
-						{ scheme = "${inputs.base16-schemes}/nord.yaml"; }
+						{ scheme = "${inputs.base16-schemes}/mexico-light.yaml"; }
 						./theming.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;

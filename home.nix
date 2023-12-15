@@ -1,21 +1,16 @@
-{ config, pkgs, nix-colors, ... }:
+{ config, pkgs, inputs, ... }:
 # let
 # 				
 # 				customIcons = import ./icons.nix { inherit pkgs; };
 # in
 {
  imports = [
-				# nix-colors.homeManagerModules.default
+				# inputs.nix-colors.homeManagerModules.default
 				];
  #
  # colorScheme = inputs.nix-colors.colorSchemes.nord;
  home.username = "luca";
  home.homeDirectory = "/home/luca";
-
- home.packages = with pkgs; [
-  glib
-  gsettings-desktop-schemas
-];
 
  home.sessionVariables = {
     EDITOR = "nvim";
@@ -30,10 +25,6 @@
       obs-pipewire-audio-capture
     ];
   };
-
-
- 
-  #xsession.numlock.enable = true;
 
   home.file = {
 
@@ -177,6 +168,13 @@ programs.vscode = {
 	luafile ${./modules/nvim/nvim.lua}
 	colorscheme nord
     '';
+};
+
+
+# programs.kitty.
+programs.kitty = {
+				enable = true;
+				  # extraConfig = builtins.readFile (config.scheme inputs.base16-kitty);
 };
 
   programs.fish = {
@@ -501,7 +499,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-		exec-once=wal -i "~/nixOS/wallpaper/road.jpg"
+		exec-once=wal -i "~/nixOS/wallpaper/nordic-mountain-wallpaper.jpg"
 		exec-once=waybar
 		exec-once=waybar -c ~/.config/waybar/config_bottom
 		exec-once=wal -R
