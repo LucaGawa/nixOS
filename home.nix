@@ -5,10 +5,12 @@
 # in
 {
  imports = [
-				# inputs.nix-colors.homeManagerModules.default
+				inputs.nix-colors.homeManagerModules.default
 				];
  #
- # colorScheme = inputs.nix-colors.colorSchemes.nord;
+
+ nixpkgs.config.allowUnfree = true; 
+ colorScheme = inputs.nix-colors.colorSchemes.nord;
  home.username = "luca";
  home.homeDirectory = "/home/luca";
 

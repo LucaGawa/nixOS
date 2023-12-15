@@ -8,7 +8,16 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix 
-    ];
+			inputs.home-manager.nixosModules.default    ];
+   
+
+	 home-manager ={ 
+		 extraSpecialArgs = { inherit inputs; };
+		 users.luca = { 
+                imports = [ ./home.nix ../../home.nix ];
+              };
+            };
+  nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -38,63 +38,47 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, hyprland, ... } @ inputs: 
+  outputs = { self, nixpkgs,  hyprland, ... } @ inputs: 
     let
       system = "x86_64-linux";
       # user = "luca";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgs-stable = import nixpkgs-stable {
-	inherit system;
-	config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
-    in {
-	# overlays = {
-	# 	 add-stable-packages = final: _prev: {
-    	         # stable = import nixpkgs-stable {
-      		 # inherit system;
-    # };
-  # };
-	# };
-      nixosConfigurations = {
-	laptop = lib.nixosSystem {
-          inherit system;
-					specialArgs = { inherit inputs; };
+			pkgs = import nixpkgs {
+			  inherit system;
+				config = {
+				allowUnfree = true;
+				};
+				};
+    in 
+		{
+  nixosConfigurations = {
+	laptop = nixpkgs.lib.nixosSystem {
+				  specialArgs = { inherit inputs; };
           modules = [ 
             ./configuration.nix
-				   ./hosts/laptop/configuration.nix
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.luca = {
-                imports = [ ./home.nix ./hosts/laptop/home.nix ];
-              };
-            }
+				   ./hosts/laptop/configuration.nix 
+					 inputs.home-manager.nixosModules.default
           ];
         };
 
-        desktop = lib.nixosSystem {
-          inherit system;
-					specialArgs = { inherit inputs; };
-          modules = [ 
-            ./configuration.nix
-				    ./hosts/desktop/configuration.nix
-						# base 16
-						inputs.base16.nixosModule
-						{ scheme = "${inputs.base16-schemes}/mexico-light.yaml"; }
-						./theming.nix
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.luca = {
-                imports = [ ./home.nix ./hosts/desktop/home.nix];
-              };
-            }
-          ];
-        };
+     #    desktop = lib.nixosSystem {
+     #      inherit system;
+					# # specialArgs = { inherit inputs; };
+     #      modules = [ 
+     #        ./configuration.nix
+				 #    ./hosts/desktop/configuration.nix
+					# 	# base 16
+					# 	inputs.base16.nixosModule
+					# 	{ scheme = "${inputs.base16-schemes}/mexico-light.yaml"; }
+					# 	./theming.nix
+     #        home-manager.nixosModules.home-manager {
+     #          home-manager.useGlobalPkgs = true;
+     #          home-manager.useUserPackages = true;
+     #          home-manager.users.luca = {
+     #            imports = [ ./home.nix ./hosts/desktop/home.nix];
+     #          };
+     #        }
+     #      ];
+     #    };
     };
     };
 }
