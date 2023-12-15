@@ -9,8 +9,19 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix 
       ./vm.nix
+			inputs.home-manager.nixosModules.default
     ];
-  
+ 
+ 
+  home-manager ={ 
+		 extraSpecialArgs = { inherit inputs; };
+		 users.luca = { 
+                imports = [ ./home.nix ../../home.nix ];
+              };
+            };
+  nixpkgs.config.allowUnfree = true;
+
+
   environment.systemPackages = with pkgs; [ 
 	piper # config mouse
   ];

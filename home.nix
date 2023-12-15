@@ -61,6 +61,16 @@ programs.vscode = {
   ];
 };
 
+# programs.qutebrowser = {
+#       enable = true;
+#       colors = {
+#         # Becomes either 'dark' or 'light', based on your colors!
+#         webppage.preferred_color_scheme = "${config.colorScheme.kind}";
+#         tabs.bar.bg = "#${config.colorScheme.colors.base00}";
+#         keyhint.fg = "#${config.colorScheme.colors.base05}";
+#         # ...
+#       };
+#     };
 
 
   #############################################
@@ -389,6 +399,31 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 			 
 		];
+				
+    general = {
+				  gaps_in = 5;
+			    gaps_out = 20;
+			    border_size = 2;
+			    "col.inactive_border" = "rgba(${config.colorScheme.colors.base03}ff)";
+				  "col.active_border" = "rgba(${config.colorScheme.colors.base07}ff)";
+			    layout = "dwindle";
+		      resize_on_border = true;
+
+		};
+		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
+		exec-once = [
+				"wal -i '~/nixOS/wallpaper/nordic-mountain-wallpaper.jpg'"
+		    "waybar"
+		    "waybar -c ~/.config/waybar/config_bottom"
+		    "wal -R"
+				"hyprpaper"
+				"nm-applet --indicator &"
+				"swaync"
+		    "wl-paste --watch cliphist store"
+				"sleep 1; owncloud"
+		    "rclone mount --network-mode Gdrive:/ ~/Gdrive/"
+		    "bash ~/nixOS/scripts/read_cursor_theme.sh"
+				];
 	};
   	extraConfig = ''
 
@@ -426,19 +461,6 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 			    }
 
 			    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-			}
-
-			general {
-			    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
-			    gaps_in = 5
-			    gaps_out = 20
-			    border_size = 2
-			    col.active_border = rgba(33ccffee)
-			    col.inactive_border = rgba(595959aa)
-
-			    layout = dwindle
-		    resize_on_border = true
 			}
 
 			decoration {
@@ -500,18 +522,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 		# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
 
-		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-		exec-once=wal -i "~/nixOS/wallpaper/nordic-mountain-wallpaper.jpg"
-		exec-once=waybar
-		exec-once=waybar -c ~/.config/waybar/config_bottom
-		exec-once=wal -R
-		exec-once=hyprpaper
-		exec-once=nm-applet --indicator &
-		exec-once=swaync 
-		exec-once=wl-paste --watch cliphist store
-		exec-once=sleep 1; owncloud
-		exec-once=rclone mount --network-mode Gdrive:/ ~/Gdrive/
-		exec-once=bash ~/nixOS/scripts/read_cursor_theme.sh
+
 		  '';
 	  };
 	}

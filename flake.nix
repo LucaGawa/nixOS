@@ -19,8 +19,6 @@
   base16-kitty = {
     url = "github:kdrag0n/base16-kitty";
     flake = false;
-
-  
   };
 
 
@@ -59,6 +57,15 @@
 					 inputs.home-manager.nixosModules.default
           ];
         };
+	desktop = nixpkgs.lib.nixosSystem {
+				  specialArgs = { inherit inputs; };
+          modules = [ 
+            ./configuration.nix
+				   ./hosts/desktop/configuration.nix 
+					 inputs.home-manager.nixosModules.default
+          ];
+        };
+
 
      #    desktop = lib.nixosSystem {
      #      inherit system;
