@@ -10,13 +10,13 @@ vim.g.maplocalleader = ' '
 vim.o.clipboard = 'unnamedplus'
 vim.o.tabstop = 2
 
--- better escape
-require("better_escape").setup {
-		mapping = {"jj"},
-		timeout = vim.o.timeoutlen,
-		clear_empty_lines = false,
-		keys = "<Esc>",
-}
+-- -- better escape
+-- require("better_escape").setup {
+-- 		mapping = {"jj"},
+-- 		timeout = vim.o.timeoutlen,
+-- 		clear_empty_lines = false,
+-- 		keys = "<Esc>",
+-- }
 
 --nvim/after/plugin/lsp.lua
 local on_attach = function(_, bufnr)
@@ -140,6 +140,7 @@ local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
+-- local condition = require("luasnip.extras.expand_conditions")
 --
 -- vim.keymap.set({"i", "s"}, "<A-k>", function ()
 -- 		if ls.expand_or_jumpable() then

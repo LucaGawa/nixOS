@@ -398,6 +398,11 @@ label:focus {
 			height = 16;
       layer = "top";
       position = "bottom";
+			margin-top = 0;
+			margin-bottom = 14;
+			margin-left = 0;
+			margin-right = 0;
+			spacing = 0;
 
       modules-left =  [
     	"custom/spotify"
@@ -588,7 +593,7 @@ label:focus {
     "network"= {
         "format"= "{ifname}";
         "format-wifi"= "   {signalStrength}%";
-        "format-ethernet"= "  {ipaddr}";
+        "format-ethernet"= "󰈀  {ipaddr}";
         "format-disconnected"= "";
 				"tooltip-format"= " {ifname} via {gwaddri}";
         "tooltip-format-wifi"= "   {essid} ({signalStrength}%)";
