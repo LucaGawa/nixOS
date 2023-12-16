@@ -283,9 +283,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 
   xdg.configFile."waybar/scripts".source = ./modules/waybar/scripts;
   xdg.configFile."swaync".source = ./modules/swaync;
-  xdg.configFile."hypr/hyprpaper.conf".source = ./modules/hypr/hyprpaper.conf;
   xdg.configFile."kitty".source = ./modules/kitty;
-  # xdg.configFile."mako/config".source = ./modules/mako/config;
   xdg.configFile."wlogout".source = ./modules/wlogout;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/pakete.sty".source = ./modules/tex/pakete.sty;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/template_xournalpp.tex".source = ./modules/tex/template_xournalpp.tex;

@@ -1,11 +1,7 @@
 local helpers = require('luasnip-helper-funcs')
 local get_visual = helpers.get_visual
-local helpers = require('luasnip-helper-funcs')
 local conditions = require('luasnip-conditions')
-local mathzone = conditions.in_mathzone
-local textzone = conditions.in_textzone
-local get_visual = helpers.get_visual
-
+local in_textzone = conditions.in_textzone
 local function environments(trig,expr)
 -- function for environment snippets like 
 return s({trig="" .. trig, wordTrig=false},
@@ -13,9 +9,9 @@ return s({trig="" .. trig, wordTrig=false},
       [[\begin{]] .. expr .. [[*}
 				<>
 \end{]] .. expr .. [[*}]],
-			{d(1,get_visual)}
-  ),
-	{condition = textzone}
+    {d(1,get_visual)},
+  	{condition = in_textzone }
+)
 )
 end
 

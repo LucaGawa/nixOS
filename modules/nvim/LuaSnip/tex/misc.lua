@@ -1,5 +1,7 @@
 local helpers = require('luasnip-helper-funcs')
 local get_visual = helpers.get_visual
+local conditions = require('luasnip-conditions')
+local in_mathzone = conditions.in_mathzoneocal helpers = require('luasnip-helper-funcs')
 
 return {
 s({trig="ub"},
@@ -14,23 +16,7 @@ s({trig="ub"},
   )
 ),
 
-s({trig="vv",wordTrig=false, snippetType="autosnippet"},
-  t(
-      "\\vb*"
-  )
-),
-s({trig="^",wordTrig=false},
-  fmta(
-      "^{<>}",
-			{i(1)}
-  )
-),
-s({trig="_",wordTrig=false},
-  fmta(
-      "_{<>}",
-			{i(1)}
-  )
-),
+
 s({trig="ss",wordTrig=false, snippetType='autosnippet'},
   fmta(
       "^{<>}",
@@ -56,25 +42,7 @@ s({trig="tl",wordTrig=false, snippetType='autosnippet'},
   )
 ),
 
-s({trig="kk",wordTrig=false, snippetType='autosnippet'},
-  fmta(
-      "(<>)",
-			{i(1)}
-  )
-),
-s({trig="qk",wordTrig=false, snippetType='autosnippet'},
-  fmta(
-      "\\qty(<>)",
-			{i(1)}
-  )
-),
 
-s({trig="sk",wordTrig=false},
-  fmta(
-      "[<>]",
-			{i(1)}
-  )
-),
 s({trig="ee",wordTrig=false, snippetType='autosnippet'},
   fmta(
       "\\e{<>}",
