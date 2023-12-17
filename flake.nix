@@ -36,7 +36,7 @@
 
   };
 
-  outputs = { self, nixpkgs,  hyprland, ... } @ inputs: 
+  outputs = { self, nixpkgs, home-manager,  hyprland, ... } @ inputs: 
     let
       system = "x86_64-linux";
       # user = "luca";
@@ -57,35 +57,35 @@
 					 inputs.home-manager.nixosModules.default
           ];
         };
-	desktop = nixpkgs.lib.nixosSystem {
-				  specialArgs = { inherit inputs; };
-          modules = [ 
-            ./configuration.nix
-				   ./hosts/desktop/configuration.nix 
-					 inputs.home-manager.nixosModules.default
-          ];
-        };
+#	desktop = nixpkgs.lib.nixosSystem {
+#				  specialArgs = { inherit inputs; };
+ #         modules = [ 
+  #          ./configuration.nix
+#				   ./hosts/desktop/configuration.nix 
+#					 inputs.home-manager.nixosModules.default
+ #         ];
+  #      };
 
 
-     #    desktop = lib.nixosSystem {
-     #      inherit system;
-					# # specialArgs = { inherit inputs; };
-     #      modules = [ 
-     #        ./configuration.nix
-				 #    ./hosts/desktop/configuration.nix
-					# 	# base 16
+       desktop = nixpkgs.lib.nixosSystem {
+         inherit system;
+					 specialArgs = { inherit inputs; };
+         modules = [ 
+           ./configuration.nix
+				     ./hosts/desktop/configuration.nix
+				 	# base 16
 					# 	inputs.base16.nixosModule
 					# 	{ scheme = "${inputs.base16-schemes}/mexico-light.yaml"; }
 					# 	./theming.nix
-     #        home-manager.nixosModules.home-manager {
-     #          home-manager.useGlobalPkgs = true;
-     #          home-manager.useUserPackages = true;
-     #          home-manager.users.luca = {
-     #            imports = [ ./home.nix ./hosts/desktop/home.nix];
-     #          };
-     #        }
-     #      ];
-     #    };
+             home-manager.nixosModules.home-manager {
+               home-manager.useGlobalPkgs = true;
+               home-manager.useUserPackages = true;
+               home-manager.users.luca = {
+                 imports = [ ./home.nix ./hosts/desktop/home.nix];
+               };
+             }
+           ];
+         };
     };
     };
 }
