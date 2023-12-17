@@ -42,6 +42,10 @@ function M.in_align()
 	return env("align") or env("align*") or env("aligned")
 end
 
+function M.in_list()
+	return env("itemize") or env("enumarate") or env("itemize*")
+end
+
 function M.line_begin()
 				return require("luasnip.extras.expand_conditions").line_begin
 end

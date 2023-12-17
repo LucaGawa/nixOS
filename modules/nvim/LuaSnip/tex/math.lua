@@ -70,6 +70,9 @@ return {
 				fracSnippet('fdv','fdv'),
 
 				static("da", "^\\dagger"),
+				static("TT", "^\\mathrm{T}"),
+				static("iv", "^{-1}"),
+				static("id", "\\mathds{1}"),
 				static("dd", "\\dd"),
 				static("bb", "\\bar"),
 				static("nn", "\\nabla"),
@@ -97,6 +100,7 @@ return {
 				static("to", "\\to"),
 				static("<<", "\\leftarrow"),
 				static("def", "\\coloneqq"),
+				static("eq", "\\equiv"),
 				static("tr", "\\tr"),
 				static("sin", "\\sin"),
 				static("cos", "\\cos"),
@@ -114,6 +118,26 @@ s({trig="=", wordTrig=false, snippetType="autosnippet"},
 				{condition = tex.in_align }
 ),
 
+s({trig="m21" , wordTrig=false, snippetType='autosnippet' },
+  fmta(
+    "\\mqty(<>\\\\<>)",
+    { i(1), i(2) }),
+{ condition = tex.in_math }
+),
+
+s({trig="m12" , wordTrig=false, snippetType='autosnippet' },
+  fmta(
+    "\\mqty(<>&<>)",
+    { i(1), i(2) }),
+{ condition = tex.in_math }
+),
+
+s({trig="m22" , wordTrig=false, snippetType='autosnippet' },
+  fmta(
+    "\\mqty(<>&<>\\\\<>&<>)",
+    { i(1), i(2), i(3), i(4) }),
+{ condition = tex.in_math }
+),
 
 
 s({trig="([^%a])me" , wordTrig=false, regTrig=true, snippetType="autosnippet"},

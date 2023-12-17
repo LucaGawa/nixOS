@@ -137,6 +137,7 @@ local i = ls.insert_node
 local f = ls.function_node
 local d = ls.dynamic_node
 local extras = require("luasnip.extras")
+local events = require("luasnip.util.events")
 local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
