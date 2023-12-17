@@ -1,8 +1,6 @@
 local helpers = require('luasnip-helper-funcs')
 local get_visual = helpers.get_visual
-local conditions = require('luasnip-conditions')
-local in_mathzone = conditions.in_mathzone
-local in_textzone = conditions.in_textzone
+local tex = require('luasnip-conditions')
 
 
 local function mathDelimiter(trig,open,close)
@@ -12,7 +10,7 @@ local function mathDelimiter(trig,open,close)
 								"".. open .. "<>" .. close,
 								{ d(1, get_visual) }
 				    ),
-						{ condition = in_mathzone }
+						{ condition = tex.in_math }
 				)
 end
 
@@ -23,7 +21,7 @@ local function textDelimiter(trig,open,close)
 								"".. open .. "<>" .. close,
 								{ d(1, get_visual) }
 				    ),
-				   { condition = in_textzone }
+				   { condition = tex.in_text }
 				)
 end
 
@@ -36,7 +34,7 @@ return {
 				mathDelimiter("ck","{","}"),
 				--
 				textDelimiter("kk","(",")"),
-				textDelimiter("sk","[","]"),
-				textDelimiter("qc","\\{","\\}"),
-				textDelimiter("ck","{","}"),
+				textDelimiter("ssk","[","]"),
+				textDelimiter("qqc","\\{","\\}"),
+				textDelimiter("cck","{","}"),
 }

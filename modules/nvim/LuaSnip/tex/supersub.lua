@@ -17,7 +17,7 @@ end
 
 
 return{
-supersub("ss","^{<>}"),
+supersub("aa","^{<>}"),
 supersub("ts","^{\\text{<>}}"),
 supersub("ll","_{<>}"),
 supersub("tl","_{\\text{<>}}"),

@@ -63,6 +63,8 @@ let
 	  braket
 		tikz-feynman
 		luatex85
+		# esint
+		ulem
   ; });
 
 in

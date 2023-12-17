@@ -48,7 +48,22 @@ local function quantum(trig,expr)
 
 end
 
+local function functions(expr,open,close)
+				-- function for snippets like bra, ket, expval
+  return s({trig="\\" .. expr .. open , wordTrig=false, snippetType='autosnippet' },
+  fmta(
+    "\\".. expr .. open .. "<>" .. close,
+    { d(1,get_visual) }),
+{ condition = tex.in_math }
+)
+end
+
 return {
+				functions('tr','(',')'),
+				functions('tr','{','}'),
+				functions('tr','[',']'),
+				-- functions('t',
+
 				fracSnippet('ff','frac'),
 				fracSnippet('dv','dv'),
 				fracSnippet('pdv','pdv'),
@@ -56,6 +71,9 @@ return {
 
 				static("da", "^\\dagger"),
 				static("dd", "\\dd"),
+				static("bb", "\\bar"),
+				static("nn", "\\nabla"),
+				static("pp", "\\partial"),
 				static("\\dd2", "\\dd[2]"),
 				static("\\dd3", "\\dd[3]"),
 				static("\\dd4", "\\dd[4]"),
@@ -67,15 +85,28 @@ return {
 				static("LL", "\\mathcal{L}"),
 				static("OO", "\\mathcal{O}"),
 				static("vv", "\\vb*"),
-				static("hh", "\\hat "),
+				static("hh", "\\hat"),
+				static("ti", "\\tilde"),
+				-- static("\\tilde", "\\tilde"),
 				static("in", "\\int"),
 				static("ss", "\\sum"),
 				static("hb", "\\hbar"),
 				static("00", "\\infty"),
 				static("...", "\\ldots"),
 				static(">>", "\\Rightarrow"),
+				static("to", "\\to"),
 				static("<<", "\\leftarrow"),
 				static("def", "\\coloneqq"),
+				static("tr", "\\tr"),
+				static("sin", "\\sin"),
+				static("cos", "\\cos"),
+				static("tan", "\\tan"),
+				static("exp", "\\exp"),
+				static("ii", "\\ii"),
+				static("el", "\\in"),
+				static("RR", "\\mathbb{R}"),
+				static("NN", "\\mathbb{N}"),
+
 				
 
 s({trig="=", wordTrig=false, snippetType="autosnippet"},
