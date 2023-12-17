@@ -50,6 +50,16 @@
     };
   };
 
+
+programs.zathura = {
+				enable = true;
+				options = {
+				"window-title-home-tilde" = true;
+				"statusbar-home-tilde" = true;
+				"synctex-editor-command" = "nvr --remote-silent %f -c %l";
+				};
+};
+
 programs.vscode = {
   enable = true;
   # package = pkgs.vscodium;
@@ -179,6 +189,8 @@ programs.vscode = {
 	syntax enable
 	" Use Zathura as the default VimTeX PDF viewer
 	let g:vimtex_view_method = 'zathura'
+	let g:vimtex_compiler_progname = 'nvr'
+  let g:tex_flavor = 'latex'
 	luafile ${./modules/nvim/nvim.lua}
 	colorscheme nord
     '';
