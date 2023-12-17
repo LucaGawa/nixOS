@@ -125,6 +125,7 @@ wayland.windowManager.hyprland = {
 				"sleep 1; owncloud"
 		    "rclone mount --network-mode Gdrive:/ ~/Gdrive/"
 		    "bash ~/nixOS/scripts/read_cursor_theme.sh"
+				"lxqt-policykit-agent"
 				];
      
 		 input = {

@@ -277,7 +277,8 @@ pkgs.brightnessctl
 pkgs.libreoffice-still
 pkgs.wireplumber
 pkgs.vifm
-# pkgs.#libsforqt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
+# pkgs.libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
+pkgs.lxqt.lxqt-policykit
 (pkgs.python3.withPackages my-python-packages)
 latex
 # pkgs.# stable.xournalpp

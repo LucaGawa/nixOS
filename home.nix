@@ -8,6 +8,7 @@
 				inputs.nix-colors.homeManagerModules.default
 				./modules/hyprland/hyprland.nix
 				./modules/waybar.nix
+				./modules/rofi/rofi.nix
 				];
  #
 
@@ -30,10 +31,6 @@
     ];
   };
 
-  home.file = {
-
-  };
-
   programs.git = {
     enable = true;
     userName = "Luca Gawalleck";
@@ -49,7 +46,6 @@
 	};
     };
   };
-
 
 programs.zathura = {
 				enable = true;
