@@ -305,6 +305,7 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;
   xdg.configFile."Thunar/uca.xml".source = ./modules/thunar/uca.xml;
   xdg.configFile."nvim/lua".source = ./modules/nvim/lua;
+  xdg.configFile."nvim/after".source = ./modules/nvim/after;
   xdg.configFile."OpenTabletDriver/settings.json".source = ./modules/opentablet/settings.json;
 	
 
