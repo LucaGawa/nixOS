@@ -18,9 +18,9 @@ end
 local function lists(trig,expr)
 return s({trig="" .. trig, wordTrig=false, snippetType='autosnippet'},
   fmta(
-      [[\begin{]] .. expr .. [[*}
+      [[\begin{]] .. expr .. [[}
 				\item <>
-\end{]] .. expr .. [[*}]],
+\end{]] .. expr .. [[}]],
     {d(1,get_visual)}
 ),
 

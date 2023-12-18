@@ -36,6 +36,8 @@ return{
      mathtext('it', 'intertext'),
      mathtext('uu', 'uline'),
      mathtext('du', 'uuline'),
+     mathtext('mr', 'mathrm'),
+     mathtext('du', 'uuline'),
 s({trig="cal",wordTrig=false},
   fmta(
       "\\mathcal{<>}",
