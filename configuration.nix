@@ -252,7 +252,7 @@ pkgs.binutils
 pkgs.gtk3
 pkgs.pywal
 pkgs.hyprpaper
-# pkgs.mathematica
+pkgs.mathematica
 pkgs.octaveFull
 pkgs.wlogout
 pkgs.fish
