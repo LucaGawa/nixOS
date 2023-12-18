@@ -315,6 +315,7 @@ pkgs.swaylock-effects
 pkgs.nordic
 pkgs.scribus
 pkgs.swaybg
+pkgs.ripgrep
 # pkgs.caps2esc
 # pkgs.swaylock
 ];

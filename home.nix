@@ -165,6 +165,9 @@ programs.vscode = {
 	gitsigns-nvim 
 	better-escape-nvim
 	nord-nvim
+	telescope-nvim
+	harpoon
+	undotree
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua

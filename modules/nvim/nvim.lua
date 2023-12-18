@@ -1,11 +1,10 @@
+require("remap")
 -- pluginlist
 require("Comment").setup()
 require("gitsigns").setup()
 
 -- options
 vim.opt.number = true
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 vim.o.clipboard = 'unnamedplus'
 vim.o.tabstop = 2

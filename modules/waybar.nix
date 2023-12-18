@@ -293,13 +293,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #bluetooth.on, #bluetooth.connected {
-    background-color: @color6;
+    background-color: @color3;
     font-size: 16px;
-    color: @color3;
+    color: @color4;
     border-radius: 15px;
     padding: 2px 10px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
+    border:3px solid @color4; 
 }
 
 #bluetooth.off {
@@ -313,13 +314,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
-    background-color: @color7;
+    background-color: @color3;
     font-size: 16px;
-    color: @color3;
+    color: @color4;
     border-radius: 15px;
     padding: 2px 15px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
+    border:3px solid @color4; 
 }
 
 #battery.charging, #battery.plugged {
@@ -378,13 +380,14 @@ label:focus {
 }
 
 #backlight {
-    background-color: @color4;
+    background-color: @color3;
     font-size: 16px;
     color: @color4;
     border-radius: 15px;
     padding: 2px 15px 0px 10px;
     margin: 5px 15px 5px 0px;
     opacity:0.8;
+    border:3px solid @color4; 
 }
 
 #network {
