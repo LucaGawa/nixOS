@@ -128,8 +128,8 @@ programs.vscode = {
 	associations.added = {
 	"application/pdf" = ["org.gnome.Evince.desktop"];
 	"image/vnd.djvu+multipage"=["org.gnome.Evince.desktop"];
-	"image/jpeg=" ["org.nomacs.ImageLounge.desktop;"];
-	"image/png=" ["org.nomacs.ImageLounge.desktop;"];
+	"image/jpeg"= ["org.nomacs.ImageLounge.desktop;"];
+	"image/png" =["org.nomacs.ImageLounge.desktop;"];
 
 	};
 	defaultApplications = {
