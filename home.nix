@@ -173,6 +173,7 @@ programs.vscode = {
 	telescope-nvim
 	harpoon
 	undotree
+	vim-fugitive
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua
