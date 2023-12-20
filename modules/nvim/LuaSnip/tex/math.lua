@@ -42,7 +42,7 @@ local function quantum(trig,expr)
   return s({trig="" .. trig, wordTrig=false, snippetType='autosnippet' },
   fmta(
     "\\".. expr .. "{<>}",
-    { i(1) }),
+    { d(1,get_visual) }),
 { condition = tex.in_math }
 )
 
@@ -92,7 +92,7 @@ return {
 				static("ti", "\\tilde"),
 				-- static("\\tilde", "\\tilde"),
 				static("in", "\\int"),
-				static("ss", "\\sum"),
+				-- static("ss", "\\sum"),
 				static("pr", "\\prod"),
 				static("hb", "\\hbar"),
 				static("au", "\\uparrow"),
@@ -101,8 +101,10 @@ return {
 				static("qq", "\\quad"),
 				static("...", "\\ldots"),
 				static(">>", "\\Rightarrow"),
+				static("<>", "\\Leftrightarrow"),
+				static("fa", "\\forall"),
 				static("to", "\\to"),
-				static("<<", "\\leftarrow"),
+				static("<<", "\\Leftarrow"),
 				static("def", "\\coloneqq"),
 				static("ap", "\\approx"),
 				static("cc", "\\cdot"),
@@ -160,8 +162,28 @@ s({trig="([^%a])me" , wordTrig=false, regTrig=true, snippetType="autosnippet"},
 		{condition = tex.in_math}
 				),
 
+s({trig="bk" , wordTrig=false, snippetType='autosnippet' },
+  fmta(
+    "\\braket{<>}{<>}",
+    { i(1), i(2) }),
+{ condition = tex.in_math }
+),
+s({trig="com" , wordTrig=false, snippetType='autosnippet' },
+  fmta(
+    "\\qty[<>,<>]",
+    { i(1), i(2) }),
+{ condition = tex.in_math }
+),
 
-sumSimilar("sum","sum"),
+s({trig="ss" , wordTrig=false, snippetType='autosnippet' },
+  fmta(
+    "\\sum_{<>}",
+    { i(1) }),
+{ condition = tex.in_math }
+),
+
+
+sumSimilar("sum_{}","sum"),
 sumSimilar("prod","prod"),
 sumSimilar("int","int"),
 

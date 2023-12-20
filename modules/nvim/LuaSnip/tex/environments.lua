@@ -34,9 +34,25 @@ environments('al','align'),
 lists('it', 'itemize'),
 lists('en', 'enumerate'),
 
+s({trig="dds", wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      [[\begin{description}
+				\item[<>] <>
+\end{description}]],
+    {i(1), i(2)}
+),
+
+  	{condition = tex.in_text and line_begin}
+),
+
 s({trig="ii", wordTrig=false, snippetType="autosnippet"},
 				t("\\item"),
-				{condition = tex.in_text and tex.in_list and line_begin }
+				{condition = tex.in_text and tex.in_list and line_begin and not tex.in_description }
+),
+
+s({trig="ii", wordTrig=false, snippetType="autosnippet"},
+				t("\\item"),
+				{condition = tex.in_text and tex.in_description and line_begin }
 ),
 
 

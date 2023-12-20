@@ -15,6 +15,12 @@ s({trig="ub"},
   )
 ),
 
+s({trig="lb",wordTrig=false, snippetType='autosnippet'},
+  fmta(
+      "\\label{<>}",
+			{i(1)}
+  )
+),
 
 
 

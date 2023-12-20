@@ -32,6 +32,7 @@ return{
      text('tii','textit'),
      text('tss','textsc'),
      text('uu','underline'),
+     text('"','enquote'),
      mathtext('tt', 'text'),
      mathtext('it', 'intertext'),
      mathtext('uu', 'uline'),

@@ -43,7 +43,11 @@ function M.in_align()
 end
 
 function M.in_list()
-	return env("itemize") or env("enumarate") or env("itemize*")
+	return env("itemize") or env("enumarate")
+end
+
+function M.in_description()
+	return env("description")
 end
 
 function M.line_begin()
