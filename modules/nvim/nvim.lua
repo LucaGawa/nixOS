@@ -30,6 +30,7 @@ smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '
 ]]
 
 
+require('luasnip')
 local ls = require("luasnip")
 local s = ls.snippet
 local sn = ls.snippet_node

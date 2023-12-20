@@ -76,4 +76,22 @@ s({trig="emm", snippetType="autosnippet"},
     }
   )
 ),
+s({trig="cas", snippetType="autosnippet", wordTrig=false},
+  fmta(
+    [[
+      \begin{cases}
+          <> & <> \\
+          <> & <> 
+       \end{cases}
+    ]],
+    {
+      i(1),
+      i(2),
+      i(3),
+      i(4),
+    }
+  ),
+  { condition = tex.in_math }
+),
+
 }
