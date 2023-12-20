@@ -162,6 +162,7 @@ programs.vscode = {
 	luasnip # Snipets
 	deoplete-nvim
 	nvim-lspconfig #communtication with language server	
+	# lsp-zero-nvim
 	nvim-cmp #completion
 	cmp-nvim-lsp
 	cmp_luasnip
