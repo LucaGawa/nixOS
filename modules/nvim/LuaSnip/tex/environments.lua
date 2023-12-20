@@ -32,6 +32,7 @@ environments('eq','equation'),
 environments('ga','gather'),
 environments('al','align'),
 lists('it', 'itemize'),
+lists('en', 'enumerate'),
 
 s({trig="ii", wordTrig=false, snippetType="autosnippet"},
 				t("\\item"),
@@ -44,7 +45,7 @@ s({trig="mm", snippetType='autosnippet'},
      [[
        $<>$
      ]],
-     { i(1) }
+     { d(1, get_visual) }
   )
 ),
 s({trig="env", snippetType="autosnippet"},

@@ -37,6 +37,7 @@ return{
      mathtext('uu', 'uline'),
      mathtext('du', 'uuline'),
      mathtext('mr', 'mathrm'),
+     mathtext('mbb', 'mathbb'),
      mathtext('du', 'uuline'),
 s({trig="cal",wordTrig=false},
   fmta(
