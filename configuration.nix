@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, pkgs-stable, lib, ... }:
+ {inputs, config, pkgs, pkgs-stable, lib, ... }:
 
 let
   my-python-packages = ps: with ps; [
@@ -316,8 +316,8 @@ pkgs.swaylock-effects
 pkgs.nordic
 pkgs.scribus
 pkgs.swaybg
-pkgs.ripgrep
-# pkgs.caps2esc
+pkgs.ripgrep # for grep with nvim
+pkgs.julia-bin
 # pkgs.swaylock
 ];
 # with pkgs-stable;

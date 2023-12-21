@@ -12,7 +12,6 @@
         inputs.xremap-flake.homeManagerModules.default
 				];
  #
-
  nixpkgs.config.allowUnfree = true; 
  colorScheme = inputs.nix-colors.colorSchemes.nord;
  home.username = "luca";
@@ -37,7 +36,7 @@
                     alone = "Esc";
                     alone_timeout_millis = 150;
                     };
-                   "AppSelect" = "Esc";
+                   "Menu" = "Esc";
             };
             }
         ];
@@ -197,7 +196,7 @@ programs.vscode = {
 	friendly-snippets # bunch of snippets
 	neodev-nvim
 	gitsigns-nvim 
-	better-escape-nvim
+	# better-escape-nvim
 	nord-nvim
 	telescope-nvim
 	harpoon
