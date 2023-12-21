@@ -243,7 +243,6 @@ programs.kitty = {
 		latexmk = "latexmk -pdf";
 		vim = "nvim";
 		vi = "nvim";
-		ls = "exa --icons";
 		icat = "kitty +kitten icat";
 		cat = "bat";
 		update = "sudo nix flake update ~/nixOS/";
@@ -253,6 +252,8 @@ programs.kitty = {
 	};
   shellAliases = {
     vf="bash nixOS/scripts/fzf.sh";
+		ls = "exa --icons";
+		tree = "exa --tree --icons";
     # vf="nvim '$(fzf --preview=''bat --color=always --style=plain {}'' --bind K:preview-up,J:preview-down --prompt ''Please select a file to edit: '')'";
   };
 	interactiveShellInit = ''

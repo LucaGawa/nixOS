@@ -260,6 +260,8 @@ pkgs.fish
 pkgs.starship
 pkgs.eza #ls replacement
 pkgs.bat #cat replacement
+pkgs.zoxide #cd replacement
+pkgs.entr # run code on every save
 pkgs.neofetch
 pkgs.wlr-randr
 pkgs.wdisplays
