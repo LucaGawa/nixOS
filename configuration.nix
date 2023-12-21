@@ -318,6 +318,7 @@ pkgs.scribus
 pkgs.swaybg
 pkgs.ripgrep # for grep with nvim
 pkgs.julia-bin
+pkgs.fzf
 # pkgs.swaylock
 ];
 # with pkgs-stable;

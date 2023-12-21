@@ -19,8 +19,9 @@ local function mathtext(trig,expr)
 -- function for text snippets like \textit{}
 				return s({trig="" .. trig, wordTrig=false, snippetType='autosnippet'},
   fmta(
-      "\\" .. expr .. "{<>}",
-			{d(1,get_visual)}
+      "\\" .. expr .. "{<>}<>",
+			{d(1,get_visual),
+       i(0)}
   ),
 {condition = tex.in_math}
 	)
@@ -40,6 +41,7 @@ return{
      mathtext('mr', 'mathrm'),
      mathtext('mbb', 'mathbb'),
      mathtext('du', 'uuline'),
+     mathtext('ov', 'overline'),
 s({trig="cal",wordTrig=false},
   fmta(
       "\\mathcal{<>}",

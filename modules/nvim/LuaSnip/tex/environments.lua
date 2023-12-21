@@ -110,5 +110,18 @@ s({trig="cas", snippetType="autosnippet", wordTrig=false},
   ),
   { condition = tex.in_math }
 ),
+s({trig="report"},
+  fmta(
+    [[\documentclass[english]{scrreprt}
+    \usepackage{pakete}
+      \begin{document}
+          <>
+      \end{document}
+    ]],
+    {
+      i(1),
+    }
+  )
+),
 
 }

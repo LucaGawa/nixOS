@@ -18,6 +18,28 @@
 \usepackage{ulem}
 
 
+\usetikzlibrary{decorations.markings}
+\tikzset{
+    set arrow inside/.code={\pgfqkeys{/tikz/arrow inside}{#1}},
+    set arrow inside={end/.initial=>, opt/.initial=},
+    /pgf/decoration/Mark/.style={
+        mark/.expanded=at position #1 with
+        {
+            \noexpand\arrow[\pgfkeysvalueof{/tikz/arrow inside/opt}]{\pgfkeysvalueof{/tikz/arrow inside/end}}
+        }
+    },
+    arrow inside/.style 2 args={
+        set arrow inside={#1},
+        postaction={
+            decorate,decoration={
+                markings,Mark/.list={#2}
+            }
+        }
+    },
+}\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+
+
 
 % \RequirePackage[backend=biber, style=numeric, noerroretextools=true]{biblatex} %Literaturverweise
 % \RequirePackage{physics}				      % Physikalische Symbole u. Einheiten		

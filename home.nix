@@ -34,9 +34,9 @@
                     {
                     held = "leftctrl";
                     alone = "Esc";
-                    alone_timeout_millis = 150;
+                    alone_timeout_millis = 500;
                     };
-                   "Menu" = "Esc";
+                   KEY_APPSELECT = "Esc";
             };
             }
         ];
@@ -251,6 +251,10 @@ programs.kitty = {
 		home = "nvim ~/nixOS/home.nix";
 		hyprland = "nvim ~/nixOS/modules/hyprland/hyprland.nix";
 	};
+  shellAliases = {
+    vf="bash nixOS/scripts/fzf.sh";
+    # vf="nvim '$(fzf --preview=''bat --color=always --style=plain {}'' --bind K:preview-up,J:preview-down --prompt ''Please select a file to edit: '')'";
+  };
 	interactiveShellInit = ''
 		if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -318,7 +322,6 @@ alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 
 #fixes
 alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
-
 
 	'';
   };
