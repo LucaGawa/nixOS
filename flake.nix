@@ -5,7 +5,8 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
-		base16.url = "github:SenchoPens/base16.nix";
+		# base16.url = "github:SenchoPens/base16.nix";
+    xremap-flake.url = "github:xremap/nix-flake";
 
   base16-schemes = {
     url = "github:base16-project/base16-schemes";
@@ -54,7 +55,13 @@
           modules = [ 
             ./configuration.nix
 				   ./hosts/laptop/configuration.nix 
-					 inputs.home-manager.nixosModules.default
+             home-manager.nixosModules.home-manager {
+               home-manager.useGlobalPkgs = true;
+               home-manager.useUserPackages = true;
+               home-manager.users.luca = {
+                 imports = [ ./home.nix ./hosts/laptop/home.nix];
+               };
+             }
           ];
         };
 #	desktop = nixpkgs.lib.nixosSystem {
@@ -73,10 +80,6 @@
          modules = [ 
            ./configuration.nix
 				     ./hosts/desktop/configuration.nix
-				 	# base 16
-					# 	inputs.base16.nixosModule
-					# 	{ scheme = "${inputs.base16-schemes}/mexico-light.yaml"; }
-					# 	./theming.nix
              home-manager.nixosModules.home-manager {
                home-manager.useGlobalPkgs = true;
                home-manager.useUserPackages = true;

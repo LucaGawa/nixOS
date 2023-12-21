@@ -70,7 +70,7 @@ let
 in
 {
 
-  # Configure network proxy if necessary
+   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
@@ -96,8 +96,10 @@ in
   	enable = true;
 	daemon.enable = true;
 	};
- 
 
+  hardware.uinput.enable = true;
+  users.groups.vinput.members = [ "luca" ];
+  users.groups.input.members = [ "luca" ];
    
   #Enable bluetooth
   hardware.bluetooth.enable = true;

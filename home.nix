@@ -9,6 +9,7 @@
 				./modules/hyprland/hyprland.nix
 				./modules/waybar.nix
 				./modules/rofi/rofi.nix
+        inputs.xremap-flake.homeManagerModules.default
 				];
  #
 
@@ -21,6 +22,33 @@
     EDITOR = "nvim";
     BROWSER = "firefox";
   };
+
+
+  services.xremap = {
+    withHypr = true;
+    config = {
+        modmap = [
+        {
+            name = "Global";
+            remap = {
+                "CapsLock" = 
+                    {
+                    held = "leftctrl";
+                    alone = "Esc";
+                    alone_timeout_millis = 150;
+                    };
+                   "AppSelect" = "Esc";
+            };
+            }
+        ];
+    };
+
+  };
+
+
+ home.packages = with pkgs; [
+    inputs.xremap-flake.packages.${system}.default
+ ];
 
  programs.obs-studio = {
     enable = true;

@@ -132,7 +132,7 @@ wayland.windowManager.hyprland = {
 				kb_layout = "us";
 		    kb_variant = "altgr-intl";
 		    # kb_model =
-		    kb_options = "nodeadkeys, caps:escape";
+		    kb_options = "nodeadkeys";
 		    # kb_rules =
 
 		    follow_mouse = 1;
