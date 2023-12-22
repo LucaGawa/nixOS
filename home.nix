@@ -345,6 +345,8 @@ alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
   xdg.configFile."nvim/lua".source = ./modules/nvim/lua;
   xdg.configFile."nvim/after".source = ./modules/nvim/after;
   xdg.configFile."OpenTabletDriver/settings.json".source = ./modules/opentablet/settings.json;
+  xdg.configFile."vifm/vifmrc".source = ./modules/vifm/vifmrc;
+  xdg.configFile."vifm/colors/nord.vifm".source = ./modules/vifm/nord.vifm;
 	
 
 
