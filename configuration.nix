@@ -65,6 +65,8 @@ let
 		luatex85
 		# esint
 		ulem
+    simpler-wick
+    simplewick
   ; });
 
 in
@@ -79,7 +81,7 @@ in
 
   # Enable scanning
   hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin pkgs.epkowa ];
   # Network scanning
   services.avahi = {
   	enable = true;
@@ -89,8 +91,14 @@ in
 		addresses = true;
 		userServices = true;
       	};
+        openFirewall = true;
   };
 
+# Enable CUPS to print documents.
+  services.printing = {
+    enable = true;
+    browsing = true;  
+  };
   #support for wacom tablet
   hardware.opentabletdriver = {
   	enable = true;
@@ -167,8 +175,7 @@ in
   # Configure console keymap
   console.keyMap = "us-acentos";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+ 
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -322,6 +329,10 @@ pkgs.swaybg
 pkgs.ripgrep # for grep with nvim
 pkgs.julia-bin
 pkgs.fzf
+pkgs.poppler
+pkgs.termpdfpy
+pkgs.helvetica-neue-lt-std
+# pkgs.pdftotext
 # pkgs.swaylock
 ];
 # with pkgs-stable;
@@ -347,7 +358,7 @@ boot.extraModprobeConfig = ''
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
+     });
     })
     (self: super: {
       nextcloud-client = super.nextcloud-client.override {

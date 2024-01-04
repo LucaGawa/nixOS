@@ -3,7 +3,7 @@ local get_visual = helpers.get_visual
 local tex = require('luasnip-conditions')
 
 local function static(trig,expr)
-				return s({trig="".. trig, wordTrig=false, snippetType="autosnippet"},
+				return s({trig="".. trig, wordTrig=true, snippetType="autosnippet"},
 				t("" .. expr),
 				{condition = tex.in_math }
 )
@@ -39,7 +39,7 @@ end
 
 local function quantum(trig,expr)
 				-- function for snippets like bra, ket, expval
-  return s({trig="" .. trig, wordTrig=false, snippetType='autosnippet' },
+  return s({trig="" .. trig, wordTrig=true, snippetType='autosnippet' },
   fmta(
     "\\".. expr .. "{<>}",
     { d(1,get_visual) }),
@@ -120,6 +120,9 @@ return {
 				static("el", "\\in"),
 				static("RR", "\\mathbb{R}"),
 				static("NN", "\\mathbb{N}"),
+				static("GG", "\\mathcal{G}"),
+				static("CC", "\\mathbb{C}"),
+				static("E", "\\eval"),
 
 				
 
@@ -191,6 +194,6 @@ quantum("ev","expval"),
 quantum("br","bra"),
 quantum("ke","ket"),
 quantum("sq","sqrt"),
-quantum("ab","abs"),
+quantum("abb","abs"),
 
 }

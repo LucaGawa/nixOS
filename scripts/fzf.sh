@@ -4,7 +4,7 @@
 selected_file=$(fzf --preview="bat --color=always --style=plain {}" --bind K:preview-up,J:preview-down --prompt "Please select a file to edit: ")
 
 if [ -n "$selected_file" ]; then
-    vim "$selected_file"
+    nvim "$selected_file"
 fi
 
 

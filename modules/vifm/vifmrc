@@ -12,18 +12,8 @@
 " Command used to edit files in various contexts.  The default is vim.
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
-if executable('vim')
-    set vicmd=vim
-elseif executable('nvim')
-    set vicmd=nvim
-elseif executable('elvis')
-    set vicmd=elvis\ -G\ termcap
-elseif executable('vile')
-    set vicmd=vile
-elseif $EDITOR != ''
-    echo 'Note: using `'.$EDITOR.'` as an editor'
-    let &vicmd = $EDITOR
-endif
+
+set vicmd=nvim
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -91,7 +81,7 @@ set nohlsearch
 set incsearch
 
 " Try to leave some space from cursor to upper/lower border in lists
-set scrolloff=4
+set scrolloff=8
 
 " Don't do too many requests to slow file systems
 if !has('win')
@@ -142,6 +132,8 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
 
+command! v ! ! termpdf.py %f
+
 " ------------------------------------------------------------------------------
 " File types association
 " ------------------------------------------------------------------------------
@@ -178,8 +170,10 @@ command! reload :write | restart full
 " program.  There is also %FOREGROUND, which is useful for entering passwords.
 
 " Pdf
-filextype {*.pdf},<application/pdf> zathura %c %i, apvlv %c, xpdf %c
-fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
+filetype {*.pdf},<application/pdf> zathura %c %i, apvlv %c, xpdf %c
+" fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
+fileviewer {*.pdf} <application/pdf> termpdf.py %f 
+
 
 " PostScript
 filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
@@ -277,8 +271,9 @@ filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
         \ {View in shotwell}
         \ shotwell,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-         \ identify %f
-
+   \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
+    \ %pc
+    \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 " OpenRaster
 filextype *.ora
         \ {Edit in MyPaint}
@@ -407,16 +402,13 @@ filextype */
 " Or leave it for automatic detection
 " fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 
-" Displaying pictures in terminal
-fileviewer *.jpg,*.png shellpic %c
-
 " Open all other files with default system programs (you can also remove all
 " :file[x]type commands above to ensure they don't interfere with system-wide
 " settings).  By default all unknown files are opened with 'vi[x]cmd'
 " uncommenting one of lines below will result in ignoring 'vi[x]cmd' option
 " for unknown file types.
 " For *nix:
-  filetype * xdg-open
+" filetype * xdg-open
 " For OS X:
 " filetype * open
 " For Windows:
@@ -512,7 +504,7 @@ nnoremap ,c :write | edit $MYVIFMRC | restart full<cr>
 
 " Open gvim to edit vifmrc
 if $DISPLAY && executable('gvim')
-    nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
+    nnoremap ,C :!nvim --remote-tab-silent $MYVIFMRC &<cr>
 endif
 
 " Toggle wrap setting on ,w key
@@ -550,7 +542,8 @@ nnoremap <c-u> <c-w>x
 " Export IPC name of current instance as environment variable and use it to
 " communicate with the instance later.
 "
-" It can be used in some shell script that gets run from inside vifm, for
+" It can be used in some shell ncript that gets run from inside vifm, for
+
 " example, like this:
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "

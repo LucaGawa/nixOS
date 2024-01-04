@@ -241,9 +241,7 @@ programs.kitty = {
 	shellAbbrs = {
 		wifi = "nmtui";		
 		latexmk = "latexmk -pdf";
-		vim = "nvim";
-		vi = "nvim";
-		icat = "kitty +kitten icat";
+				icat = "kitty +kitten icat";
 		cat = "bat";
 		update = "sudo nix flake update ~/nixOS/";
 		config = "nvim ~/nixOS/configuration.nix";
@@ -254,8 +252,12 @@ programs.kitty = {
     vf="bash nixOS/scripts/fzf.sh";
 		ls = "exa --icons";
 		tree = "exa --tree --icons";
+    vim = "nvim";
+		vi = "nvim";
+
     # vf="nvim '$(fzf --preview=''bat --color=always --style=plain {}'' --bind K:preview-up,J:preview-down --prompt ''Please select a file to edit: '')'";
   };
+
 	interactiveShellInit = ''
 		if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -264,6 +266,8 @@ end
 starship init fish | source
 
 set fish_greeting
+
+bind -M insert \cy accept-autosuggestion
 
 ### EXPORT ###
 set -x EDITOR nvim 

@@ -16,7 +16,8 @@
 % \usepackage{esint}
 \usepackage{empheq}
 \usepackage{ulem}
-
+\usepackage{simpler-wick}
+\usepackage{simplewick}
 
 \usetikzlibrary{decorations.markings}
 \tikzset{
@@ -246,4 +247,22 @@ urlcolor=blue
 
 
 
+% Formatierung zeug für Lucas, kann im prinzip weg für alle anderen sheets
+\newcommand\EV[1]{
+	\left\langle #1 \right\rangle
+}
+\newcommand\makeheader[0]{\noindent
+	\begin{minipage}{\textwidth}\begin{minipage}{.3\textwidth}\vspace*{\fill}
+			\raggedright\allowbreak
+			\large \mycourse\\\mydate 
+		\end{minipage}\begin{minipage}{.4\textwidth}\centering\allowbreak\normalfont\sffamily\Large\bfseries
+			\LARGE Exercise \mysheet
+		\end{minipage}\begin{minipage}{.3\textwidth}\raggedleft\allowbreak \vspace*{\fill}
+			\scshape \normalsize  \large\myauthor
+		\end{minipage}
+	\end{minipage}
+	\smallskip
+	\hrule
+	\setcounter{chapter}{\mysheet}
+}
 

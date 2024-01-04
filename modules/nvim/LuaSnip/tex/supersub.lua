@@ -18,7 +18,7 @@ end
 
 return{
 supersub("aa","^{<>}"),
-supersub("ta","^{\\text{<>}}"),
+-- supersub("ta","^{\\text{<>}}"), todo nicht, wenn ; davor
 supersub("ll","_{<>}"),
 supersub("tl","_{\\text{<>}}"),
 }

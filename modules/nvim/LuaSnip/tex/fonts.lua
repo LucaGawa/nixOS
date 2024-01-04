@@ -17,7 +17,7 @@ end
 
 local function mathtext(trig,expr)
 -- function for text snippets like \textit{}
-				return s({trig="" .. trig, wordTrig=false, snippetType='autosnippet'},
+				return s({trig="" .. trig, wordTrig=true, snippetType='autosnippet'},
   fmta(
       "\\" .. expr .. "{<>}<>",
 			{d(1,get_visual),
@@ -54,10 +54,10 @@ s({trig="rm",wordTrig=false},
 			{i(1)}
   )
 ),
-s({trig="bb",wordTrig=false},
+s({trig="cb",wordTrig=false},
   fmta(
-      "\\mathbb{<>}",
-			{i(1)}
+      "\\colorbox{yellow}{$<>$}",
+	 		{d(1, get_visual)}
   )
 ),
 

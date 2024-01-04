@@ -16,7 +16,7 @@ return s({trig="" .. trig, wordTrig=false},
 )
 end
 local function lists(trig,expr)
-return s({trig="" .. trig, wordTrig=false, snippetType='autosnippet'},
+return s({trig="" .. trig, wordTrig=true},
   fmta(
       [[\begin{]] .. expr .. [[}
 				\item <>
@@ -32,9 +32,9 @@ environments('eq','equation'),
 environments('ga','gather'),
 environments('al','align'),
 lists('it', 'itemize'),
-lists('en', 'enumerate'),
+-- lists('en', 'enumerate'),
 
-s({trig="dds", wordTrig=false, snippetType='autosnippet'},
+s({trig="dds", wordTrig=true, snippetType='autosnippet'},
   fmta(
       [[\begin{description}
 				\item[<>] <>
@@ -45,16 +45,23 @@ s({trig="dds", wordTrig=false, snippetType='autosnippet'},
   	{condition = tex.in_text and line_begin}
 ),
 
-s({trig="ii", wordTrig=false, snippetType="autosnippet"},
+s({trig="en", wordTrig=true},
+  fmta(
+[[
+\begin{enumerate}[label=(\arabic*)]
+				\item <>
+\end{enumerate}
+]],
+    {i(1)}
+),
+
+  	{condition = tex.in_text and line_begin}
+),
+
+s({trig="ii", wordTrig=true},
 				t("\\item"),
 				{condition = tex.in_text and tex.in_list and line_begin and not tex.in_description }
 ),
-
-s({trig="ii", wordTrig=false, snippetType="autosnippet"},
-				t("\\item"),
-				{condition = tex.in_text and tex.in_description and line_begin }
-),
-
 
 s({trig="mm", snippetType='autosnippet'},
   fmta(
@@ -64,7 +71,7 @@ s({trig="mm", snippetType='autosnippet'},
      { d(1, get_visual) }
   )
 ),
-s({trig="env", snippetType="autosnippet"},
+s({trig="env", wordTrig=true, snippetType="autosnippet"},
   fmta(
     [[
       \begin{<>}
@@ -78,7 +85,7 @@ s({trig="env", snippetType="autosnippet"},
     }
   )
 ),
-s({trig="emm", snippetType="autosnippet"},
+s({trig="emm", wordTrig=true, snippetType="autosnippet"},
   fmta(
     [[
       \begin{subequations}
@@ -93,7 +100,7 @@ s({trig="emm", snippetType="autosnippet"},
     }
   )
 ),
-s({trig="cas", snippetType="autosnippet", wordTrig=false},
+s({trig="cas", snippetType="autosnippet", wordTrig=true},
   fmta(
     [[
       \begin{cases}
