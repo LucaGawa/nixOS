@@ -202,6 +202,7 @@ programs.vscode = {
 	harpoon
 	undotree
 	vim-fugitive
+  # ltex-ls
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua

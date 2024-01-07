@@ -332,6 +332,8 @@ pkgs.fzf
 pkgs.poppler
 pkgs.termpdfpy
 pkgs.helvetica-neue-lt-std
+pkgs.ltex-ls
+pkgs.discord
 # pkgs.pdftotext
 # pkgs.swaylock
 ];

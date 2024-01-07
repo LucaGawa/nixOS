@@ -149,6 +149,63 @@ feynCMc("c5",
 };
 ]]
 ),
+feynCMc("c6",
+   [[
+  \vertex [] (a) ;
+  \vertex [dot, right = of a] (b) {}; 
+  \vertex [dot, right = of b] (c) {}; 
+  \vertex [dot, right = of c] (d) {}; 
+  \vertex [dot, right = of d] (e) {}; 
+  \vertex [right = of e] (f); 
+  \diagram* {
+    (a) -- [fermion]  (b) -- [fermion] (c)
+        -- [fermion] (d) -- [fermion] (e) -- [fermion] (f),
+    (b) -- [photon,half left] (e),
+    (c) -- [photon,half left] (d),
+  };
+]]
+),
+feynCMc("c7",
+   [[
+  \vertex [] (a) ;
+  \vertex [dot,right=of a] (b) {} ; 
+  \vertex [right=of b] (c) ; 
+  \vertex [dot,above=of b] (d) {}; 
+  \vertex [dot, above right=of d] (f) {};
+  \vertex [dot, above left=of d] (g) {};
+  \vertex [above right=of g] (e);
+  \diagram* {
+  (a) -- [fermion]  (b) 
+      -- [fermion] (c),
+  (b) -- [photon] (d),
+  (d) -- [fermion,bend right] (f)
+      -- [fermion, bend right] (e)
+      -- [fermion, bend right] (g)
+      -- [fermion, bend right] (d),
+  (f) -- [photon] (g)
+  };]]
+),
+feynCMc("c8",
+   [[
+  \vertex [dot] (a) {};
+  \vertex [dot,right=of a] (b) {} ; 
+  \vertex [dot, right=of b] (c) {}; 
+  \vertex [dot,above=of b] (d) {}; 
+  \vertex [above=of d] (e) ; 
+  \vertex [right=of c] (f) ;
+  \vertex [left=of a] (g);
+  \diagram* {
+  (g) -- [fermion] (a) 
+      -- [fermion]  (b) 
+      -- [fermion] (c)
+      -- [fermion] (f),
+  (b) -- [photon] (d),
+  (d) -- [fermion,half left] (e)
+      -- [fermion, half left] (d),
+  (a) -- [photon, half left, looseness=4] (c)
+  };
+]]
+  ),
 feynCMd("d1",
    [[
    \vertex [dot] (a) {};

@@ -25,11 +25,10 @@ end
 
 local function sumSimilar(trig,expr)
 				-- function for snippets like sum, prod or int
-  return s({trig="([^%a])" .. trig, wordTrig=false, regTrig=true},
+  return s({trig=trig, wordTrig=true},
   fmta(
-    "<>".. expr .. "_{<>}^{<>}",
-    { f( function(_, snip) return snip.captures[1] end),
-      i(1),
+    expr .. "_{<>}^{<>}",
+    { i(1),
       i(2)}
 	),
 { condition = tex.in_math }
@@ -123,6 +122,8 @@ return {
 				static("GG", "\\mathcal{G}"),
 				static("CC", "\\mathbb{C}"),
 				static("E", "\\eval"),
+				static("<>", "\\lessgtr"),
+				static("><", "\\gtrless"),
 
 				
 
@@ -178,7 +179,7 @@ s({trig="com" , wordTrig=false, snippetType='autosnippet' },
 { condition = tex.in_math }
 ),
 
-s({trig="ss" , wordTrig=false, snippetType='autosnippet' },
+s({trig="ss" , wordTrig=true, snippetType='autosnippet' },
   fmta(
     "\\sum_{<>}",
     { i(1) }),
