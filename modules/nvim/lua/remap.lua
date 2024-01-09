@@ -48,3 +48,11 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true }) -- m
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- dap
+vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>")
+vim.keymap.set("n", "<leader>dpr", function()
+  require('dap-python').test_method()
+end)
+
+

@@ -31,7 +31,10 @@ require('neodev').setup({
 		end
   end,
 })
-require('lspconfig').lua_ls.setup {
+
+local lspconfig = require('lspconfig')
+
+lspconfig.lua_ls.setup({
      on_attach = on_attach,
      capabilities = capabilities,
      Lua = {
@@ -41,5 +44,12 @@ require('lspconfig').lua_ls.setup {
        workspace = { checkThirdParty = false },
        telemetry = { enable = false },
      },
- }
+ })
+
+ lspconfig.pyright.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"python"},
+ })
+
 

@@ -334,6 +334,16 @@ pkgs.termpdfpy
 pkgs.helvetica-neue-lt-std
 pkgs.ltex-ls
 pkgs.discord
+pkgs.fd
+
+# python nvim setup
+pkgs.nodePackages_latest.pyright
+pkgs.mypy
+pkgs.ruff
+pkgs.black
+pkgs.python311Packages.debugpy
+# pkgs.python311Packages.python-lsp-server
+###############################################33
 # pkgs.pdftotext
 # pkgs.swaylock
 ];

@@ -202,7 +202,10 @@ programs.vscode = {
 	harpoon
 	undotree
 	vim-fugitive
-  # ltex-ls
+  null-ls-nvim
+  nvim-dap #for debugger 
+  nvim-dap-python
+  nvim-dap-ui
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua
