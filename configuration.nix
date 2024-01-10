@@ -67,6 +67,7 @@ let
 		ulem
     simpler-wick
     simplewick
+    underscore
   ; });
 
 in
@@ -335,6 +336,7 @@ pkgs.helvetica-neue-lt-std
 pkgs.ltex-ls
 pkgs.discord
 pkgs.fd
+pkgs.pstree
 
 # python nvim setup
 pkgs.nodePackages_latest.pyright

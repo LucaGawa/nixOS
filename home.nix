@@ -206,6 +206,7 @@ programs.vscode = {
   nvim-dap #for debugger 
   nvim-dap-python
   nvim-dap-ui
+  vim-nix
   ];
    extraConfig = ''
    	packadd! nvim-tree.lua
