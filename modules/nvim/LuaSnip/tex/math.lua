@@ -107,6 +107,7 @@ return {
 				static("def", "\\coloneqq"),
 				static("ap", "\\approx"),
 				static("cc", "\\cdot"),
+				static("tm", "\\times"),
 				static("eq", "\\equiv"),
 				static("ne", "\\neq"),
 				static("tr", "\\tr"),
@@ -121,7 +122,7 @@ return {
 				static("NN", "\\mathbb{N}"),
 				static("GG", "\\mathcal{G}"),
 				static("CC", "\\mathbb{C}"),
-				static("E", "\\eval"),
+				static("EV", "\\eval"),
 				static("<>", "\\lessgtr"),
 				static("><", "\\gtrless"),
 
