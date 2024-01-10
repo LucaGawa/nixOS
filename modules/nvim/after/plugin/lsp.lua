@@ -52,4 +52,10 @@ lspconfig.lua_ls.setup({
   filetypes = {"python"},
  })
 
+ -- lspconfig.util.setup()
+-- lspconfig.nil.setup({
+-- on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes = {"nix"},
+--  })
 

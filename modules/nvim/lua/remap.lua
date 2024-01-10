@@ -56,3 +56,13 @@ vim.keymap.set("n", "<leader>dpr", function()
 end)
 
 
+vim.keymap.set("n","<leader>dt", function()
+  require("dapui").toggle()
+end)
+
+vim.keymap.set("n","<leader>dc", function()
+  require('dap').continue()
+end)
+
+
+

@@ -69,11 +69,8 @@ let
     simplewick
     underscore
   ; });
-
-in
-{
-
-   # Configure network proxy if necessary
+in {
+  # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
@@ -82,38 +79,38 @@ in
 
   # Enable scanning
   hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin pkgs.epkowa ];
+  hardware.sane.extraBackends = [pkgs.hplipWithPlugin pkgs.epkowa];
   # Network scanning
   services.avahi = {
-  	enable = true;
-	nssmdns4 = true;
-	publish = {
-		enable = true;
-		addresses = true;
-		userServices = true;
-      	};
-        openFirewall = true;
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      userServices = true;
+    };
+    openFirewall = true;
   };
 
-# Enable CUPS to print documents.
+  # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    browsing = true;  
+    browsing = true;
   };
   #support for wacom tablet
   hardware.opentabletdriver = {
-  	enable = true;
-	daemon.enable = true;
-	};
+    enable = true;
+    daemon.enable = true;
+  };
 
   hardware.uinput.enable = true;
-  users.groups.vinput.members = [ "luca" ];
-  users.groups.input.members = [ "luca" ];
-   
+  users.groups.vinput.members = ["luca"];
+  users.groups.input.members = ["luca"];
+
   #Enable bluetooth
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true; 
-  
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -142,41 +139,38 @@ in
   services.xserver.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
-    theme = "${import ./modules/sddm/sddm-theme.nix { inherit pkgs; }}";
+    theme = "${import ./modules/sddm/sddm-theme.nix {inherit pkgs;}}";
     #autoLogin.enable = true;
     #autoLogin.user = luca;
   };
 
   services.xserver.displayManager.defaultSession = "hyprland";
   programs.hyprland = {
-  	enable = true;
-	xwayland.enable = true;
-	};
+    enable = true;
+    xwayland.enable = true;
+  };
 
   programs.fish.enable = true;
 
   programs.thunar = {
-  	enable = true;
-	plugins = with pkgs.xfce; [
-		thunar-archive-plugin
-		thunar-volman
-		thunar-media-tags-plugin
-		];
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+      thunar-media-tags-plugin
+    ];
   };
   services.tumbler.enable = true; # Thumbnail support for images
 
-
   # Configure keymap in X11
   services.xserver = {
-  	layout = "us";
-	xkbVariant = "altgr-intl";
-	xkbOptions = "nodeadkeys";
-	};
+    layout = "us";
+    xkbVariant = "altgr-intl";
+    xkbOptions = "nodeadkeys";
+  };
 
   # Configure console keymap
   console.keyMap = "us-acentos";
-
- 
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -193,9 +187,7 @@ in
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-  }; 
-    
-
+  };
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
@@ -207,25 +199,26 @@ in
   users.users.luca = {
     isNormalUser = true;
     description = "Luca";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "input" ];
+    extraGroups = ["networkmanager" "wheel" "scanner" "lp" "input"];
     shell = pkgs.fish;
     packages = with pkgs; [
-    #  firefox
-    #  thunderbird
+      #  firefox
+      #  thunderbird
     ];
   };
 
   # Allow unfree packages
   nixpkgs.config = {
-     allowUnfree = true;
+    allowUnfree = true;
   };
 
   environment.sessionVariables = {
-  #Hint electron apps to use wayland
-  # NIXOS_OZONE_WL = "1";
+    #Hint electron apps to use wayland
+    # NIXOS_OZONE_WL = "1";
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+<<<<<<< HEAD
 environment.systemPackages = [
 # pkgs.#neovim 
 pkgs.sway-contrib.grimshot
@@ -337,33 +330,34 @@ pkgs.ltex-ls
 pkgs.discord
 pkgs.fd
 pkgs.pstree
-
-# python nvim setup
-pkgs.nodePackages_latest.pyright
-pkgs.mypy
-pkgs.ruff
-pkgs.black
-pkgs.python311Packages.debugpy
-# pkgs.python311Packages.python-lsp-server
-###############################################33
-# pkgs.pdftotext
-# pkgs.swaylock
-];
-# with pkgs-stable;
-# [
-# 	stable.xournalpp
-# ];
+    # python nvim setup
+    pkgs.nodePackages_latest.pyright
+    pkgs.mypy
+    pkgs.ruff
+    pkgs.black
+    pkgs.python311Packages.debugpy
+    pkgs.alejandra
+    pkgs.nil
+    # pkgs.python311Packages.python-lsp-server
+    ###############################################33
+    # pkgs.pdftotext
+    # pkgs.swaylock
+  ];
+  # with pkgs-stable;
+  # [
+  # 	stable.xournalpp
+  # ];
 
   security.sudo.configFile = ''
-	luca ALL = (ALL) ALL
-        luca ALL = (root) NOPASSWD: /run/current-system/sw/bin/nixos-rebuild
+    luca ALL = (ALL) ALL
+           luca ALL = (root) NOPASSWD: /run/current-system/sw/bin/nixos-rebuild
   '';
 
-boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-boot.kernelModules = [
-  "v4l2loopback"
-];
-boot.extraModprobeConfig = ''
+  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+  boot.kernelModules = [
+    "v4l2loopback"
+  ];
+  boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
 
@@ -371,37 +365,42 @@ boot.extraModprobeConfig = ''
     # (outputs.add-stable-packages)
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-     });
+        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+      });
     })
     (self: super: {
       nextcloud-client = super.nextcloud-client.override {
         withGnomeKeyring = true;
         libgnome-keyring = self.gnome.libgnome-keyring;
       };
-    } )
-    (self: super:
-{
-zoomUsFixed = pkgs.zoom-us.overrideAttrs (old: {
-  postFixup = old.postFixup + ''
-    wrapProgram $out/bin/zoom-us --unset XDG_SESSION_TYPE
-  '';});
-zoom = pkgs.zoom-us.overrideAttrs (old: {
-  postFixup = old.postFixup + ''
-    wrapProgram $out/bin/zoom --unset XDG_SESSION_TYPE
-  '';});
-  }
-  )
+    })
+    (
+      self: super: {
+        zoomUsFixed = pkgs.zoom-us.overrideAttrs (old: {
+          postFixup =
+            old.postFixup
+            + ''
+              wrapProgram $out/bin/zoom-us --unset XDG_SESSION_TYPE
+            '';
+        });
+        zoom = pkgs.zoom-us.overrideAttrs (old: {
+          postFixup =
+            old.postFixup
+            + ''
+              wrapProgram $out/bin/zoom --unset XDG_SESSION_TYPE
+            '';
+        });
+      }
+    )
   ];
-
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-	nerdfonts
-	font-awesome
-	google-fonts
+    nerdfonts
+    font-awesome
+    google-fonts
   ];
-  
+
   #USB Sticks mounting
   services.devmon.enable = true;
   services.udisks2.enable = true;
@@ -409,8 +408,7 @@ zoom = pkgs.zoom-us.overrideAttrs (old: {
 
   # communication between Apps (screen sharing, opening links,...)
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -428,7 +426,6 @@ zoom = pkgs.zoom-us.overrideAttrs (old: {
   # Or disable the firewall altogether.
   #networking.firewall.enable = false;
 
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -441,5 +438,4 @@ zoom = pkgs.zoom-us.overrideAttrs (old: {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
-
 }
