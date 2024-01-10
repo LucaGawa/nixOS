@@ -55,7 +55,6 @@ vim.keymap.set("n", "<leader>dpr", function()
   require('dap-python').test_method()
 end)
 
-
 vim.keymap.set("n","<leader>dt", function()
   require("dapui").toggle()
 end)
@@ -64,5 +63,9 @@ vim.keymap.set("n","<leader>dc", function()
   require('dap').continue()
 end)
 
+vim.keymap.set("n","<leader>dr", function()
+  require('dap').run_last()
+end)
 
+vim.keymap.set("n","<leader>e", "<cmd> NvimTreeToggle <CR>")
 

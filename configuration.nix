@@ -1,74 +1,84 @@
- {inputs, config, pkgs, pkgs-stable, lib, ... }:
-
-let
-  my-python-packages = ps: with ps; [
-	pandas
-	numpy
-	sympy
-	scipy
-	dbus-python #needed for eduroam installer
-	jupyter
-	# python311Packages.jupyter-core
-	matplotlib
-	pygobject3 
-	gst-python
-	tables
-  ];
-  latex = (pkgs.texlive.combine { inherit (pkgs.texlive) 
-	  scheme-basic 
-	  mathtools 
-	  hyperref 
-	  standalone 
-	  varwidth 
-	  scontents 
-	  xcolor 
-	  latexmk 
-	  koma-script 
-	  csquotes 
-	  graphics 
-	  physics 
-	  siunitx 
-	  caption 
-	  cleveref 
-	  oberdiek 
-	  txfonts 
-	  pgf 
-	  l3packages 
-	  moreverb 
-	  listings 
-	  autobreak 
-	  booktabs 
-	  tcolorbox 
-	  mhchem 
-	  chemfig 
-	  enumitem 
-	  autonum 
-	  appendix 
-	  cancel 
-	  doublestroke 
-	  wasysym 
-	  tensor 
-	  carlisle 
-	  environ 
-	  tikzfill 
-	  pdfcol 
-	  listingsutf8 
-	  simplekv 
-	  etextools 
-	  textpos 
-	  letltxmacro 
-	  wasy 
-	  helvetic 
-	  times
-	  braket
-		tikz-feynman
-		luatex85
-		# esint
-		ulem
-    simpler-wick
-    simplewick
-    underscore
-  ; });
+{
+  inputs,
+  config,
+  pkgs,
+  pkgs-stable,
+  lib,
+  ...
+}: let
+  my-python-packages = ps:
+    with ps; [
+      pandas
+      numpy
+      sympy
+      scipy
+      dbus-python #needed for eduroam installer
+      jupyter
+      # python311Packages.jupyter-core
+      matplotlib
+      pygobject3
+      gst-python
+      tables
+    ];
+  latex = pkgs.texlive.combine {
+    inherit
+      (pkgs.texlive)
+      scheme-basic
+      mathtools
+      hyperref
+      standalone
+      varwidth
+      scontents
+      xcolor
+      latexmk
+      koma-script
+      csquotes
+      graphics
+      physics
+      siunitx
+      caption
+      cleveref
+      oberdiek
+      txfonts
+      pgf
+      l3packages
+      moreverb
+      listings
+      autobreak
+      booktabs
+      tcolorbox
+      mhchem
+      chemfig
+      enumitem
+      autonum
+      appendix
+      cancel
+      doublestroke
+      wasysym
+      tensor
+      carlisle
+      environ
+      tikzfill
+      pdfcol
+      listingsutf8
+      simplekv
+      etextools
+      textpos
+      letltxmacro
+      wasy
+      helvetic
+      times
+      braket
+      tikz-feynman
+      luatex85
+      # esint
+      
+      ulem
+      simpler-wick
+      simplewick
+      underscore
+      ;
+  };
 in {
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -218,118 +228,117 @@ in {
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-<<<<<<< HEAD
-environment.systemPackages = [
-# pkgs.#neovim 
-pkgs.sway-contrib.grimshot
-pkgs.wget
-pkgs.brave
-pkgs.firefox-wayland
-pkgs.thunderbird
-pkgs.spotify
-pkgs.xwayland
-pkgs.sddm
-pkgs.kitty
-pkgs.alacritty
-pkgs.git
-pkgs.gparted
-pkgs.hyprland
-pkgs.onlyoffice-bin
-# pkgs.# xfce.thunar
-pkgs.waybar
-# pkgs.#eww-wayland
-pkgs.mako #notification deamon
-pkgs.libnotify #dependency for deamon
-pkgs.rofi-wayland 	
-pkgs.networkmanagerapplet
-pkgs.killall
-pkgs.xfce.mousepad #text edior
-# pkgs.#vscode-with-extensions
-pkgs.flameshot
-pkgs.hyprpicker
-pkgs.unzip
-pkgs.pavucontrol
- pkgs.libgccjit # gnu compiler collection
-pkgs.binutils
-pkgs.gtk3
-pkgs.pywal
-pkgs.hyprpaper
-pkgs.mathematica
-pkgs.octaveFull
-pkgs.wlogout
-pkgs.fish
-pkgs.starship
-pkgs.eza #ls replacement
-pkgs.bat #cat replacement
-pkgs.zoxide #cd replacement
-pkgs.entr # run code on every save
-pkgs.tldr
-pkgs.neofetch
-pkgs.wlr-randr
-pkgs.wdisplays
-pkgs.lshw
-pkgs.libsForQt5.qt5ct
-pkgs.libsForQt5.qt5.qtwayland
-pkgs.qt6.qtwayland
-pkgs.libsForQt5.qt5.qtgraphicaleffects
-pkgs.libsForQt5.qt5.qtquickcontrols2
-pkgs.libva
-pkgs.zoom-us
-pkgs.cliphist
-pkgs.wl-clipboard
-pkgs.playerctl
-pkgs.brightnessctl
-pkgs.libreoffice-still
-pkgs.wireplumber
-pkgs.vifm
-# pkgs.libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
-pkgs.lxqt.lxqt-policykit
-(pkgs.python3.withPackages my-python-packages)
-latex
-# pkgs.# stable.xournalpp
-pkgs.rclone
-pkgs.gnome.adwaita-icon-theme
-# pkgs.#papirus-icon-theme
-pkgs.most #remove perhabs and use alias to map on other pager
-pkgs.owncloud-client
-pkgs.libgnome-keyring
-pkgs.home-manager
-pkgs.evince
-pkgs.nomacs
-pkgs.gimp
-# pkgs.#jdownloader
-pkgs.upower
-pkgs.libimobiledevice-glue
-pkgs.pdfarranger
-pkgs.zathura
-pkgs.xdotool #vimtex forword search dependency
-pkgs.way-displays
-pkgs.qutebrowser
-pkgs.rambox
-# pkgs.#nvd #shows nixos diff packages
-pkgs.htop
-pkgs.swaynotificationcenter
-pkgs.xournalpp
-pkgs.feh
-pkgs.pywal
-pkgs.lynx
-pkgs.lua-language-server
-pkgs.nix-prefetch-git
-pkgs.xdg-desktop-portal-hyprland
-pkgs.swaylock-effects
-pkgs.nordic
-pkgs.scribus
-pkgs.swaybg
-pkgs.ripgrep # for grep with nvim
-pkgs.julia-bin
-pkgs.fzf
-pkgs.poppler
-pkgs.termpdfpy
-pkgs.helvetica-neue-lt-std
-pkgs.ltex-ls
-pkgs.discord
-pkgs.fd
-pkgs.pstree
+  environment.systemPackages = [
+    # pkgs.#neovim
+    pkgs.sway-contrib.grimshot
+    pkgs.wget
+    pkgs.brave
+    pkgs.firefox-wayland
+    pkgs.thunderbird
+    pkgs.spotify
+    pkgs.xwayland
+    pkgs.sddm
+    pkgs.kitty
+    pkgs.alacritty
+    pkgs.git
+    pkgs.gparted
+    pkgs.hyprland
+    pkgs.onlyoffice-bin
+    # pkgs.# xfce.thunar
+    pkgs.waybar
+    # pkgs.#eww-wayland
+    pkgs.mako #notification deamon
+    pkgs.libnotify #dependency for deamon
+    pkgs.rofi-wayland
+    pkgs.networkmanagerapplet
+    pkgs.killall
+    pkgs.xfce.mousepad #text edior
+    # pkgs.#vscode-with-extensions
+    pkgs.flameshot
+    pkgs.hyprpicker
+    pkgs.unzip
+    pkgs.pavucontrol
+    pkgs.libgccjit # gnu compiler collection
+    pkgs.binutils
+    pkgs.gtk3
+    pkgs.pywal
+    pkgs.hyprpaper
+    pkgs.mathematica
+    pkgs.octaveFull
+    pkgs.wlogout
+    pkgs.fish
+    pkgs.starship
+    pkgs.eza #ls replacement
+    pkgs.bat #cat replacement
+    pkgs.zoxide #cd replacement
+    pkgs.entr # run code on every save
+    pkgs.tldr
+    pkgs.neofetch
+    pkgs.wlr-randr
+    pkgs.wdisplays
+    pkgs.lshw
+    pkgs.libsForQt5.qt5ct
+    pkgs.libsForQt5.qt5.qtwayland
+    pkgs.qt6.qtwayland
+    pkgs.libsForQt5.qt5.qtgraphicaleffects
+    pkgs.libsForQt5.qt5.qtquickcontrols2
+    pkgs.libva
+    pkgs.zoom-us
+    pkgs.cliphist
+    pkgs.wl-clipboard
+    pkgs.playerctl
+    pkgs.brightnessctl
+    pkgs.libreoffice-still
+    pkgs.wireplumber
+    pkgs.vifm
+    # pkgs.libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
+    pkgs.lxqt.lxqt-policykit
+    (pkgs.python3.withPackages my-python-packages)
+    latex
+    # pkgs.# stable.xournalpp
+    pkgs.rclone
+    pkgs.gnome.adwaita-icon-theme
+    # pkgs.#papirus-icon-theme
+    pkgs.most #remove perhabs and use alias to map on other pager
+    pkgs.owncloud-client
+    pkgs.libgnome-keyring
+    pkgs.home-manager
+    pkgs.evince
+    pkgs.nomacs
+    pkgs.gimp
+    # pkgs.#jdownloader
+    pkgs.upower
+    pkgs.libimobiledevice-glue
+    pkgs.pdfarranger
+    pkgs.zathura
+    pkgs.xdotool #vimtex forword search dependency
+    pkgs.way-displays
+    pkgs.qutebrowser
+    pkgs.rambox
+    # pkgs.#nvd #shows nixos diff packages
+    pkgs.htop
+    pkgs.swaynotificationcenter
+    pkgs.xournalpp
+    pkgs.feh
+    pkgs.pywal
+    pkgs.lynx
+    pkgs.lua-language-server
+    pkgs.nix-prefetch-git
+    pkgs.xdg-desktop-portal-hyprland
+    pkgs.swaylock-effects
+    pkgs.nordic
+    pkgs.scribus
+    pkgs.swaybg
+    pkgs.ripgrep # for grep with nvim
+    pkgs.julia-bin
+    pkgs.fzf
+    pkgs.poppler
+    pkgs.termpdfpy
+    pkgs.helvetica-neue-lt-std
+    pkgs.ltex-ls
+    pkgs.discord
+    pkgs.fd
+    pkgs.pstree
     # python nvim setup
     pkgs.nodePackages_latest.pyright
     pkgs.mypy
