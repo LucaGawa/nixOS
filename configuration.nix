@@ -77,6 +77,15 @@
       simpler-wick
       simplewick
       underscore
+      biblatex
+      placeins
+      gensymb
+      fontspec
+      tocloft
+      setspace
+      biber
+      # Arial
+      
       ;
   };
 in {
@@ -347,6 +356,7 @@ in {
     pkgs.python311Packages.debugpy
     pkgs.alejandra
     pkgs.nil
+    pkgs.zip
     # pkgs.python311Packages.python-lsp-server
     ###############################################33
     # pkgs.pdftotext

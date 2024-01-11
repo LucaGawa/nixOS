@@ -207,6 +207,7 @@
       vim-nix
       lualine-nvim
       lualine-lsp-progress
+      nvim-julia-autotest
     ];
     extraConfig = ''
         	packadd! nvim-tree.lua
@@ -349,7 +350,7 @@
   xdg.configFile."xournalpp/settings.xml".source = ./modules/xournalpp/settings.xml;
   xdg.configFile."rofi".source = ./modules/rofi;
   xdg.configFile."Code/User/keybindings.json".source = ./modules/code/keybindings.json;
-  xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;
+  # xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;
   xdg.configFile."Thunar/uca.xml".source = ./modules/thunar/uca.xml;
   xdg.configFile."nvim/lua".source = ./modules/nvim/lua;
   xdg.configFile."nvim/after".source = ./modules/nvim/after;
