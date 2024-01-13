@@ -4,6 +4,13 @@ local null_ls = require('null-ls')
 null_ls.setup({
 sources = {
   null_ls.builtins.formatting.black,
+  null_ls.builtins.formatting.latexindent.with({
+    extra_args = {
+        '-l',
+        '/home/luca/.config/latexindent/.indentconfig.yaml',
+    },
+  }),
+  null_ls.builtins.formatting.lua_format,
   null_ls.builtins.formatting.alejandra,
   null_ls.builtins.diagnostics.mypy,
   null_ls.builtins.diagnostics.ruff,

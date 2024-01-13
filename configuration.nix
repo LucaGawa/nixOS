@@ -86,6 +86,7 @@
       biber
       # Arial
       
+      latexindent
       ;
   };
 in {
@@ -357,6 +358,9 @@ in {
     pkgs.alejandra
     pkgs.nil
     pkgs.zip
+
+    # pkgs.perl536Packages.LatexIndent #latex formatter
+    pkgs.luaformatter
     # pkgs.python311Packages.python-lsp-server
     ###############################################33
     # pkgs.pdftotext
