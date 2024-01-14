@@ -55,11 +55,11 @@ lspconfig.ltex.setup({
     filetypes = {"tex"}
 })
 
-lspconfig.texlab.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = {"tex"}
-})
+-- lspconfig.texlab.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     filetypes = {"tex"}
+-- })
 
 -- lspconfig.util.setup()
 -- lspconfig.nil.setup({

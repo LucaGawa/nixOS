@@ -59,7 +59,8 @@ return {
     static("ti", "\\tilde"), static("do", "\\dot"), -- static("\\tilde", "\\tilde"),
     static("in", "\\int"), -- static("ss", "\\sum"),
     static("pr", "\\prod"), static("hb", "\\hbar"), static("au", "\\uparrow"),
-    static("ad", "\\downarrow"), static("oo", "\\infty"),
+    static("ad", "\\downarrow"), static("ar", "\\rightarrow"),
+    static("al", "\\leftarrow"), static("oo", "\\infty"),
     static("qq", "\\quad"), static("...", "\\ldots"),
     static(">>", "\\Rightarrow"), static("<>", "\\Leftrightarrow"),
     static("fa", "\\forall"), static("to", "\\to"), static("<<", "\\Leftarrow"),
@@ -106,8 +107,16 @@ return {
     s({trig = "com", wordTrig = false, snippetType = 'autosnippet'},
       fmta("\\qty[<>,<>]", {i(1), i(2)}), {condition = tex.in_math}),
 
+    s({trig = "acm", wordTrig = false, snippetType = 'autosnippet'},
+      fmta("\\qty{<>,<>}", {i(1), i(2)}), {condition = tex.in_math}),
     s({trig = "ss", wordTrig = true, snippetType = 'autosnippet'},
       fmta("\\sum_{<>}", {i(1)}), {condition = tex.in_math}),
+
+    s({trig = "\\Sigm^{a}", wordTrig = false, snippetType = 'autosnippet'},
+      fmta("\\Sigma^{<>}", {i(1)}), {condition = tex.in_math}),
+
+    s({trig = "\\sigm^{a}", wordTrig = false, snippetType = 'autosnippet'},
+      fmta("\\sigma^{<>}", {i(1)}), {condition = tex.in_math}),
 
     sumSimilar("sum_{}", "sum"), sumSimilar("prod", "prod"),
     sumSimilar("int", "int"), quantum("ev", "expval"), quantum("br", "bra"),

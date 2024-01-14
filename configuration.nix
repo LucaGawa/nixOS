@@ -86,6 +86,7 @@
       biber
       # Arial
       
+      texcount
       latexindent
       ;
   };
@@ -363,6 +364,9 @@ in {
     pkgs.luaformatter
     pkgs.ltex-ls #lsp server latex
     pkgs.texlab #lsp server latex
+    pkgs.tectonic
+    pkgs.pplatex
+    pkgs.entr
     # pkgs.python311Packages.python-lsp-server
     ###############################################33
     # pkgs.pdftotext

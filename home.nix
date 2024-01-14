@@ -208,9 +208,10 @@
       lualine-nvim
       lualine-lsp-progress
       nvim-julia-autotest
+      which-key-nvim
     ];
     extraConfig = ''
-        	packadd! nvim-tree.lua
+      packadd! nvim-tree.lua
       lua require("nvim-tree").setup()
       autocmd FileType nix setlocal commentstring=#\ %s
            	set cc=80
@@ -218,7 +219,8 @@
            	if &diff
              	colorscheme blue
            	endif
-           	" This is necessary for VimTeX to load properly. The "indent" is optional.
+
+      " This is necessary for VimTeX to load properly. The "indent" is optional.
       " Note that most plugin managers will do this automatically.
       filetype plugin indent on
 
@@ -228,8 +230,16 @@
       syntax enable
       " Use Zathura as the default VimTeX PDF viewer
       let g:vimtex_view_method = 'zathura'
-      let g:vimtex_compiler_progname = 'nvr'
-       let g:tex_flavor = 'latex'
+      let g:vimtex_compiler_method = 'latexmk'
+      let g:vimtex_compiler_generic = {
+        \ 'command': 'ls *.tex | entr -c tectonic  --synctex --keep-logs',
+        \}
+      let g:vimtex_quickfix_method = 'pplatex'
+      let g:vimtex_quickfix_ignore_filters = [
+      \ 'Underfull',
+      \ 'Overfull',
+      \ 'Package siunitx Warning: Detected the "physics" package:',
+      \]
       luafile ${./modules/nvim/nvim.lua}
       colorscheme nord
     '';
