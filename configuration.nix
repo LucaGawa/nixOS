@@ -18,7 +18,7 @@
       matplotlib
       pygobject3
       gst-python
-      tables
+      #tables
     ];
   latex = pkgs.texlive.combine {
     inherit
@@ -367,7 +367,7 @@ in {
     pkgs.tectonic
     pkgs.pplatex
     pkgs.entr
-    # pkgs.python311Packages.python-lsp-server
+    pkgs.python311Packages.python-lsp-server
     ###############################################33
     # pkgs.pdftotext
     # pkgs.swaylock
@@ -382,13 +382,13 @@ in {
            luca ALL = (root) NOPASSWD: /run/current-system/sw/bin/nixos-rebuild
   '';
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
-  boot.kernelModules = [
-    "v4l2loopback"
-  ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-  '';
+  # boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+  # boot.kernelModules = [
+  #   "v4l2loopback"
+  # ];
+  # boot.extraModprobeConfig = ''
+  #   options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  # '';
 
   nixpkgs.overlays = [
     # (outputs.add-stable-packages)
