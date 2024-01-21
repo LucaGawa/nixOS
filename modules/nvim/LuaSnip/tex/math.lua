@@ -118,8 +118,10 @@ return {
     s({trig = "\\sigm^{a}", wordTrig = false, snippetType = 'autosnippet'},
       fmta("\\sigma^{<>}", {i(1)}), {condition = tex.in_math}),
 
-    sumSimilar("sum_{}", "sum"), sumSimilar("prod", "prod"),
-    sumSimilar("int", "int"), quantum("ev", "expval"), quantum("br", "bra"),
-    quantum("ke", "ket"), quantum("sq", "sqrt"), quantum("abb", "abs")
+    s({trig = "os", wordTrig = false}, fmta("\\overset{<>}{<>}", {i(1), i(2)}),
+      {condition = tex.in_math}), sumSimilar("sum_{}", "sum"),
+    sumSimilar("prod", "prod"), sumSimilar("int", "int"),
+    quantum("ev", "expval"), quantum("br", "bra"), quantum("ke", "ket"),
+    quantum("sq", "sqrt"), quantum("abb", "abs")
 
 }

@@ -10,10 +10,10 @@
       "Filters": [],
       "AbsoluteModeSettings": {
         "Display": {
-          "Width": 1828.0,
-          "Height": 1028.0,
-          "X": 2155.0,
-          "Y": 2878.0,
+          "Width": 1920.0,
+          "Height": 1080.0,
+          "X": 1810.0,
+          "Y": 3060.0,
           "Rotation": 0.0
         },
         "Tablet": {
@@ -35,16 +35,7 @@
       },
       "Bindings": {
         "TipActivationThreshold": 0.0,
-        "TipButton": {
-          "Path": "OpenTabletDriver.Desktop.Binding.MouseBinding",
-          "Settings": [
-            {
-              "Property": "Button",
-              "Value": "Left"
-            }
-          ],
-          "Enable": true
-        },
+        "TipButton": null,
         "EraserActivationThreshold": 98.0,
         "EraserButton": {
           "Path": "OpenTabletDriver.Desktop.Binding.MouseBinding",
@@ -66,7 +57,8 @@
               }
             ],
             "Enable": true
-          }
+          },
+          null
         ],
         "AuxButtons": [],
         "MouseButtons": [],
