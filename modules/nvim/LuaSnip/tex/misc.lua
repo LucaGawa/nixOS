@@ -9,7 +9,7 @@ return {
       \overbrace{<>}^{<>}
     ]], {d(1, get_visual), i(2)})),
     s({trig = "lb", wordTrig = false, snippetType = 'autosnippet'},
-      fmta("\\label{<>}", {i(1)})),
+      fmta("\\label{<>}", {i(1)}), {condition = tex.in_math}),
 
     s({trig = "ee", wordTrig = false, snippetType = 'autosnippet'},
       fmta("\\e{<>}", {i(1)}), {condition = tex.in_math}),
