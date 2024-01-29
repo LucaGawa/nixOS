@@ -98,6 +98,8 @@ return {
         f(function(_, snip) return snip.captures[1] end), i(1), i(2), i(3)
     }), {condition = tex.in_math}),
 
+    s({trig = "st", wordTrig = false, snippetType = 'autosnippet'},
+      fmta("\\substack{<>\\\\<>}", {i(1), i(2)}), {condition = tex.in_math}),
     s({trig = "bk", wordTrig = false, snippetType = 'autosnippet'},
       fmta("\\braket{<>}{<>}", {i(1), i(2)}), {condition = tex.in_math}),
     s({trig = "EV", wordTrig = false, snippetType = 'autosnippet'},
