@@ -80,7 +80,8 @@
     options = {
       "window-title-home-tilde" = true;
       "statusbar-home-tilde" = true;
-      "synctex-editor-command" = "nvr --remote-silent %f -c %l";
+      "synctex" = true;
+      "synctex-editor-command" = "nvr --remote-silent +%{line} %{input}";
     };
   };
 
@@ -230,10 +231,8 @@
       syntax enable
       " Use Zathura as the default VimTeX PDF viewer
       let g:vimtex_view_method = 'zathura'
-      let g:vimtex_compiler_method = 'latexmk'
-      let g:vimtex_compiler_generic = {
-        \ 'command': 'ls *.tex | entr -c tectonic  --synctex --keep-logs',
-        \}
+      let g:latex_view_general_viewer = 'zathura'
+      let g:vimtex_compiler_progname = 'nvr'
       let g:vimtex_quickfix_method = 'pplatex'
       let g:vimtex_quickfix_ignore_filters = [
       \ 'Underfull',

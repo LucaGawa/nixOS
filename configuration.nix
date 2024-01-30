@@ -359,7 +359,7 @@ in {
     pkgs.alejandra
     pkgs.nil
     pkgs.zip
-
+    pkgs.neovim-remote #backwards search latex
     # pkgs.perl536Packages.LatexIndent #latex formatter
     pkgs.luaformatter
     pkgs.ltex-ls #lsp server latex
