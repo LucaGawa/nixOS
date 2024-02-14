@@ -1,6 +1,6 @@
 INFO:  latexindent.pl version 3.20.3, 2023-02-19, a script to indent .tex files
        latexindent.pl lives here: /nix/store/2bhgwk9gsgp4kj73jwwnn7v8ib73mcmc-texlive-latexindent-3.20.3/scripts/latexindent/
-       Thu Feb  1 12:42:22 2024
+       Fri Feb  2 14:08:09 2024
        Reading input from STDIN
 INFO:  Processing switches:
        -l|--localSettings: Read localSettings YAML file
@@ -22,13 +22,7 @@ INFO:  YAML reading settings
        latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml
        see all possible locations: https://latexindentpl.readthedocs.io/en/latest/sec-appendices.html#indentconfig-options)
 INFO:  YAML settings read: -l switch
-       Adding /home/luca/.config/latexindent/.indentconfig.yaml to YAML read paths
-INFO:  YAML settings, reading from the following files:
-       Reading USER settings from /home/luca/.config/latexindent/.indentconfig.yaml
-       ---
-       path:
-         - /home/luca/.config/latexindnet/.latexindent/mysettings.yaml
-
+WARN:  yaml file not found: /home/luca/.config/latexindent/.indentconfig.yaml not found. Proceeding without it.
 INFO:  Phase 1: searching for objects
 INFO:  Phase 2: finding surrounding indentation
 INFO:  Phase 3: indenting objects

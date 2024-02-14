@@ -18,12 +18,14 @@
       matplotlib
       pygobject3
       gst-python
+      # tenpy
       #tables
     ];
   latex = pkgs.texlive.combine {
     inherit
       (pkgs.texlive)
       scheme-basic
+      german
       mathtools
       hyperref
       standalone
@@ -90,11 +92,10 @@
       latexindent
       ;
   };
+  imports = [
+    ./modules/tenpy.nix
+  ];
 in {
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -242,6 +243,7 @@ in {
   environment.systemPackages = [
     # pkgs.#neovim
     pkgs.sway-contrib.grimshot
+    # pkgs.tenpy
     pkgs.wget
     pkgs.brave
     pkgs.firefox-wayland
@@ -324,7 +326,7 @@ in {
     pkgs.zathura
     pkgs.xdotool #vimtex forword search dependency
     pkgs.way-displays
-    pkgs.qutebrowser
+    # pkgs.qutebrowser
     pkgs.rambox
     # pkgs.#nvd #shows nixos diff packages
     pkgs.htop
@@ -356,6 +358,8 @@ in {
     pkgs.ruff
     pkgs.black
     pkgs.python311Packages.debugpy
+    pkgs.python311Packages.pip
+    pkgs.python311Packages.cython
     pkgs.alejandra
     pkgs.nil
     pkgs.zip
@@ -368,6 +372,9 @@ in {
     pkgs.pplatex
     pkgs.entr
     pkgs.python311Packages.python-lsp-server
+    pkgs.zotero
+    pkgs.conda
+    # pkgs.python39Packages.tenpy
     ###############################################33
     # pkgs.pdftotext
     # pkgs.swaylock

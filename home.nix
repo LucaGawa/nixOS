@@ -209,7 +209,8 @@
       lualine-nvim
       lualine-lsp-progress
       nvim-julia-autotest
-      which-key-nvim
+      # which-key-nvim
+      copilot-vim
     ];
     extraConfig = ''
       packadd! nvim-tree.lua
@@ -354,6 +355,7 @@
   xdg.configFile."kitty".source = ./modules/kitty;
   xdg.configFile."wlogout".source = ./modules/wlogout;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/pakete.sty".source = ./modules/tex/pakete.sty;
+  xdg.configFile."/home/luca/texmf/tex/bibtex/bib/refs.bib".source = ./modules/tex/refs.bib;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/template_xournalpp.tex".source = ./modules/tex/template_xournalpp.tex;
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
   xdg.configFile."xournalpp/settings.xml".source = ./modules/xournalpp/settings.xml;
