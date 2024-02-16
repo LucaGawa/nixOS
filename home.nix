@@ -210,7 +210,8 @@
       lualine-lsp-progress
       nvim-julia-autotest
       # which-key-nvim
-      copilot-vim
+      # copilot-vim
+      copilot-lua
     ];
     extraConfig = ''
       packadd! nvim-tree.lua
