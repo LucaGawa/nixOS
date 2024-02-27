@@ -92,6 +92,8 @@
       
       texcount
       latexindent
+      luainputenc
+      luatexbase
       ;
   };
   imports = [
