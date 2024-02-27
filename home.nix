@@ -45,7 +45,7 @@
       ];
     };
   };
-
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     inputs.xremap-flake.packages.${system}.default
   ];
@@ -360,6 +360,7 @@
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/template_xournalpp.tex".source = ./modules/tex/template_xournalpp.tex;
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
   xdg.configFile."xournalpp/settings.xml".source = ./modules/xournalpp/settings.xml;
+  xdg.configFile."xournalpp/palette.gpl".source = ./modules/xournalpp/palette.gpl;
   xdg.configFile."rofi".source = ./modules/rofi;
   xdg.configFile."Code/User/keybindings.json".source = ./modules/code/keybindings.json;
   # xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;

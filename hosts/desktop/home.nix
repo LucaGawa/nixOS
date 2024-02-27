@@ -25,7 +25,7 @@
         "9, monitor:DP-2, default:false"
       ];
       bind = [
-        "$mainMod, z, exec, [monitor DP-1] xournalpp"
+        "$mainMod, z, exec, [monitor DP-3] xournalpp"
         "$mainMod, s, exec, [workspace 10 silent;fullscreen] spotify"
       ];
     };

@@ -18,6 +18,8 @@
       matplotlib
       pygobject3
       gst-python
+      numba
+      pint
       # tenpy
       #tables
     ];
@@ -112,6 +114,22 @@ in {
       userServices = true;
     };
     openFirewall = true;
+  };
+
+  fonts = {
+    enableDefaultFonts = true;
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fontconfig.enable = true;
+    fonts = with pkgs; [
+      corefonts
+      inconsolata
+      libertine
+      noto-fonts
+      source-code-pro
+      source-sans-pro
+      powerline-fonts
+    ];
   };
 
   # Enable CUPS to print documents.
@@ -374,6 +392,10 @@ in {
     pkgs.python311Packages.python-lsp-server
     pkgs.zotero
     pkgs.conda
+    pkgs.zulu17
+    pkgs.vlc
+    pkgs.python311Packages.pint
+    pkgs.fityk
     # pkgs.python39Packages.tenpy
     ###############################################33
     # pkgs.pdftotext
