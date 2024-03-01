@@ -94,6 +94,8 @@
       latexindent
       luainputenc
       luatexbase
+      # xelatex
+      
       ;
   };
   imports = [
@@ -327,7 +329,8 @@ in {
     # pkgs.libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
     pkgs.lxqt.lxqt-policykit
     (pkgs.python3.withPackages my-python-packages)
-    latex
+    # latex
+    pkgs.texliveFull
     # pkgs.# stable.xournalpp
     pkgs.rclone
     pkgs.gnome.adwaita-icon-theme

@@ -19,6 +19,12 @@
 \usepackage{simpler-wick}
 \usepackage{simplewick}
 
+\definecolor{snow1}{rgb}{0.85, 0.87, 0.91}
+\definecolor{aurorared}{rgb}{0.75, 0.38, 0.42}
+\definecolor{aurorayellow}{rgb}{0.92, 0.80, 0.55}
+\definecolor{auroragreen}{rgb}{0.64, 0.74, 0.549}
+\definecolor{forstblue}{rgb}{0.369, 0.506, 0.675}
+
 \usetikzlibrary{decorations.markings}
 \tikzset{
 	set arrow inside/.code={\pgfqkeys{/tikz/arrow inside}{#1}},
@@ -86,9 +92,12 @@
 \RequirePackage{subcaption}
 % \RequirePackage{hyperref}					  % Anklickbare Hyperlinks
 \usepackage[
-	urlcolor=blue,
+	urlcolor=frostblue,
+	linkcolor=aurorared,
+	citecolor=auroragreen,
+	colorlinks=true,
 ]{hyperref}
-\hypersetup{colorlinks,linkcolor=[RGB]{0.36,0.5,0.67}}
+% \hypersetup{colorlinks,linkcolor=[RGB]{0.36,0.5,0.67}}
 \RequirePackage{cleveref}
 \RequirePackage[all]{hypcap}				  % Besseres setzen von Abblidungsverweisen
 \RequirePackage[varg]{txfonts}                % Schönere Schriftart
