@@ -20,6 +20,8 @@
       gst-python
       numba
       pint
+      jax
+      jaxlib-bin
       # tenpy
       #tables
     ];
