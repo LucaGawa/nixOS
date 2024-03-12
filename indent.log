@@ -1,6 +1,6 @@
 INFO:  latexindent.pl version 3.23.5, 2024-01-01, a script to indent .tex files
        latexindent.pl lives here: /nix/store/82im1f7q5a3jb8l2bglyfq271kza2vbg-latexindent-3.23.5-tex/scripts/latexindent/
-       Fri Mar  1 01:11:53 2024
+       Mon Mar 11 20:01:11 2024
        Reading input from STDIN
 INFO:  Processing switches:
        -l|--localSettings: Read localSettings YAML file

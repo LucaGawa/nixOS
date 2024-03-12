@@ -22,6 +22,7 @@
       pint
       jax
       jaxlib-bin
+      tqdm
       # tenpy
       #tables
     ];
@@ -122,22 +123,6 @@ in {
     openFirewall = true;
   };
 
-  fonts = {
-    enableDefaultFonts = true;
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fontconfig.enable = true;
-    fonts = with pkgs; [
-      corefonts
-      inconsolata
-      libertine
-      noto-fonts
-      source-code-pro
-      source-sans-pro
-      powerline-fonts
-    ];
-  };
-
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
@@ -210,9 +195,9 @@ in {
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "altgr-intl";
-    xkbOptions = "nodeadkeys";
+    xkb.layout = "us";
+    xkb.variant = "altgr-intl";
+    xkb.options = "nodeadkeys";
   };
 
   # Configure console keymap
@@ -460,10 +445,19 @@ in {
   ];
 
   fonts.fontDir.enable = true;
+  fonts.enableDefaultPackages = true;
+  fonts.enableGhostscriptFonts = true;
   fonts.packages = with pkgs; [
     nerdfonts
     font-awesome
     google-fonts
+    corefonts
+    inconsolata
+    libertine
+    noto-fonts
+    source-code-pro
+    source-sans-pro
+    powerline-fonts
   ];
 
   #USB Sticks mounting
