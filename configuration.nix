@@ -22,7 +22,11 @@
       pint
       jax
       jaxlib-bin
+      # jaxlibWithCuda
       tqdm
+      tensorflow
+      pytest
+      # timeit
       # tenpy
       #tables
     ];
