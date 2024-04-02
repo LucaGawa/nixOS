@@ -1,8 +1,8 @@
 {
   inputs,
   config,
+  nixpkgs-stable,
   pkgs,
-  pkgs-stable,
   lib,
   ...
 }: let
@@ -116,16 +116,16 @@ in {
   hardware.sane.enable = true;
   hardware.sane.extraBackends = [pkgs.hplipWithPlugin pkgs.epkowa];
   # Network scanning
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      userServices = true;
-    };
-    openFirewall = true;
-  };
+  # services.avahi = {
+  #   enable = true;
+  #   nssmdns4 = true;
+  #   publish = {
+  #     enable = true;
+  #     addresses = true;
+  #     userServices = true;
+  #   };
+  #   openFirewall = true;
+  # };
 
   # Enable CUPS to print documents.
   services.printing = {

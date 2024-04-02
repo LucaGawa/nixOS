@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  stable,
   ...
 }: {
   wayland.windowManager.hyprland = {
