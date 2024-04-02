@@ -5,10 +5,81 @@
   doi = {10.1007/s00220-006-0150-x},
   url = {https://arxiv.org/abs/quant-ph/0508139v2},
   urldate = {2024-02-02},
-  abstract = {We present an efficient quantum algorithm for simulating the evolution of a sparse Hamiltonian H for a given time t in terms of a procedure for computing the matrix entries of H. In particular, when H acts on n qubits, has at most a constant number of nonzero entries in each row/column, and |H| is bounded by a constant, we may select any positive integer \$k\$ such that the simulation requires O((\textbackslash log\^*n)t\^\{1+1/2k\}) accesses to matrix entries of H. We show that the temporal scaling cannot be significantly improved beyond this, because sublinear time scaling is not possible.},
+  abstract = {We present an efficient quantum algorithm for simulating the evolution of a sparse Hamiltonian H for a given time t in terms of a procedure for computing the matrix entries of H. In particular, when H acts on n qubits, has at most a constant number of nonzero entries in each row/column, and |H| is bounded by a constant, we may select any positive integer \$k\$ such that the simulation requires O((\textbackslash log\^{}*n)t\^{}\{1+1/2k\}) accesses to matrix entries of H. We show that the temporal scaling cannot be significantly improved beyond this, because sublinear time scaling is not possible.},
   langid = {english},
-  organization = {{arXiv.org}},
+  organization = {arXiv.org},
   file = {/home/luca/Zotero/storage/GL4PLMHS/Berry et al. - 2005 - Efficient quantum algorithms for simulating sparse.pdf}
+}
+
+@article{chuMatrixProductStates2019,
+  title = {Matrix Product States with Adaptive Global Symmetries},
+  author = {Chu, Guo and Poletti, Dario},
+  date = {2019-10-14},
+  journaltitle = {Physical Review B},
+  shortjournal = {Physical Review B},
+  volume = {100},
+  doi = {10.1103/PhysRevB.100.134304},
+  abstract = {Quantum many-body physics simulations with matrix product states can often be accelerated if the quantum symmetries present in the system are explicitly taken into account. Conventionally, quantum symmetries have to be determined beforehand when constructing the tensors for the matrix product state algorithm. In this work, we present a matrix product state algorithm with an adaptive U(1) symmetry. This algorithm can take into account or benefit from U(1) or Z2 symmetries when they are present or analyze the nonsymmetric scenario when the symmetries are broken without any external alteration of the code. To give some concrete examples we consider an XYZ model and show the insight that can be gained by (i) searching the ground state and (ii) evolving in time after a symmetry-changing quench. To show the generality of the method, we also consider an interacting bosonic system under the effect of a symmetry-breaking dissipation.},
+  file = {/home/luca/Zotero/storage/56GHSWNU/Chu and Poletti - 2019 - Matrix product states with adaptive global symmetr.pdf}
+}
+
+@article{daleyTimedependentDensitymatrixRenormalizationgroup2004,
+  title = {Time-Dependent Density-Matrix Renormalization-Group Using Adaptive Effective {{Hilbert}} Spaces},
+  author = {Daley, A. J. and Kollath, C. and Schollwoeck, U. and Vidal, G.},
+  date = {2004-04-22},
+  journaltitle = {Journal of Statistical Mechanics: Theory and Experiment},
+  shortjournal = {J. Stat. Mech.: Theor. Exp.},
+  volume = {2004},
+  number = {04},
+  eprint = {cond-mat/0403313},
+  eprinttype = {arxiv},
+  pages = {P04005},
+  issn = {1742-5468},
+  doi = {10.1088/1742-5468/2004/04/P04005},
+  url = {http://arxiv.org/abs/cond-mat/0403313},
+  urldate = {2024-03-29},
+  abstract = {An algorithm for the simulation of the evolution of slightly entangled quantum states has been recently proposed as a tool to study time-dependent phenomena in one-dimensional quantum systems. Its key feature is a timeevolving block-decimation (TEBD) procedure to identify and dynamically update the relevant, conveniently small subregion of the otherwise exponentially large Hilbert space. Potential applications of the TEBD algorithm are the simulation of time-dependent Hamiltonians, transport in quantum systems far from equilibrium and dissipative quantum mechanics. In this paper we translate the TEBD algorithm into the language of matrix product states in order to both highlight and exploit its resemblances to the widely used density-matrix renormalizationgroup (DMRG) algorithms. The TEBD algorithm, being based on updating a matrix product state in time, is very accessible to the DMRG community and it can be enhanced by using well-known DMRG techniques, for instance in the event of good quantum numbers. More importantly, we show how it can be simply incorporated into existing DMRG implementations to produce a remarkably effective and versatile “adaptive time-dependent DMRG” variant, that we also test and compare to previous proposals.},
+  langid = {english},
+  keywords = {Condensed Matter - Strongly Correlated Electrons,Quantum Physics},
+  file = {/home/luca/Zotero/storage/VIYHMJP3/Daley et al. - 2004 - Time-dependent density-matrix renormalization-grou.pdf}
+}
+
+@article{haegemanTimeDependentVariationalPrinciple2011,
+  title = {Time-{{Dependent Variational Principle}} for {{Quantum Lattices}}},
+  author = {Haegeman, Jutho and Cirac, J. Ignacio and Osborne, Tobias J. and Pižorn, Iztok and Verschelde, Henri and Verstraete, Frank},
+  date = {2011-08-10},
+  journaltitle = {Physical Review Letters},
+  shortjournal = {Phys. Rev. Lett.},
+  volume = {107},
+  number = {7},
+  pages = {070601},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.107.070601},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.107.070601},
+  urldate = {2024-03-21},
+  abstract = {We develop a new algorithm based on the time-dependent variational principle applied to matrix product states to efficiently simulate the real- and imaginary-time dynamics for infinite one-dimensional quantum lattices. This procedure (i) is argued to be optimal, (ii) does not rely on the Trotter decomposition and thus has no Trotter error, (iii) preserves all symmetries and conservation laws, and (iv) has low computational complexity. The algorithm is illustrated by using both an imaginary-time and a real-time example.},
+  file = {/home/luca/Zotero/storage/2AWMRLUV/Haegeman et al. - 2011 - Time-Dependent Variational Principle for Quantum L.pdf;/home/luca/Zotero/storage/7S98I4JE/PhysRevLett.107.html}
+}
+
+@article{hastingsLightConeMatrix2009,
+  title = {Light {{Cone Matrix Product}}},
+  author = {Hastings, M. B.},
+  date = {2009-09-01},
+  journaltitle = {Journal of Mathematical Physics},
+  volume = {50},
+  number = {9},
+  eprint = {0903.3253},
+  eprinttype = {arxiv},
+  eprintclass = {cond-mat, physics:quant-ph},
+  pages = {095207},
+  issn = {0022-2488, 1089-7658},
+  doi = {10.1063/1.3149556},
+  url = {http://arxiv.org/abs/0903.3253},
+  urldate = {2024-03-22},
+  abstract = {We show how to combine the light-cone and matrix product algorithms to simulate quantum systems far from equilibrium for long times. For the case of the XXZ spin chain at \$\textbackslash Delta=0.5\$, we simulate to a time of \$\textbackslash approx 22.5\$. While part of the long simulation time is due to the use of the light-cone method, we also describe a modification of the iTEBD algorithm with improved numerical stability, and we describe how to incorporate symmetry into this algorithm. While statistical sampling error means that we are not yet able to make a definite statement, the behavior of the simulation at long times indicates the appearance of either "revivals" in the order parameter as predicted previously or of a distinct shoulder in the decay of the order parameter.},
+  langid = {english},
+  keywords = {Condensed Matter - Strongly Correlated Electrons,Quantum Physics},
+  file = {/home/luca/Zotero/storage/B6KKYMRU/Hastings - 2009 - Light Cone Matrix Product.pdf}
 }
 
 @article{hauschildEfficientNumericalSimulations2018,
@@ -48,6 +119,18 @@
   file = {/home/luca/Zotero/storage/6BGQH8EY/Hémery et al. - 2019 - Matrix product states approaches to operator sprea.pdf;/home/luca/Zotero/storage/RHTT5BLQ/1901.html}
 }
 
+@book{krugtenAngularCorrelationsNuclear1971,
+  title = {Angular Correlations in Nuclear Disintegration. {{Proceedings}} of the {{International Conference}} on {{Angular Correlations}} in {{Nuclear Disintegration}}, {{Delft}}, the {{Netherlands}}, {{August}} 17-22, 1970},
+  editor = {family=Krugten, given=Hans, prefix=van, useprefix=false and family=Nooijen, given=Bob, prefix=van, useprefix=false},
+  date = {1971},
+  publisher = {Rotterdam University Press; Wolters-Noordhoff},
+  location = {[Rotterdam], Groningen},
+  isbn = {978-90-01-51050-3},
+  langid = {english},
+  annotation = {OCLC: 281716},
+  file = {/home/luca/Studium/11_Semester/ALC/k223/eCampus_material/siegbahn_pages.pdf}
+}
+
 @article{marquardtMachineLearningQuantum2021,
   title = {Machine Learning and Quantum Devices},
   author = {Marquardt, Florian},
@@ -61,6 +144,22 @@
   abstract = {SciPost Journals Publication Detail SciPost Phys. Lect. Notes 29 (2021) Machine learning and quantum devices},
   langid = {english},
   file = {/home/luca/Zotero/storage/I29FF829/Marquardt - 2021 - Machine learning and quantum devices.pdf}
+}
+
+@article{mccullochDensitymatrixRenormalizationGroup2007,
+  title = {From Density-Matrix Renormalization Group to Matrix Product States},
+  author = {McCulloch, Ian P},
+  date = {2007-10-25},
+  journaltitle = {Journal of Statistical Mechanics: Theory and Experiment},
+  shortjournal = {J. Stat. Mech.},
+  volume = {2007},
+  number = {10},
+  pages = {P10014-P10014},
+  issn = {1742-5468},
+  doi = {10.1088/1742-5468/2007/10/P10014},
+  url = {https://iopscience.iop.org/article/10.1088/1742-5468/2007/10/P10014},
+  urldate = {2024-03-09},
+  file = {/home/luca/Zotero/storage/HLY76Y7Z/McCulloch - 2007 - From density-matrix renormalization group to matri.pdf}
 }
 
 @article{paeckelAutomatedConstructionInvariant2017,
@@ -97,6 +196,46 @@
   file = {/home/luca/Zotero/storage/6VJ224FK/Paeckel et al. - 2019 - Time-evolution methods for matrix-product states.pdf;/home/luca/Zotero/storage/FRXQIXMK/S0003491619302532.html}
 }
 
+@article{rabelNumericalTimeEvolution,
+  title = {Numerical {{Time Evolution}} of {{1D Quantum Systems}}},
+  author = {Rabel, Elias},
+  langid = {english},
+  file = {/home/luca/Zotero/storage/DJ6P6DQU/Rabel - Numerical Time Evolution of 1D Quantum Systems.pdf}
+}
+
+@article{rakovFirstprincipleConstructionSymmetric2018,
+  title = {First-Principle Construction of {{U}}(1) Symmetric Matrix Product States},
+  author = {Rakov, Mykhailo V.},
+  date = {2018-07},
+  journaltitle = {Journal of Low Temperature Physics},
+  shortjournal = {J Low Temp Phys},
+  volume = {192},
+  number = {1-2},
+  eprint = {1904.00274},
+  eprinttype = {arxiv},
+  eprintclass = {cond-mat},
+  pages = {75--87},
+  issn = {0022-2291, 1573-7357},
+  doi = {10.1007/s10909-018-1894-3},
+  url = {http://arxiv.org/abs/1904.00274},
+  urldate = {2024-03-08},
+  abstract = {The algorithm to calculate the sets of symmetry sectors for virtual indices of U(1) symmetric matrix product states (MPS) is described. Principal differences between open (OBC) and periodic (PBC) boundary conditions are stressed, and the extension of PBC MPS algorithm to projected entangled pair states (PEPS) is outlined.},
+  keywords = {Condensed Matter - Statistical Mechanics},
+  file = {/home/luca/Zotero/storage/FNR872JB/Rakov - 2018 - First-principle construction of U(1) symmetric mat.pdf;/home/luca/Zotero/storage/65T7JBQS/1904.html}
+}
+
+@book{rohlfModernPhysicsAlpha1994,
+  title = {Modern Physics from [Alpha] to {{Z}}⁰},
+  author = {Rohlf, James William},
+  date = {1994},
+  edition = {1st ed},
+  publisher = {John Wiley},
+  location = {New York},
+  isbn = {978-0-471-57270-1},
+  pagetotal = {646},
+  keywords = {Physics}
+}
+
 @article{schollwoeckDensitymatrixRenormalizationGroup2011,
   title = {The Density-Matrix Renormalization Group in the Age of Matrix Product States},
   author = {Schollwoeck, Ulrich},
@@ -116,6 +255,105 @@
   abstract = {The density-matrix renormalization group method (DMRG) has established itself over the last decade as the leading method for the simulation of the statics and dynamics of one-dimensional strongly correlated quantum lattice systems. In the further development of the method, the realization that DMRG operates on a highly interesting class of quantum states, so-called matrix product states (MPS), has allowed a much deeper understanding of the inner structure of the DMRG method, its further potential and its limitations. In this paper, I want to give a detailed exposition of current DMRG thinking in the MPS language in order to make the advisable implementation of the family of DMRG algorithms in exclusively MPS terms transparent. I then move on to discuss some directions of potentially fruitful further algorithmic development: while DMRG is a very mature method by now, I still see potential for further improvements, as exemplified by a number of recently introduced algorithms.},
   keywords = {Condensed Matter - Strongly Correlated Electrons},
   file = {/home/luca/Zotero/storage/IG6STNSV/Schollwoeck - 2011 - The density-matrix renormalization group in the ag.pdf;/home/luca/Zotero/storage/ELV6W5WZ/1008.html}
+}
+
+@book{siegbahnAlphaBetaGammaray1965,
+  title = {Alpha-, Beta- and Gamma-Ray Spectroscopy},
+  author = {Siegbahn, Kai},
+  date = {1965},
+  publisher = {North-Holland Pub. Co},
+  location = {Amsterdam},
+  isbn = {978-0-7204-0083-0},
+  langid = {english}
+}
+
+@article{singhTensorNetworkStates2011,
+  title = {Tensor Network States and Algorithms in the Presence of a Global {{U}}(1) Symmetry},
+  author = {Singh, Sukhwinder and Pfeifer, Robert N. C. and Vidal, Guifre},
+  date = {2011-03-15},
+  journaltitle = {Physical Review B},
+  shortjournal = {Phys. Rev. B},
+  volume = {83},
+  number = {11},
+  pages = {115125},
+  issn = {1098-0121, 1550-235X},
+  doi = {10.1103/PhysRevB.83.115125},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.83.115125},
+  urldate = {2024-03-09},
+  langid = {english},
+  file = {/home/luca/Zotero/storage/UCKTXXL9/Singh et al. - 2011 - Tensor network states and algorithms in the presen.pdf}
+}
+
+@article{singhTensorNetworkStates2011a,
+  title = {Tensor Network States and Algorithms in the Presence of a Global {{U}}(1) Symmetry},
+  author = {Singh, Sukhwinder and Pfeifer, Robert N. C. and Vidal, Guifre},
+  date = {2011-03-15},
+  journaltitle = {Physical Review B},
+  shortjournal = {Phys. Rev. B},
+  volume = {83},
+  number = {11},
+  eprint = {1008.4774},
+  eprinttype = {arxiv},
+  eprintclass = {cond-mat},
+  pages = {115125},
+  issn = {1098-0121, 1550-235X},
+  doi = {10.1103/PhysRevB.83.115125},
+  url = {http://arxiv.org/abs/1008.4774},
+  urldate = {2024-03-29},
+  abstract = {Tensor network decompositions offer an efficient description of certain many-body states of a lattice system and are the basis of a wealth of numerical simulation algorithms. In a recent paper [arXiv:0907.2994v1] we discussed how to incorporate a global internal symmetry, given by a compact, completely reducible group G, into tensor network decompositions and algorithms. Here we specialize to the case of Abelian groups and, for concreteness, to a U(1) symmetry, often associated with particle number conservation. We consider tensor networks made of tensors that are invariant (or covariant) under the symmetry, and explain how to decompose and manipulate such tensors in order to exploit their symmetry. In numerical calculations, the use of U(1) symmetric tensors allows selection of a specific number of particles, ensures the exact preservation of particle number, and significantly reduces computational costs. We illustrate all these points in the context of the multi-scale entanglement renormalization ansatz.},
+  keywords = {Condensed Matter - Strongly Correlated Electrons},
+  file = {/home/luca/Zotero/storage/Y8NVM8ZY/Singh et al. - 2011 - Tensor network states and algorithms in the presen.pdf;/home/luca/Zotero/storage/E829XSYE/1008.html}
+}
+
+@online{singhTensorNetworkStates2012,
+  title = {Tensor {{Network States}} and {{Algorithms}} in the Presence of {{Abelian}} and Non-{{Abelian Symmetries}}},
+  author = {Singh, Sukhwinder},
+  date = {2012-03-14},
+  eprint = {1203.2222},
+  eprinttype = {arxiv},
+  eprintclass = {cond-mat, physics:quant-ph},
+  url = {http://arxiv.org/abs/1203.2222},
+  urldate = {2024-04-02},
+  abstract = {In this thesis we extend the formalism of tensor network algorithms to incorporate global internal symmetries. We describe how to both numerically protect the symmetry and exploit it for computational gain in tensor network simulations. Our formalism is independent of the details of a specific tensor network decomposition since the symmetry constraints are imposed at the level of individual tensors. Moreover, the formalism can be applied to a wide spectrum of physical symmetries described by any discrete or continuous group that is compact and reducible. We describe in detail the implementation of the conservation of total particle number (U(1) symmetry) and of total angular momentum (SU(2) symmetry). Our formalism can also be readily generalized to incorporate more exotic symmetries such as conservation of total charge in anyonic systems.},
+  langid = {english},
+  pubstate = {preprint},
+  keywords = {Condensed Matter - Strongly Correlated Electrons,Quantum Physics},
+  file = {/home/luca/Zotero/storage/UNBAA9LT/Singh - 2012 - Tensor Network States and Algorithms in the presen.pdf}
+}
+
+@article{stoudenmireMinimallyEntangledTypical2010,
+  title = {Minimally Entangled Typical Thermal State Algorithms},
+  author = {Stoudenmire, E M and White, Steven R},
+  date = {2010-05-28},
+  journaltitle = {New Journal of Physics},
+  shortjournal = {New J. Phys.},
+  volume = {12},
+  number = {5},
+  pages = {055026},
+  issn = {1367-2630},
+  doi = {10.1088/1367-2630/12/5/055026},
+  url = {https://iopscience.iop.org/article/10.1088/1367-2630/12/5/055026},
+  urldate = {2024-03-21},
+  abstract = {We discuss a method based on sampling minimally entangled typical thermal states (METTS) that can simulate finite temperature quantum systems with a computational cost comparable to the ground state density matrix renormalization group (DMRG). Detailed implementation of each step of the method is presented, along with efficient algorithms for working with matrix product states and matrix product operators. Furthermore, we explore how the properties of METTS can reveal characteristic order and excitations of systems and discuss why METTS form an efficient basis for sampling. Finally, we explore the extent to which the average entanglement of a METTS ensemble is minimal.},
+  langid = {english},
+  file = {/home/luca/Zotero/storage/XKEGBQD4/Stoudenmire and White - 2010 - Minimally entangled typical thermal state algorith.pdf}
+}
+
+@article{suzukiGeneralizedTrotterFormula1976,
+  title = {Generalized {{Trotter}}'s Formula and Systematic Approximants of Exponential Operators and Inner Derivations with Applications to Many-Body Problems},
+  author = {Suzuki, Masuo},
+  date = {1976-06},
+  journaltitle = {Communications in Mathematical Physics},
+  shortjournal = {Commun.Math. Phys.},
+  volume = {51},
+  number = {2},
+  pages = {183--190},
+  issn = {0010-3616, 1432-0916},
+  doi = {10.1007/BF01609348},
+  url = {http://link.springer.com/10.1007/BF01609348},
+  urldate = {2024-03-21},
+  langid = {english},
+  file = {/home/luca/Zotero/storage/Y7TIJYUS/Suzuki - 1976 - Generalized Trotter's formula and systematic appro.pdf}
 }
 
 @article{suzukiGeneralTheoryFractal1991,
