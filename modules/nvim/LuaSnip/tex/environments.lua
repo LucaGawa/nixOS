@@ -46,11 +46,9 @@ return {
         i(1), i(2), rep(1) -- this node repeats insert node i(1)
     }), {condition = line_begin}),
     s({trig = "emm", wordTrig = true, snippetType = "autosnippet"}, fmta([[
-      \begin{subequations}
        \begin{empheq}[box=\widefbox]{<>}
           <>
       \end{empheq}
-       \end{subequations}
     ]], {i(1), i(2)})),
     s({trig = "cas", snippetType = "autosnippet", wordTrig = true}, fmta([[
       \begin{cases}

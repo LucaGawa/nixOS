@@ -15,7 +15,7 @@
 \usepackage[compat=1.1.0]{tikz-feynman}
 % \usepackage{esint}
 \usepackage{empheq}
-\usepackage{ulem}
+\usepackage[normalem]{ulem}
 \usepackage{simpler-wick}
 \usepackage{simplewick}
 
@@ -62,7 +62,8 @@
 
 
 
-\RequirePackage[backend=biber, style=numeric]{biblatex} %Literaturverweise
+\RequirePackage[backend=biber, natbib,
+	sorting=none]{biblatex} %Literaturverweise
 % \RequirePackage{physics}				      % Physikalische Symbole u. Einheiten		
 \RequirePackage{physics}
 % \RequirePackage[version=4]{mhchem}     %chemische Symbole
