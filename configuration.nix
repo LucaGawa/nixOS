@@ -24,8 +24,14 @@
       jaxlib-bin
       # jaxlibWithCuda
       tqdm
-      tensorflow
+      # tensorflow
       pytest
+      ### Machine Learning
+      scikit-learn
+      seaborn
+      torch
+      torchvision
+      ###
       # timeit
       # tenpy
       #tables
@@ -250,6 +256,7 @@ in {
   environment.sessionVariables = {
     #Hint electron apps to use wayland
     # NIXOS_OZONE_WL = "1";
+    # LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -285,6 +292,7 @@ in {
     pkgs.unzip
     pkgs.pavucontrol
     pkgs.libgccjit # gnu compiler collection
+    pkgs.gcc-unwrapped
     pkgs.binutils
     pkgs.gtk3
     pkgs.pywal
@@ -333,6 +341,7 @@ in {
     pkgs.evince
     pkgs.nomacs
     pkgs.gimp
+    pkgs.inkscape
     # pkgs.#jdownloader
     pkgs.upower
     pkgs.libimobiledevice-glue
