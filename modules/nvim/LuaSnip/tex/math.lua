@@ -98,6 +98,11 @@ return {
         f(function(_, snip) return snip.captures[1] end), i(1), i(2), i(3)
     }), {condition = tex.in_math}),
 
+    s({trig = "m33", wordTrig = false, snippetType = 'autosnippet'},
+      fmta("\\mqty(<>&<>&<>\\\\<>&<>&<>\\\\<>&<>&<>)",
+           {i(1), i(2), i(3), i(4), i(5), i(6), i(7), i(8), i(9)}),
+      {condition = tex.in_math}),
+
     s({trig = "st", wordTrig = false, snippetType = 'autosnippet'},
       fmta("\\substack{<>\\\\<>}", {i(1), i(2)}), {condition = tex.in_math}),
     s({trig = "bk", wordTrig = false, snippetType = 'autosnippet'},
