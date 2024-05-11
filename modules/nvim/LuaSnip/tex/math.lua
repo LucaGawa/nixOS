@@ -77,6 +77,7 @@ return {
     static("\\dotp", "\\dot{p}"), static("\\ddt", "\\dd{t}"),
     static("\\ddr", "\\dd{r}"), static("\\ddx", "\\dd{x}"),
     static("\\ddp", "\\dd{p}"), static("\\ddo", "\\ddot"),
+    static("||", "\\parallel"), static("|_", "\\perp"),
 
     s({trig = "=", wordTrig = false, snippetType = "autosnippet"}, t("=&"),
       {condition = tex.in_align}),
