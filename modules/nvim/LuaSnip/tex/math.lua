@@ -77,6 +77,7 @@ return {
     static("\\dotp", "\\dot{p}"), static("\\ddt", "\\dd{t}"),
     static("\\ddr", "\\dd{r}"), static("\\ddx", "\\dd{x}"),
     static("\\ddp", "\\dd{p}"), static("\\ddo", "\\ddot"),
+    static("||", "\\parallel"), static("|_", "\\perp"),
 
     s({trig = "=", wordTrig = false, snippetType = "autosnippet"}, t("=&"),
       {condition = tex.in_align}),
@@ -97,6 +98,11 @@ return {
     }, fmta("<>\\mel{<>}{<>}{<>}", {
         f(function(_, snip) return snip.captures[1] end), i(1), i(2), i(3)
     }), {condition = tex.in_math}),
+
+    s({trig = "m33", wordTrig = false, snippetType = 'autosnippet'},
+      fmta("\\mqty(<>&<>&<>\\\\<>&<>&<>\\\\<>&<>&<>)",
+           {i(1), i(2), i(3), i(4), i(5), i(6), i(7), i(8), i(9)}),
+      {condition = tex.in_math}),
 
     s({trig = "st", wordTrig = false, snippetType = 'autosnippet'},
       fmta("\\substack{<>\\\\<>}", {i(1), i(2)}), {condition = tex.in_math}),
