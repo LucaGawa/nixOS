@@ -301,6 +301,7 @@ in {
     pkgs.hyprpaper
     pkgs.mathematica
     pkgs.octaveFull
+    pkgs.mate.atril
     pkgs.wlogout
     pkgs.fish
     pkgs.starship
