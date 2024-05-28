@@ -32,7 +32,6 @@
       torch
       torchvision
       astropy
-      # conda
       ###
       # timeit
       # tenpy
@@ -369,7 +368,7 @@ in {
     pkgs.scribus
     pkgs.swaybg
     pkgs.ripgrep # for grep with nvim
-    pkgs.julia-bin
+    # pkgs.julia-bin
     pkgs.fzf
     pkgs.poppler
     pkgs.termpdfpy

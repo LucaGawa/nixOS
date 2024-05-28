@@ -292,7 +292,7 @@
       set -x VISUAL nvim
       set -x HISTCONTROL ignoreboth:erasedups
       set -x PAGER most
-      set -x BROWSER brave
+      set -x BROWSER firefox
 
       function ex
           switch $argv[1]
