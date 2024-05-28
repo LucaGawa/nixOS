@@ -257,7 +257,7 @@ in {
   environment.sessionVariables = {
     #Hint electron apps to use wayland
     # NIXOS_OZONE_WL = "1";
-    # LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+    LD_LIBRARY_PATH = ["${pkgs.stdenv.cc.cc.lib}/lib"];
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -398,11 +398,13 @@ in {
     pkgs.entr
     pkgs.python311Packages.python-lsp-server
     pkgs.zotero
-    pkgs.conda
+    # pkgs.conda
     pkgs.zulu17
     pkgs.vlc
     pkgs.python311Packages.pint
     pkgs.fityk
+    pkgs.libstdcxx5
+    # pkgs.conda
     # pkgs.python39Packages.tenpy
     ###############################################33
     # pkgs.pdftotext
