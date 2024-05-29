@@ -178,7 +178,7 @@ in {
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
     theme = "${import ./modules/sddm/sddm-theme.nix {inherit pkgs;}}";
@@ -186,7 +186,7 @@ in {
     #autoLogin.user = luca;
   };
 
-  services.xserver.displayManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "hyprland";
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
