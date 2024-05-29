@@ -57,6 +57,16 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
+        # Change focus of Monitor
+        # "$mainMod ALT, 1, focusonmonitor, 1"
+        # "$mainMod ALT, 2, focusonmonitor, 2"
+        # "$mainMod ALT, 3, focusonmonitor, 3"
+        # "$mainMod ALT, 4, focusonmonitor, 4"
+
+        # Cycle through Monitors
+        "$mainMod, Tab, focusmonitor, +1"
+        "$mainMod SHIFT, Tab, focusmonitor, -1"
+
         # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
@@ -148,6 +158,11 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
       };
+
+      # plugins = [
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      # ];
+
       decoration = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 

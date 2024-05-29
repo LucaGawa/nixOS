@@ -3,13 +3,12 @@
   pkgs,
   stable,
   inputs,
+  userSet,
   ...
-}:
-# let
-#
-# 				customIcons = import ./icons.nix { inherit pkgs; };
-# in
-{
+}: let
+  userName = userSet.userName;
+  # customIcons = import ./icons.nix { inherit pkgs; };
+in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./modules/hyprland/hyprland.nix
@@ -20,8 +19,8 @@
   #
   nixpkgs.config.allowUnfree = true;
   colorScheme = inputs.nix-colors.colorSchemes.nord;
-  home.username = "luca";
-  home.homeDirectory = "/home/luca";
+  home.username = userName;
+  home.homeDirectory = "/home/" + userName;
 
   home.sessionVariables = {
     EDITOR = "nvim";

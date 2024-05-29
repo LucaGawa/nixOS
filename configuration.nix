@@ -1,11 +1,13 @@
 {
   inputs,
   config,
-  nixpkgs-stable,
+  pkgs-stable,
   pkgs,
   lib,
+  userSet,
   ...
 }: let
+  userName = userSet.userName;
   my-python-packages = ps:
     with ps; [
       pandas
@@ -112,9 +114,6 @@
       
       ;
   };
-  imports = [
-    ./modules/tenpy.nix
-  ];
 in {
   # Enable networking
   networking.networkmanager.enable = true;
@@ -146,8 +145,8 @@ in {
   };
 
   hardware.uinput.enable = true;
-  users.groups.vinput.members = ["luca"];
-  users.groups.input.members = ["luca"];
+  users.groups.vinput.members = [userName];
+  users.groups.input.members = [userName];
 
   #Enable bluetooth
   hardware.bluetooth.enable = true;
@@ -404,6 +403,7 @@ in {
     pkgs.python311Packages.pint
     pkgs.fityk
     pkgs.libstdcxx5
+    pkgs-stable.chromium
     # pkgs.conda
     # pkgs.python39Packages.tenpy
     ###############################################33
