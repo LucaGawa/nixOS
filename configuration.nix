@@ -260,152 +260,141 @@ in {
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-    # pkgs.#neovim
-    pkgs.sway-contrib.grimshot
-    # pkgs.tenpy
-    pkgs.wget
-    pkgs.brave
-    pkgs.firefox-wayland
-    pkgs.thunderbird
-    pkgs.spotify
-    pkgs.xwayland
-    pkgs.sddm
-    pkgs.kitty
-    pkgs.alacritty
-    pkgs.git
-    pkgs.gparted
-    pkgs.hyprland
-    pkgs.onlyoffice-bin
-    # pkgs.# xfce.thunar
-    pkgs.waybar
-    # pkgs.#eww-wayland
-    pkgs.mako #notification deamon
-    pkgs.libnotify #dependency for deamon
-    pkgs.rofi-wayland
-    pkgs.networkmanagerapplet
-    pkgs.killall
-    pkgs.xfce.mousepad #text edior
-    # pkgs.#vscode-with-extensions
-    pkgs.flameshot
-    pkgs.hyprpicker
-    pkgs.unzip
-    pkgs.pavucontrol
-    pkgs.libgccjit # gnu compiler collection
-    pkgs.gcc-unwrapped
-    pkgs.binutils
-    pkgs.gtk3
-    pkgs.pywal
-    pkgs.hyprpaper
-    pkgs.mathematica
-    pkgs.octaveFull
-    pkgs.mate.atril
-    pkgs.wlogout
-    pkgs.fish
-    pkgs.starship
-    pkgs.eza #ls replacement
-    pkgs.bat #cat replacement
-    pkgs.zoxide #cd replacement
-    pkgs.entr # run code on every save
-    pkgs.tldr
-    pkgs.neofetch
-    pkgs.wlr-randr
-    pkgs.wdisplays
-    pkgs.lshw
-    pkgs.libsForQt5.qt5ct
-    pkgs.libsForQt5.qt5.qtwayland
-    pkgs.qt6.qtwayland
-    pkgs.libsForQt5.qt5.qtgraphicaleffects
-    pkgs.libsForQt5.qt5.qtquickcontrols2
-    pkgs.libva
-    pkgs.zoom-us
-    pkgs.cliphist
-    pkgs.wl-clipboard
-    pkgs.playerctl
-    pkgs.brightnessctl
-    pkgs.libreoffice-still
-    pkgs.wireplumber
-    pkgs.vifm
+  environment.systemPackages = with pkgs; [
+    sway-contrib.grimshot
+    wget
+    brave
+    firefox-wayland
+    thunderbird
+    spotify
+    xwayland
+    sddm
+    kitty
+    alacritty
+    git
+    gparted
+    hyprland
+    onlyoffice-bin
+    waybar
+    mako #notification deamon
+    libnotify #dependency for deamon
+    rofi-wayland
+    networkmanagerapplet
+    killall
+    xfce.mousepad #text edior
+    flameshot
+    hyprpicker
+    unzip
+    pavucontrol
+    libgccjit # gnu compiler collection
+    gcc-unwrapped
+    binutils
+    gtk3
+    pywal
+    hyprpaper
+    mathematica
+    octaveFull
+    mate.atril
+    wlogout
+    fish
+    starship
+    eza #ls replacement
+    bat #cat replacement
+    zoxide #cd replacement
+    entr # run code on every save
+    tldr
+    neofetch
+    wlr-randr
+    wdisplays
+    lshw
+    libsForQt5.qt5ct
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols2
+    libva
+    zoom-us
+    cliphist
+    wl-clipboard
+    playerctl
+    brightnessctl
+    libreoffice-still
+    wireplumber
+    vifm
     # pkgs.libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
-    pkgs.lxqt.lxqt-policykit
-    (pkgs.python3.withPackages my-python-packages)
+    lxqt.lxqt-policykit
+    (python3.withPackages my-python-packages)
     # latex
-    pkgs.texliveFull
+    texliveFull
     # pkgs.# stable.xournalpp
-    pkgs.rclone
-    pkgs.gnome.adwaita-icon-theme
+    rclone
+    gnome.adwaita-icon-theme
     # pkgs.#papirus-icon-theme
-    pkgs.most #remove perhabs and use alias to map on other pager
-    pkgs.owncloud-client
-    pkgs.libgnome-keyring
-    pkgs.home-manager
-    pkgs.evince
-    pkgs.nomacs
-    pkgs.gimp
-    pkgs.inkscape
-    # pkgs.#jdownloader
-    pkgs.upower
-    pkgs.libimobiledevice-glue
-    pkgs.pdfarranger
-    pkgs.zathura
-    pkgs.xdotool #vimtex forword search dependency
-    pkgs.way-displays
-    # pkgs.qutebrowser
+    most #remove perhabs and use alias to map on other pager
+    owncloud-client
+    libgnome-keyring
+    home-manager
+    evince
+    nomacs
+    gimp
+    inkscape
+    upower
+    libimobiledevice-glue
+    pdfarranger
+    zathura
+    xdotool #vimtex forword search dependency
+    way-displays
     pkgs.rambox
     # pkgs.#nvd #shows nixos diff packages
-    pkgs.htop
-    pkgs.swaynotificationcenter
-    pkgs.xournalpp
-    pkgs.feh
-    pkgs.pywal
-    pkgs.lynx
-    pkgs.lua-language-server
-    pkgs.nix-prefetch-git
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.swaylock-effects
-    pkgs.nordic
-    pkgs.scribus
-    pkgs.swaybg
-    pkgs.ripgrep # for grep with nvim
+    htop
+    swaynotificationcenter
+    xournalpp
+    feh
+    pywal
+    lynx
+    lua-language-server
+    nix-prefetch-git
+    xdg-desktop-portal-hyprland
+    swaylock-effects
+    nordic
+    scribus
+    swaybg
+    ripgrep # for grep with nvim
     # pkgs.julia-bin
-    pkgs.fzf
-    pkgs.poppler
-    pkgs.termpdfpy
-    pkgs.helvetica-neue-lt-std
-    pkgs.ltex-ls
-    pkgs.discord
-    pkgs.fd
-    pkgs.pstree
+    fzf
+    poppler
+    termpdfpy
+    helvetica-neue-lt-std
+    ltex-ls
+    discord
+    fd
+    pstree
     # python nvim setup
-    pkgs.nodePackages_latest.pyright
-    pkgs.mypy
-    pkgs.ruff
-    pkgs.black
-    pkgs.python311Packages.debugpy
-    pkgs.python311Packages.pip
-    pkgs.python311Packages.cython
-    pkgs.alejandra
-    pkgs.nil
-    pkgs.zip
-    pkgs.neovim-remote #backwards search latex
-    # pkgs.perl536Packages.LatexIndent #latex formatter
-    pkgs.luaformatter
-    pkgs.ltex-ls #lsp server latex
-    pkgs.texlab #lsp server latex
-    pkgs.tectonic
-    pkgs.pplatex
-    pkgs.entr
-    pkgs.python311Packages.python-lsp-server
-    pkgs.zotero
-    # pkgs.conda
-    pkgs.zulu17
-    pkgs.vlc
-    pkgs.python311Packages.pint
-    pkgs.fityk
-    pkgs.libstdcxx5
+    nodePackages_latest.pyright
+    mypy
+    ruff
+    black
+    python311Packages.debugpy
+    python311Packages.pip
+    python311Packages.cython
+    alejandra
+    nil
+    zip
+    neovim-remote #backwards search latex
+    luaformatter
+    ltex-ls #lsp server latex
+    texlab #lsp server latex
+    tectonic
+    pplatex
+    entr
+    python311Packages.python-lsp-server
+    zotero
+    zulu17
+    vlc
+    python311Packages.pint
+    fityk
+    libstdcxx5
     pkgs-stable.chromium
-    # pkgs.conda
-    # pkgs.python39Packages.tenpy
     ###############################################33
     # pkgs.pdftotext
     # pkgs.swaylock

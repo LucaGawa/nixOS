@@ -46,7 +46,7 @@
     nixpkgs-stable,
     home-manager,
     hyprland,
-    hyprland-plugins,
+    # hyprland-plugins,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -56,31 +56,14 @@
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-    # user = "luca";
-    # pkgs = import nixpkgs {
-    #   inherit system;
-    #   config = {
-    #     allowUnfree = true;
-    #   };
-    # };
-    # stable = import nixpkgs-stable {
-    #   inherit system;
-    #   config = {
-    #     allowUnfree = true;
-    #   };
-    # };
   in {
-    # overlays = {
-    #   pkg-sets = (
-    #     final: prev: {
-    #       stable = import inputs.nixpkgs-stable {inherit system;};
-    #     }
-    #   );
-    # };
-
     nixosConfigurations = {
       laptop = lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit userSet;
+          inherit pkgs-stable;
+        };
         modules = [
           ./configuration.nix
           ./hosts/laptop/configuration.nix
