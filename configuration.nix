@@ -347,6 +347,7 @@ in {
     pkgs.rambox
     # pkgs.#nvd #shows nixos diff packages
     htop
+    btop
     swaynotificationcenter
     xournalpp
     feh
@@ -394,6 +395,8 @@ in {
     python311Packages.pint
     fityk
     libstdcxx5
+    atuin # replacement for upkey history
+    powertop
     # pkgs-stable.chromium
     # pkgs-stable.epoll-shim
     ###############################################33

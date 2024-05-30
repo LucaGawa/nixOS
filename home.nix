@@ -307,6 +307,7 @@ in {
 
       zoxide init fish | source
       starship init fish | source
+      atuin init fish | source
 
       fish_vi_key_bindings
 
