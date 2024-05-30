@@ -269,7 +269,7 @@ in {
     spotify
     xwayland
     sddm
-    kitty
+    # kitty
     alacritty
     git
     gparted
@@ -394,7 +394,8 @@ in {
     python311Packages.pint
     fityk
     libstdcxx5
-    pkgs-stable.chromium
+    # pkgs-stable.chromium
+    # pkgs-stable.epoll-shim
     ###############################################33
     # pkgs.pdftotext
     # pkgs.swaylock

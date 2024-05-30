@@ -159,10 +159,6 @@
         disable_splash_rendering = true;
       };
 
-      # plugins = [
-      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      # ];
-
       decoration = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 

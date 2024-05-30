@@ -27,6 +27,12 @@ in {
     BROWSER = "firefox";
   };
 
+  # todo find out, why this gives an stack overflow error in the hyprland modul
+  wayland.windowManager.hyprland.plugins = [
+    # inputs.Hyprspace.packages.x86_64-linux.Hyprspace
+    # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+  ];
+
   services.xremap = {
     withHypr = true;
     config = {
@@ -245,12 +251,32 @@ in {
       colorscheme nord
     '';
   };
-
   # programs.kitty.
   programs.kitty = {
     enable = true;
+    theme = "Nord";
+    font = {
+      name = "monospace";
+      size = 14;
+    };
     # extraConfig = builtins.readFile (config.scheme inputs.base16-kitty);
+    settings = {
+      enable_audio_bell = false;
+      background_opacity = "0.9";
+    };
   };
+
+  # progrmas.alacrity = {
+  #   enable = true;
+  #   theme = "Nord";
+  #   font = {
+  #     name = "monospace";
+  #     size = 14;
+  #   };
+  #   settings = {
+  #     enable_audio_bell = false;
+  #   };
+  # };
 
   programs.fish = {
     enable = true;
@@ -275,12 +301,14 @@ in {
     };
 
     interactiveShellInit = ''
-      		if status is-interactive
+      if status is-interactive
           # Commands to run in interactive sessions can go here
       end
 
       zoxide init fish | source
       starship init fish | source
+
+      fish_vi_key_bindings
 
       set fish_greeting
 
@@ -349,11 +377,14 @@ in {
   };
 
   home.stateVersion = "23.05";
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+    enable = true;
+    # backupFileExtension = true;
+  };
 
   xdg.configFile."waybar/scripts".source = ./modules/waybar/scripts;
   xdg.configFile."swaync".source = ./modules/swaync;
-  xdg.configFile."kitty".source = ./modules/kitty;
+  # xdg.configFile."kitty".source = ./modules/kitty;
   xdg.configFile."wlogout".source = ./modules/wlogout;
   xdg.configFile."/home/luca/texmf/tex/latex/commonstuff/pakete.sty".source = ./modules/tex/pakete.sty;
   xdg.configFile."/home/luca/texmf/tex/bibtex/bib/refs.bib".source = ./modules/tex/refs.bib;
