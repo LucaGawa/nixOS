@@ -8,6 +8,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     # base16.url = "github:SenchoPens/base16.nix";
     xremap-flake.url = "github:xremap/nix-flake";
+    stylix.url = "github:danth/stylix";
 
     base16-schemes = {
       url = "github:base16-project/base16-schemes";
@@ -95,6 +96,7 @@
         modules = [
           ./configuration.nix
           ./hosts/desktop/configuration.nix
+          inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

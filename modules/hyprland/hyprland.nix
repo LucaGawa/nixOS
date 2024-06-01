@@ -2,11 +2,13 @@
   config,
   pkgs,
   inputs,
+  pkgs-stable,
   ...
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    # package = pkgs-stable.hyprland;
     settings = {
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -117,8 +119,8 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.inactive_border" = "rgba(${config.colorScheme.colors.base03}ff)";
-        "col.active_border" = "rgba(${config.colorScheme.colors.base07}ff)";
+        # "col.inactive_border" = "rgba(${config.colorScheme.colors.base03}ff)";
+        # "col.active_border" = "rgba(${config.colorScheme.colors.base07}ff)";
         layout = "dwindle";
         resize_on_border = true;
       };
@@ -171,7 +173,7 @@
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        # "col.shadow" = "rgba(1a1a1aee)";
       };
 
       animations = {

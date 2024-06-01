@@ -133,6 +133,41 @@ in {
   #   openFirewall = true;
   # };
 
+  stylix = {
+    image = /home/luca/nixOS/wallpaper/1.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    cursor = {
+      package = pkgs.nordzy-cursor-theme;
+      name = "Nordzy-cursors";
+    };
+    fonts = {
+      monospace = {
+        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      sizes = {
+        applications = 10;
+        terminal = 14;
+        desktop = 8;
+        popups = 10;
+      };
+    };
+    opacity = {
+      applications = 1.0;
+      terminal = 0.9;
+      desktop = 0.0;
+      popups = 1.0;
+    };
+  };
+
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
@@ -273,7 +308,7 @@ in {
     alacritty
     git
     gparted
-    hyprland
+    # pkgs-stable.hyprland
     onlyoffice-bin
     waybar
     mako #notification deamon

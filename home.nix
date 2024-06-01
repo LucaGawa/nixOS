@@ -120,16 +120,16 @@ in {
   #############################################
   gtk = {
     enable = true;
-    cursorTheme = {
-      package = pkgs.nordzy-cursor-theme;
-      name = "Nordzy-cursors";
-      size = 24;
-    };
+    # cursorTheme = {
+    #   package = pkgs.nordzy-cursor-theme;
+    #   name = "Nordzy-cursors";
+    #   size = 24;
+    # };
     # font = {
-    #       package = (pkgs.nerdfonts.override { fonts = [ "Mononoki" ]; });
-    #       name = "Mononoki Nerd Font Regular";
-    #       size = 18;
-    #     };
+    #   package = pkgs.nerdfonts.override {fonts = ["Mononoki"];};
+    #   name = "Mononoki Nerd Font Regular";
+    #   size = 18;
+    # };
     iconTheme = {
       # (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; })
       package = pkgs.nordzy-icon-theme.override {nordzy-themes = ["all"];};
@@ -139,10 +139,10 @@ in {
     # package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
     # name = "Catppuccin-Mocha-Standard-Peach-Dark";
     # };
-    theme = {
-      package = pkgs.nordic;
-      name = "Nordic";
-    };
+    # theme = {
+    #   package = pkgs.nordic;
+    #   name = "Nordic";
+    # };
   };
 
   qt = {
@@ -254,15 +254,15 @@ in {
   # programs.kitty.
   programs.kitty = {
     enable = true;
-    theme = "Nord";
-    font = {
-      name = "monospace";
-      size = 14;
-    };
+    # theme = "Nord";
+    # font = {
+    #   name = "monospace";
+    #   size = 14;
+    # };
     # extraConfig = builtins.readFile (config.scheme inputs.base16-kitty);
     settings = {
       enable_audio_bell = false;
-      background_opacity = "0.9";
+      # background_opacity = "0.9";
     };
   };
 
