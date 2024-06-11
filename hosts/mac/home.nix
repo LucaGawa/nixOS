@@ -5,6 +5,12 @@
   home.username = "luca";
   home.homeDirectory = lib.mkForce "/Users/luca";
 
+  programs.git = {
+  enable = true;
+  userName = "Luca Gawalleck";
+  userEmail = "luca.gawalleck@gmail.com";
+  };
+
   programs.kitty = {
   enable = true;
   settings = {
