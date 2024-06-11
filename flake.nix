@@ -19,15 +19,15 @@
       url = "github:base16-project/base16-schemes";
       flake = false;
     };
-    base16-zathura = {
-      url = "github:haozeke/base16-zathura";
-      flake = false;
-    };
-
-    base16-kitty = {
-      url = "github:kdrag0n/base16-kitty";
-      flake = false;
-    };
+    # base16-zathura = {
+    #   url = "github:haozeke/base16-zathura";
+    #   flake = false;
+    # };
+    #
+    # base16-kitty = {
+    #   url = "github:kdrag0n/base16-kitty";
+    #   flake = false;
+    # };
 
     home-manager = {
       url = github:nix-community/home-manager;
