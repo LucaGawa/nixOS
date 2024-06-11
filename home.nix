@@ -28,7 +28,6 @@ in {
   #
   nixpkgs.config.allowUnfree = true;
   home.username = userName;
-  home.homeDirectory = "/home/" + userName;
 
   home.sessionVariables = {
     EDITOR = "nvim";

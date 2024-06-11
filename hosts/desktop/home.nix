@@ -1,9 +1,11 @@
 {
   config,
   pkgs,
-  stable,
+  userSet,
   ...
-}: {
+}: let
+  userName = userSet.userName;
+in {
   imports = [
     ../../modules/hyprland/hyprland.nix
     ../../modules/waybar.nix
