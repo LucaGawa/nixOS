@@ -35,7 +35,9 @@
 			};
             home-manager.users.luca =
 		{
-		 imports = [../../home.nix];
+		 imports = [
+		 ../../home.nix 
+		 ./home.nix];
 		};
           } ];
     };
