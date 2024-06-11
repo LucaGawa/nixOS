@@ -20,6 +20,9 @@
     ../../modules/mimeapps.nix
     ../../modules/neovim.nix
   ];
+
+  home.homeDirectory = "/home/" + userName;
+
   wayland.windowManager.hyprland = {
     settings = {
       "exec-once" = [
