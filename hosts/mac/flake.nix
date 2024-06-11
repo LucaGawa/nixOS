@@ -11,7 +11,10 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
-	user = "luca";
+	system = "x86_64-darwin";
+	userSet = {
+	userName = "luca";
+	};
   in
   {
     # Build darwin flake using:
@@ -19,6 +22,7 @@
     darwinConfigurations."luca" = nix-darwin.lib.darwinSystem {
       specialArgs = {
           inherit inputs;
+	  inherit userSet;
       };
       modules = [ ./configuration.nix
 	home-manager.darwinModules.home-manager
@@ -26,12 +30,13 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 		home-manager.backupFileExtension = "backup";
+		home-manager.extraSpecialArgs = {
+			inherit userSet;
+			};
             home-manager.users.luca =
 		{
-		 imports = [./home.nix];
+		 imports = [../../home.nix];
 		};
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
           } ];
     };
 
