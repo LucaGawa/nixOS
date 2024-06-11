@@ -33,6 +33,15 @@ in {
     # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
   ];
 
+  services.avizo = {
+    enable = true;
+    settings = {
+      default = {
+        time = 1.0;
+      };
+    };
+  };
+
   services.xremap = {
     withHypr = true;
     config = {
@@ -63,6 +72,12 @@ in {
   #     obs-backgroundremoval
   #     obs-pipewire-audio-capture
   #   ];
+  # };
+
+  # stylix = {
+  #   targets = {
+  #     firefox.enable = true;
+  #   };
   # };
 
   programs.git = {

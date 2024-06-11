@@ -134,6 +134,7 @@ in {
   # };
 
   stylix = {
+    enable = true;
     image = /home/luca/nixOS/wallpaper/1.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     cursor = {
@@ -210,8 +211,6 @@ in {
 
   services.upower.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.desktopManager.gnome.enable = true;
   services.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
@@ -219,6 +218,10 @@ in {
     #autoLogin.enable = true;
     #autoLogin.user = luca;
   };
+
+  # services.xserver.displayManager.lightdm = {
+  #   enable = true;
+  # };
 
   services.displayManager.defaultSession = "hyprland";
   programs.hyprland = {
@@ -406,7 +409,7 @@ in {
     fd
     pstree
     # python nvim setup
-    nodePackages_latest.pyright
+    # nodePackages_latest.pyright
     mypy
     ruff
     black
