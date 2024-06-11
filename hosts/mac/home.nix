@@ -9,6 +9,11 @@
   enable = true;
   userName = "Luca Gawalleck";
   userEmail = "luca.gawalleck@gmail.com";
+  extraConfig = {
+  pull = {
+  ff = "only";
+  }; 
+  };
   };
 
   programs.kitty = {
