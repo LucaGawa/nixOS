@@ -1,4 +1,12 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    neovim-remote #backwards search latex
+    luaformatter
+    ltex-ls #lsp server latex
+    texlab #lsp server latex
+    alejandra # nix code formatter
+  ];
+
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [

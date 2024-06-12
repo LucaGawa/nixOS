@@ -8,37 +8,6 @@
   ...
 }: let
   userName = userSet.userName;
-  my-python-packages = ps:
-    with ps; [
-      pandas
-      numpy
-      sympy
-      scipy
-      dbus-python #needed for eduroam installer
-      jupyter
-      # python311Packages.jupyter-core
-      matplotlib
-      pygobject3
-      gst-python
-      numba
-      pint
-      jax
-      jaxlib-bin
-      # jaxlibWithCuda
-      tqdm
-      # tensorflow
-      pytest
-      ### Machine Learning
-      scikit-learn
-      seaborn
-      torch
-      torchvision
-      astropy
-      ###
-      # timeit
-      # tenpy
-      #tables
-    ];
   latex = pkgs.texlive.combine {
     inherit
       (pkgs.texlive)
@@ -115,6 +84,11 @@
       ;
   };
 in {
+  imports = [
+    ./system/programs.nix
+    ./system/programs_basic.nix
+    ./system/python.nix
+  ];
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -298,149 +272,6 @@ in {
   };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    sway-contrib.grimshot
-    wget
-    brave
-    firefox-wayland
-    thunderbird
-    spotify
-    xwayland
-    sddm
-    # kitty
-    alacritty
-    git
-    gparted
-    # pkgs-stable.hyprland
-    onlyoffice-bin
-    waybar
-    mako #notification deamon
-    libnotify #dependency for deamon
-    rofi-wayland
-    networkmanagerapplet
-    killall
-    xfce.mousepad #text edior
-    flameshot
-    hyprpicker
-    unzip
-    pavucontrol
-    libgccjit # gnu compiler collection
-    gcc-unwrapped
-    binutils
-    gtk3
-    pywal
-    hyprpaper
-    mathematica
-    octaveFull
-    mate.atril
-    wlogout
-    fish
-    starship
-    eza #ls replacement
-    bat #cat replacement
-    zoxide #cd replacement
-    entr # run code on every save
-    tldr
-    neofetch
-    wlr-randr
-    wdisplays
-    lshw
-    libsForQt5.qt5ct
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtquickcontrols2
-    libva
-    zoom-us
-    cliphist
-    wl-clipboard
-    playerctl
-    brightnessctl
-    libreoffice-still
-    wireplumber
-    vifm
-    # pkgs.libsForQt5.polkit-kde-agent #todo muss glaub noch in hyprland aktiviert werden
-    lxqt.lxqt-policykit
-    (python3.withPackages my-python-packages)
-    # latex
-    texliveFull
-    # pkgs.# stable.xournalpp
-    rclone
-    gnome.adwaita-icon-theme
-    # pkgs.#papirus-icon-theme
-    most #remove perhabs and use alias to map on other pager
-    owncloud-client
-    libgnome-keyring
-    home-manager
-    evince
-    nomacs
-    gimp
-    inkscape
-    upower
-    libimobiledevice-glue
-    pdfarranger
-    zathura
-    xdotool #vimtex forword search dependency
-    way-displays
-    pkgs.rambox
-    # pkgs.#nvd #shows nixos diff packages
-    htop
-    btop
-    swaynotificationcenter
-    xournalpp
-    feh
-    pywal
-    lynx
-    lua-language-server
-    nix-prefetch-git
-    xdg-desktop-portal-hyprland
-    swaylock-effects
-    nordic
-    scribus
-    swaybg
-    ripgrep # for grep with nvim
-    # pkgs.julia-bin
-    fzf
-    poppler
-    termpdfpy
-    helvetica-neue-lt-std
-    ltex-ls
-    discord
-    fd
-    pstree
-    # python nvim setup
-    # nodePackages_latest.pyright
-    mypy
-    ruff
-    black
-    python311Packages.debugpy
-    python311Packages.pip
-    python311Packages.cython
-    alejandra
-    nil
-    zip
-    neovim-remote #backwards search latex
-    luaformatter
-    ltex-ls #lsp server latex
-    texlab #lsp server latex
-    tectonic
-    pplatex
-    entr
-    python311Packages.python-lsp-server
-    zotero
-    zulu17
-    vlc
-    python311Packages.pint
-    fityk
-    libstdcxx5
-    atuin # replacement for upkey history
-    powertop
-    # pkgs-stable.chromium
-    # pkgs-stable.epoll-shim
-    ###############################################33
-    # pkgs.pdftotext
-    # pkgs.swaylock
-  ];
   # with pkgs-stable;
   # [
   # 	stable.xournalpp
