@@ -9,11 +9,11 @@
     # base16.url = "github:SenchoPens/base16.nix";
     xremap-flake.url = "github:xremap/nix-flake";
     stylix.url = "github:danth/stylix";
-    
+
     nix-darwin = {
-	url = "github:LnL7/nix-darwin";
-	#inputs.follows = "nixpkgs";	
-	};
+      url = "github:LnL7/nix-darwin";
+      #inputs.follows = "nixpkgs";
+    };
 
     base16-schemes = {
       url = "github:base16-project/base16-schemes";
@@ -35,7 +35,8 @@
       # inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      # url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpaper = {
@@ -72,8 +73,8 @@
     pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in {
     darwinConfigurations."air" = nix-darwin.lib.darwinSystem {
-	modules = [./hosts/mac/configuration.nix ];
-	};
+      modules = [./hosts/mac/configuration.nix];
+    };
     darwinPackages = self.darwinConfigurations."mac".pkgs;
     nixosConfigurations = {
       laptop = lib.nixosSystem {
