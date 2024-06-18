@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 { pkgs, inputs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
@@ -61,23 +62,50 @@ programs.bash = {
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
       nix.package = pkgs.nix;
+=======
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  # List packages installed in system profile. To search by name, run:
+  # $ nix-env -qaP | grep wget
+  imports = [
+    ../../system/programs_basic.nix
+    ../../system/python.nix
+  ];
+  # environment.systemPackages =
+  #   [
+  #           pkgs.neovim
+  #   ];
 
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
+  # Auto upgrade nix package and the daemon service.
+  services.nix-daemon.enable = true;
+  # nix.package = pkgs.nix;
+>>>>>>> refs/remotes/origin/master
 
+  # Necessary for using flakes on this system.
+  nix.settings.experimental-features = "nix-command flakes";
+
+<<<<<<< HEAD
       # Create /etc/zshrc that loads the nix-darwin environment.
       # programs.zsh.enable = true;  # default shell on catalina
       programs.fish.enable = true;
+=======
+  # Create /etc/zshrc that loads the nix-darwin environment.
+  programs.zsh.enable = false; # default shell on catalina
+  # programs.fish.enable = true;
+>>>>>>> refs/remotes/origin/master
 
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+  # Set Git commit hash for darwin-version.
+  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 4;
+  # Used for backwards compatibility, please read the changelog before changing.
+  # $ darwin-rebuild changelog
+  system.stateVersion = 4;
 
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "x86_64-darwin";
+  # The platform the configuration will be used on.
+  nixpkgs.hostPlatform = "x86_64-darwin";
 
-      nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 }

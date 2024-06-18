@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     neovim-remote #backwards search latex
-    luaformatter
+    #luaformatter
     ltex-ls #lsp server latex
     texlab #lsp server latex
     alejandra # nix code formatter
