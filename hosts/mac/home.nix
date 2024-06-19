@@ -1,17 +1,21 @@
-{ pkgs, lib, ... }: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
-  ../../modules/kitty.nix
-  ../../modules/fish.nix
-  ../../modules/git.nix
-  ../../modules/zathura.nix
-  ../../modules/vscode.nix
-  ../../modules/neovim.nix
+    ../../modules/kitty.nix
+    ../../modules/fish.nix
+    ../../modules/git.nix
+    ../../modules/zathura.nix
+    ../../modules/vscode.nix
+    ../../modules/neovim.nix
   ];
 
   home.homeDirectory = lib.mkForce "/Users/luca";
-
-    stylix.enable = true;
-    stylix = {
+ 
+  stylix = enable = true;
+  stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     fonts = {
       monospace = {
@@ -39,7 +43,7 @@
       desktop = 0.0;
       popups = 1.0;
     };
-    };
+  };
 
   programs.fish = {
     shellAbbrs = {
@@ -48,4 +52,3 @@
     };
   };
 }
-
