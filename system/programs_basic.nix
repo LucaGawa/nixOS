@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    # brave
-    # thunderbird
+    brave
+    thunderbird
     spotify
-    # mathematica
+    mathematica
     starship
     eza #ls replacement
     bat #cat replacement
@@ -12,13 +12,13 @@
     zoom-us
     vifm
     texliveFull
-    # owncloud-client
-    # inkscape
+    owncloud-client
+    inkscape
     zathura
     xournalpp
     fzf
     discord
-    # vlc
+    vlc
     atuin # replacement for upkey history
   ];
 }
