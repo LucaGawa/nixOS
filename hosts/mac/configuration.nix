@@ -14,6 +14,21 @@
   #           pkgs.neovim
   #   ];
 
+  nixpkgs.config = {
+    allowUnsupportedSystem = true;
+    allowBroken = true;
+  };
+
+  system.keyboard = {
+    enableKeyMapping = false;
+    remapCapsLockToEscape = true;
+    remapCapsLockToControl = true;
+  };
+
+  stylix = {
+    image = ../../wallpaper/1.png;
+  };
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
@@ -23,7 +38,7 @@
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = false; # default shell on catalina
-  # programs.fish.enable = true;
+  programs.fish.enable = true;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
