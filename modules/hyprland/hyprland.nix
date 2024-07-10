@@ -105,9 +105,9 @@
         "$mainMod SHIFT, j, movewindow, d"
 
         # Multimedia Keys
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioRaiseVolume, exec, volumectl -u up"
+        ",XF86AudioLowerVolume, exec, volumectl -u down"
+        ",XF86AudioMute, exec, volumectl toggle-mute"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"
@@ -138,7 +138,8 @@
         "rclone mount --network-mode Gdrive:/ ~/Gdrive/"
         "bash ~/nixOS/scripts/read_cursor_theme.sh"
         "lxqt-policykit-agent"
-        "sleep1; bash ~/nixOS/scripts/reload.sh"
+        "avizo-service"
+        # "sleep5; bash ~/nixOS/scripts/reload.sh"
       ];
 
       input = {
@@ -199,7 +200,8 @@
       };
 
       master = {
-        new_is_master = true;
+        # new_is_master = true;
+        new_status = "master";
       };
 
       gestures = {

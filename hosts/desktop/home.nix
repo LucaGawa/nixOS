@@ -1,9 +1,30 @@
 {
   config,
   pkgs,
-  stable,
+  userSet,
   ...
-}: {
+}: let
+  userName = userSet.userName;
+in {
+  imports = [
+    ../../modules/hyprland/hyprland.nix
+    ../../modules/waybar.nix
+    ../../modules/kitty.nix
+    ../../modules/avizo.nix
+    ../../modules/xremap.nix
+    ../../modules/rofi/rofi.nix
+    ../../modules/fish.nix
+    ../../modules/git.nix
+    ../../modules/zathura.nix
+    ../../modules/vscode.nix
+    ../../modules/theming.nix
+    ../../modules/fonts.nix
+    ../../modules/mimeapps.nix
+    ../../modules/neovim.nix
+  ];
+
+  home.homeDirectory = "/home/" + userName;
+
   wayland.windowManager.hyprland = {
     settings = {
       "exec-once" = [
@@ -13,15 +34,15 @@
       ];
 
       monitor = [
-        "DP-1,preferred,0x1080,1"
-        "DP-3,preferred,850x2520,1"
+        "DP-1,preferred,850x2520,1"
         "DP-2,preferred,3440x1190,1"
         "HDMI-A-3,preferred,2130x0,1"
+        "DP-3,preferred,0x1080,1"
       ];
       workspace = [
-        "1, monitor:DP-1, default:true"
         "10, monitor:HDMI-A-3, default:true"
-        "8, monitor:DP-3, default:true"
+        "1, monitor:DP-3, default:true"
+        "8, monitor:DP-1, default:true"
         "5, monitor:DP-2, default:true"
         "9, monitor:DP-2, default:false"
       ];

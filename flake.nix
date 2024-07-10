@@ -10,19 +10,24 @@
     xremap-flake.url = "github:xremap/nix-flake";
     stylix.url = "github:danth/stylix";
 
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      #inputs.follows = "nixpkgs";
+    };
+
     base16-schemes = {
       url = "github:base16-project/base16-schemes";
       flake = false;
     };
-    base16-zathura = {
-      url = "github:haozeke/base16-zathura";
-      flake = false;
-    };
-
-    base16-kitty = {
-      url = "github:kdrag0n/base16-kitty";
-      flake = false;
-    };
+    # base16-zathura = {
+    #   url = "github:haozeke/base16-zathura";
+    #   flake = false;
+    # };
+    #
+    # base16-kitty = {
+    #   url = "github:kdrag0n/base16-kitty";
+    #   flake = false;
+    # };
 
     home-manager = {
       url = github:nix-community/home-manager;
@@ -30,7 +35,8 @@
       # inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      # url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprpaper = {
@@ -55,6 +61,7 @@
     home-manager,
     hyprland,
     # hyprland-plugins,
+    nix-darwin,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -65,6 +72,10 @@
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in {
+    darwinConfigurations."air" = nix-darwin.lib.darwinSystem {
+      modules = [./hosts/mac/configuration.nix];
+    };
+    darwinPackages = self.darwinConfigurations."mac".pkgs;
     nixosConfigurations = {
       laptop = lib.nixosSystem {
         specialArgs = {
