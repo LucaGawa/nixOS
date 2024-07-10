@@ -251,7 +251,7 @@ in {
       colorscheme nord
     '';
   };
-  # programs.kitty.
+
   programs.kitty = {
     enable = true;
     # theme = "Nord";
