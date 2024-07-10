@@ -50,7 +50,7 @@
     # latex
     # pkgs.# stable.xournalpp
     rclone
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     # pkgs.#papirus-icon-theme
     most #remove perhabs and use alias to map on other pager
     libgnome-keyring

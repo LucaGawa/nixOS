@@ -13,8 +13,8 @@
       gst-python
       numba
       pint
-      jax
-      jaxlib-bin
+      # jax
+      # jaxlib-bin
       # jaxlibWithCuda
       tqdm
       # tensorflow
