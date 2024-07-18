@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: let
   my-python-packages = ps:
     with ps; [
       pandas
@@ -32,7 +36,7 @@
     ];
 in {
   environment.systemPackages = with pkgs; [
-    (python3.withPackages my-python-packages)
+    (pkgs-stable.python3.withPackages my-python-packages)
     mypy
     ruff
     black
