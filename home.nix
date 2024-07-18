@@ -9,23 +9,6 @@
   userName = userSet.userName;
   # customIcons = import ./icons.nix { inherit pkgs; };
 in {
-  # imports = [
-  #   ./modules/hyprland/hyprland.nix
-  #   ./modules/waybar.nix
-  #   ./modules/kitty.nix
-  #   ./modules/avizo.nix
-  #   ./modules/xremap.nix
-  #   ./modules/rofi/rofi.nix
-  #   ./modules/fish.nix
-  #   ./modules/git.nix
-  #   ./modules/zathura.nix
-  #   ./modules/vscode.nix
-  #   ./modules/theming.nix
-  #   ./modules/fonts.nix
-  #   ./modules/mimeapps.nix
-  #   ./modules/neovim.nix
-  # ];
-  #
   nixpkgs.config.allowUnfree = true;
   home.username = userName;
 

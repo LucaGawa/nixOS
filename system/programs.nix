@@ -100,5 +100,7 @@
     fityk
     libstdcxx5
     powertop
+    kitty
+    rofi-wayland
   ];
 }
