@@ -86,10 +86,16 @@
         modules = [
           ./configuration.nix
           ./hosts/laptop/configuration.nix
+          inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-stable;
+              inherit userSet;
+            };
             home-manager.users.luca = {
               imports = [./home.nix ./hosts/laptop/home.nix];
             };
