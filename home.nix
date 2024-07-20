@@ -9,23 +9,6 @@
   userName = userSet.userName;
   # customIcons = import ./icons.nix { inherit pkgs; };
 in {
-  # imports = [
-  #   ./modules/hyprland/hyprland.nix
-  #   ./modules/waybar.nix
-  #   ./modules/kitty.nix
-  #   ./modules/avizo.nix
-  #   ./modules/xremap.nix
-  #   ./modules/rofi/rofi.nix
-  #   ./modules/fish.nix
-  #   ./modules/git.nix
-  #   ./modules/zathura.nix
-  #   ./modules/vscode.nix
-  #   ./modules/theming.nix
-  #   ./modules/fonts.nix
-  #   ./modules/mimeapps.nix
-  #   ./modules/neovim.nix
-  # ];
-  #
   nixpkgs.config.allowUnfree = true;
   home.username = userName;
 
@@ -56,7 +39,7 @@ in {
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
   xdg.configFile."xournalpp/settings.xml".source = ./modules/xournalpp/settings.xml;
   xdg.configFile."xournalpp/palette.gpl".source = ./modules/xournalpp/palette.gpl;
-  xdg.configFile."rofi".source = ./modules/rofi;
+  # xdg.configFile."rofi".source = ./modules/rofi;
   xdg.configFile."Code/User/keybindings.json".source = ./modules/code/keybindings.json;
   # xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;
   xdg.configFile."Thunar/uca.xml".source = ./modules/thunar/uca.xml;

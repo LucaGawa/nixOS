@@ -1,4 +1,20 @@
 {
+  imports = [
+    ../../modules/hyprland/hyprland.nix
+    ../../modules/waybar.nix
+    ../../modules/kitty.nix
+    ../../modules/avizo.nix
+    ../../modules/xremap.nix
+    ../../modules/rofi/rofi.nix
+    ../../modules/fish.nix
+    ../../modules/git.nix
+    ../../modules/zathura.nix
+    ../../modules/vscode.nix
+    ../../modules/theming.nix
+    ../../modules/fonts.nix
+    ../../modules/mimeapps.nix
+    ../../modules/neovim.nix
+  ];
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [
