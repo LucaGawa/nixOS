@@ -39,7 +39,7 @@ in {
   xdg.configFile."xournalpp/toolbar.ini".source = ./modules/xournalpp/toolbar.ini;
   xdg.configFile."xournalpp/settings.xml".source = ./modules/xournalpp/settings.xml;
   xdg.configFile."xournalpp/palette.gpl".source = ./modules/xournalpp/palette.gpl;
-  xdg.configFile."rofi".source = ./modules/rofi;
+  # xdg.configFile."rofi".source = ./modules/rofi;
   xdg.configFile."Code/User/keybindings.json".source = ./modules/code/keybindings.json;
   # xdg.configFile."Code/User/settings.json".source = ./modules/code/settings.json;
   xdg.configFile."Thunar/uca.xml".source = ./modules/thunar/uca.xml;
