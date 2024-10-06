@@ -21,10 +21,7 @@ in {
   wayland.windowManager.hyprland.plugins = [
     inputs.Hyprspace.packages.x86_64-linux.Hyprspace
     # inputs.Hyprspace.packages.x86_64-linux.Hyprspace
-<<<<<<< HEAD
     # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-=======
->>>>>>> refs/remotes/origin/master
     # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
   ];
 
