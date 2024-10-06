@@ -19,8 +19,12 @@ in {
 
   # todo find out, why this gives an stack overflow error in the hyprland modul
   wayland.windowManager.hyprland.plugins = [
+    inputs.Hyprspace.packages.x86_64-linux.Hyprspace
     # inputs.Hyprspace.packages.x86_64-linux.Hyprspace
+<<<<<<< HEAD
     # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+=======
+>>>>>>> refs/remotes/origin/master
     # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
   ];
 

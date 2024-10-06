@@ -1,3 +1,21 @@
+@article{artiacoEfficientLargeScaleManyBody2024,
+  title = {Efficient {{Large-Scale Many-Body Quantum Dynamics}} via {{Local-Information Time Evolution}}},
+  author = {Artiaco, Claudia and Fleckenstein, Christoph and Aceituno Chávez, David and Kvorning, Thomas Klein and Bardarson, Jens H.},
+  date = {2024-06-04},
+  journaltitle = {PRX Quantum},
+  shortjournal = {PRX Quantum},
+  volume = {5},
+  number = {2},
+  pages = {020352},
+  issn = {2691-3399},
+  doi = {10.1103/PRXQuantum.5.020352},
+  url = {https://link.aps.org/doi/10.1103/PRXQuantum.5.020352},
+  urldate = {2024-09-25},
+  abstract = {During time evolution of many-body systems entanglement grows rapidly, limiting exact simulations to small-scale systems or small timescales. Quantum information tends, however, to flow towards larger scales without returning to local scales, such that its detailed large-scale structure does not directly affect local observables. This allows for the removal of large-scale quantum information in a way that preserves all local observables and gives access to large-scale and large-time quantum dynamics. To this end, we use the recently introduced  to organize quantum information into different scales, allowing us to define  and  that we employ to systematically discard long-range quantum correlations in a controlled way. Our approach relies on decomposing the system into subsystems up to a maximum scale and time evolving the subsystem density matrices by solving the subsystem von Neumann equations in parallel. Importantly, the information flow needs to be preserved during the discarding of large-scale information. To achieve this without the need to make assumptions about the microscopic details of the information current, we introduce a second scale at which information is discarded, while using the state at the maximum scale to accurately obtain the information flow. The resulting algorithm, which we call local-information time evolution, is highly versatile and suitable for investigating many-body quantum dynamics in both closed and open quantum systems with diverse hydrodynamic behaviors. We present results for the energy transport in the mixed-field Ising model and the magnetization transport in the                                X                 X                              spin chain with onsite dephasing where we accurately determine the power-law exponent and the diffusion coefficients. Furthermore, the information lattice framework employed here promises to offer insightful results about the spatial and temporal behavior of entanglement in many-body systems.                                                                                            Published by the American Physical Society                   2024},
+  langid = {english},
+  file = {/home/luca/Zotero/storage/HBTEAJBW/Artiaco et al. - 2024 - Efficient Large-Scale Many-Body Quantum Dynamics via Local-Information Time Evolution.pdf}
+}
+
 @online{berryEfficientQuantumAlgorithms2005,
   title = {Efficient Quantum Algorithms for Simulating Sparse {{Hamiltonians}}},
   author = {Berry, Dominic W. and Ahokas, Graeme and Cleve, Richard and Sanders, Barry C.},
@@ -5,7 +23,7 @@
   doi = {10.1007/s00220-006-0150-x},
   url = {https://arxiv.org/abs/quant-ph/0508139v2},
   urldate = {2024-02-02},
-  abstract = {We present an efficient quantum algorithm for simulating the evolution of a sparse Hamiltonian H for a given time t in terms of a procedure for computing the matrix entries of H. In particular, when H acts on n qubits, has at most a constant number of nonzero entries in each row/column, and |H| is bounded by a constant, we may select any positive integer \$k\$ such that the simulation requires O((\textbackslash log\^{}*n)t\^{}\{1+1/2k\}) accesses to matrix entries of H. We show that the temporal scaling cannot be significantly improved beyond this, because sublinear time scaling is not possible.},
+  abstract = {We present an efficient quantum algorithm for simulating the evolution of a sparse Hamiltonian H for a given time t in terms of a procedure for computing the matrix entries of H. In particular, when H acts on n qubits, has at most a constant number of nonzero entries in each row/column, and |H| is bounded by a constant, we may select any positive integer \$k\$ such that the simulation requires O((\textbackslash log\textasciicircum *n)t\textasciicircum\{1+1/2k\}) accesses to matrix entries of H. We show that the temporal scaling cannot be significantly improved beyond this, because sublinear time scaling is not possible.},
   langid = {english},
   organization = {arXiv.org},
   file = {/home/luca/Zotero/storage/GL4PLMHS/Berry et al. - 2005 - Efficient quantum algorithms for simulating sparse.pdf}
@@ -32,7 +50,7 @@
   volume = {2004},
   number = {04},
   eprint = {cond-mat/0403313},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   pages = {P04005},
   issn = {1742-5468},
   doi = {10.1088/1742-5468/2004/04/P04005},
@@ -53,7 +71,7 @@
   volume = {18},
   number = {4},
   eprint = {2209.07965},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   eprintclass = {nlin, physics:quant-ph},
   pages = {55237},
   issn = {1941-6016},
@@ -91,7 +109,7 @@
   volume = {50},
   number = {9},
   eprint = {0903.3253},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   eprintclass = {cond-mat, physics:quant-ph},
   pages = {095207},
   issn = {0022-2488, 1089-7658},
@@ -129,7 +147,7 @@
   volume = {100},
   number = {10},
   eprint = {1901.05793},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   eprintclass = {cond-mat},
   pages = {104303},
   issn = {2469-9950, 2469-9969},
@@ -139,6 +157,12 @@
   abstract = {We review different tensor network approaches to study the spreading of operators in generic nonintegrable quantum systems. As a common ground to all methods, we quantify this spreading by means of the Frobenius norm of the commutator of a spreading operator with a local operator, which is usually referred to as the out of time order correlation (OTOC) function. We compare two approaches based on matrix-product states in the Schr\textbackslash "odinger picture: the time dependent block decimation (TEBD) and the time dependent variational principle (TDVP), as well as TEBD based on matrix-product operators directly in the Heisenberg picture. The results of all methods are compared to numerically exact results using Krylov space exact time evolution. We find that for the Schr\textbackslash "odinger picture the TDVP algorithm performs better than the TEBD algorithm. Moreover the tails of the OTOC are accurately obtained both by TDVP MPS and TEBD MPO. They are in very good agreement with exact results at short times, and appear to be converged in bond dimension even at longer times. However the growth and saturation regimes are not well captured by both methods.},
   keywords = {Condensed Matter - Statistical Mechanics,Condensed Matter - Strongly Correlated Electrons},
   file = {/home/luca/Zotero/storage/6BGQH8EY/Hémery et al. - 2019 - Matrix product states approaches to operator sprea.pdf;/home/luca/Zotero/storage/RHTT5BLQ/1901.html}
+}
+
+@online{HttpsSteckusAlkalidata,
+  title = {{{https://steck.us/alkalidata/rubidium85numbers.pdf}}},
+  url = {https://steck.us/alkalidata/rubidium85numbers.pdf},
+  urldate = {2024-05-04}
 }
 
 @book{krugtenAngularCorrelationsNuclear1971,
@@ -151,6 +175,28 @@
   langid = {english},
   annotation = {OCLC: 281716},
   file = {/home/luca/Studium/11_Semester/ALC/k223/eCampus_material/siegbahn_pages.pdf}
+}
+
+@article{kvorningTimeevolutionLocalInformation2022,
+  title = {Time-Evolution of Local Information: Thermalization Dynamics of Local Observables},
+  shorttitle = {Time-Evolution of Local Information},
+  author = {Kvorning, Thomas Klein and Herviou, Loïc and Bardarson, Jens H.},
+  date = {2022-10-04},
+  journaltitle = {SciPost Physics},
+  shortjournal = {SciPost Phys.},
+  volume = {13},
+  number = {4},
+  eprint = {2105.11206},
+  eprinttype = {arXiv},
+  eprintclass = {cond-mat, physics:quant-ph},
+  pages = {080},
+  issn = {2542-4653},
+  doi = {10.21468/SciPostPhys.13.4.080},
+  url = {http://arxiv.org/abs/2105.11206},
+  urldate = {2024-09-25},
+  abstract = {Quantum many-body dynamics generically results in increasing entanglement that eventually leads to thermalization of local observables. This makes the exact description of the dynamics complex despite the apparent simplicity of (high-temperature) thermal states. For accurate but approximate simulations one needs a way to keep track of essential (quantum) information while discarding inessential one. To this end, we first introduce the concept of the information lattice, which supplements the physical spatial lattice with an additional dimension and where a local Hamiltonian gives rise to well defined locally conserved von Neumann information current. This provides a convenient and insightful way of capturing the flow, through time and space, of information during quantum time evolution, and gives a distinct signature of when local degrees of freedom decouple from long-range entanglement. As an example, we describe such decoupling of local degrees of freedom for the mixed field transverse Ising model. Building on this, we secondly construct algorithms to time-evolve sets of local density matrices without any reference to a global state. With the notion of information currents, we can motivate algorithms based on the intuition that information for statistical reasons flow from small to large scales. Using this guiding principle, we construct an algorithm that, at worst, shows two-digit convergence in time-evolutions up to very late times for diffusion process governed by the mixed field transverse Ising Hamiltonian. While we focus on dynamics in 1D with nearest-neighbor Hamiltonians, the algorithms do not essentially rely on these assumptions and can in principle be generalized to higher dimensions and more complicated Hamiltonians.},
+  keywords = {Condensed Matter - Statistical Mechanics,Condensed Matter - Strongly Correlated Electrons,Quantum Physics},
+  file = {/home/luca/Zotero/storage/Z7RBXA6I/Kvorning et al. - 2022 - Time-evolution of local information thermalization dynamics of local observables.pdf;/home/luca/Zotero/storage/AFWTHVCU/2105.html}
 }
 
 @article{marquardtMachineLearningQuantum2021,
@@ -234,7 +280,7 @@
   volume = {192},
   number = {1-2},
   eprint = {1904.00274},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   eprintclass = {cond-mat},
   pages = {75--87},
   issn = {0022-2291, 1573-7357},
@@ -244,6 +290,19 @@
   abstract = {The algorithm to calculate the sets of symmetry sectors for virtual indices of U(1) symmetric matrix product states (MPS) is described. Principal differences between open (OBC) and periodic (PBC) boundary conditions are stressed, and the extension of PBC MPS algorithm to projected entangled pair states (PEPS) is outlined.},
   keywords = {Condensed Matter - Statistical Mechanics},
   file = {/home/luca/Zotero/storage/FNR872JB/Rakov - 2018 - First-principle construction of U(1) symmetric mat.pdf;/home/luca/Zotero/storage/65T7JBQS/1904.html}
+}
+
+@online{rakovszkyDissipationassistedOperatorEvolution2020,
+  title = {Dissipation-Assisted Operator Evolution Method for Capturing Hydrodynamic Transport},
+  author = {Rakovszky, Tibor and family=Keyserlingk, given=C. W., prefix=von, useprefix=true and Pollmann, Frank},
+  date = {2020},
+  doi = {10.48550/ARXIV.2004.05177},
+  url = {https://arxiv.org/abs/2004.05177},
+  urldate = {2024-09-25},
+  abstract = {We introduce the dissipation-assisted operator evolution (DAOE) method for calculating transport properties of strongly interacting lattice systems in the high temperature regime. DAOE is based on evolving observables in the Heisenberg picture, and applying an artificial dissipation that reduces the weight on non-local operators. We represent the observable as a matrix product operator, and show that the dissipation leads to a decay of operator entanglement, allowing us to capture the dynamics to long times. We test this scheme by calculating spin and energy diffusion constants in a variety of physical models. By gradually weakening the dissipation, we are able to consistently extrapolate our results to the case of zero dissipation, thus estimating the physical diffusion constant with high precision.},
+  pubstate = {prepublished},
+  version = {1},
+  keywords = {FOS: Physical sciences,Statistical Mechanics (cond-mat.stat-mech),Strongly Correlated Electrons (cond-mat.str-el)}
 }
 
 @book{rohlfModernPhysicsAlpha1994,
@@ -267,7 +326,7 @@
   volume = {326},
   number = {1},
   eprint = {1008.3477},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   eprintclass = {cond-mat},
   pages = {96--192},
   issn = {00034916},
@@ -315,7 +374,7 @@
   volume = {83},
   number = {11},
   eprint = {1008.4774},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   eprintclass = {cond-mat},
   pages = {115125},
   issn = {1098-0121, 1550-235X},
@@ -332,13 +391,13 @@
   author = {Singh, Sukhwinder},
   date = {2012-03-14},
   eprint = {1203.2222},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   eprintclass = {cond-mat, physics:quant-ph},
   url = {http://arxiv.org/abs/1203.2222},
   urldate = {2024-04-02},
   abstract = {In this thesis we extend the formalism of tensor network algorithms to incorporate global internal symmetries. We describe how to both numerically protect the symmetry and exploit it for computational gain in tensor network simulations. Our formalism is independent of the details of a specific tensor network decomposition since the symmetry constraints are imposed at the level of individual tensors. Moreover, the formalism can be applied to a wide spectrum of physical symmetries described by any discrete or continuous group that is compact and reducible. We describe in detail the implementation of the conservation of total particle number (U(1) symmetry) and of total angular momentum (SU(2) symmetry). Our formalism can also be readily generalized to incorporate more exotic symmetries such as conservation of total charge in anyonic systems.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Condensed Matter - Strongly Correlated Electrons,Quantum Physics},
   file = {/home/luca/Zotero/storage/UNBAA9LT/Singh - 2012 - Tensor Network States and Algorithms in the presen.pdf}
 }
@@ -404,7 +463,7 @@
   volume = {91},
   number = {14},
   eprint = {quant-ph/0301063},
-  eprinttype = {arxiv},
+  eprinttype = {arXiv},
   pages = {147902},
   issn = {0031-9007, 1079-7114},
   doi = {10.1103/PhysRevLett.91.147902},
