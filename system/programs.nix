@@ -63,7 +63,7 @@
     pdfarranger
     xdotool #vimtex forword search dependency
     way-displays
-    pkgs.rambox
+    # pkgs.rambox
     # pkgs.#nvd #shows nixos diff packages
     htop
     btop
@@ -81,7 +81,7 @@
     ripgrep # for grep with nvim
     # pkgs.julia-bin
     poppler
-    termpdfpy
+    # termpdfpy
     # helvetica-neue-lt-std
     ltex-ls
     fd
@@ -102,5 +102,18 @@
     powertop
     kitty
     rofi-wayland
+    bitwarden
+    yubikey-manager
+    yubikey-manager-qt
+    pcsc-tools
+    pcscliteWithPolkit
+    scmccid
+    # okular
+    masterpdfeditor
+    # hyprpm dependencies
+    meson
+    cpio
+    cmake
+    ######
   ];
 }
