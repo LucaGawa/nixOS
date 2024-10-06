@@ -102,5 +102,7 @@
     powertop
     kitty
     rofi-wayland
+    libsForQt5.kdeconnect-kde
+    mailspring
   ];
 }

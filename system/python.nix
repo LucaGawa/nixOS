@@ -33,6 +33,7 @@
       # timeit
       # tenpy
       #tables
+      # pymupdf
     ];
 in {
   environment.systemPackages = with pkgs; [
