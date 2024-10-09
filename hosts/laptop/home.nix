@@ -18,8 +18,8 @@
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [
-        "eDP-1,2560x1600,2560x0,1"
-        "DP-4, 1920x1080, 0x0, 0.75"
+        "eDP-1,2560x1600,3840x560,1"
+        "DP-4, 3840x2160, 0x0, 1"
       ];
       bind = [
         "$mainMod, z, exec, xournalpp"

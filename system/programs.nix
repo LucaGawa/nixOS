@@ -117,5 +117,7 @@
     cpio
     cmake
     ######
+    element-desktop
+    restic # backup tool
   ];
 }
