@@ -43,6 +43,8 @@
       # which-key-nvim
       copilot-vim
       # copilot-lua
+      vim-markdown
+      markdown-preview-nvim
     ];
     extraConfig = ''
       packadd! nvim-tree.lua

@@ -61,7 +61,7 @@ Buttons
 #lock {
 	margin: 10px;
 	border-radius: 20px;
-	background-image: image(url("../../.config/wlogout/icons/lock.png"));
+	background-image: image(url("../../nixOS/modules/wlogout/icons/lock.png"));
 }
 
 #logout {

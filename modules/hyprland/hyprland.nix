@@ -19,7 +19,7 @@
       bind = [
         "$mainMod, RETURN, exec, kitty"
         "$mainMod, Q, killactive"
-        "$mainMod, M, exec, mathematica"
+        "$mainMod, M, exec, Wolfram"
         "$mainMod, E, exec, thunar"
         "$mainMod, W, exec, firefox"
         "$mainMod, S, exec, spotify"

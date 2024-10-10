@@ -34,10 +34,10 @@ in {
       ];
 
       monitor = [
-        "DP-1,preferred,850x2520,1"
-        "DP-2,preferred,3440x1190,1"
-        "HDMI-A-3,preferred,2130x0,1"
-        "DP-3,preferred,0x1080,1"
+        "DP-1,preferred,5360x600,1, transform,1"
+        "DP-2,preferred,0x1255,1"
+        "HDMI-A-3,preferred,2747x0,1"
+        "DP-3,preferred,1920x1080,1"
       ];
       workspace = [
         "10, monitor:HDMI-A-3, default:true"
