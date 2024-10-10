@@ -1,112 +1,116 @@
-{ config, inputs, outputs, pkgs, ... }:
 {
-home.file.".config/rofi/rounded-common.rasi".text = ''
+  config,
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}: {
+  home.file.".config/rofi/rounded-common.rasi".text = ''
 
-/*******************************************************************************
- * ROUNDED THEME FOR ROFI 
- * User                 : LR-Tech               
- * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
- *******************************************************************************/
+    /*******************************************************************************
+     * ROUNDED THEME FOR ROFI
+     * User                 : LR-Tech
+     * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+     *******************************************************************************/
 
-*{
-    bg0:    #${config.colorScheme.colors.base00};
-    bg1:    #${config.colorScheme.colors.base01};
-    bg2:    #${config.colorScheme.colors.base02};
-    bg3:    #${config.colorScheme.colors.base03};
-    fg0:    #${config.colorScheme.colors.base04};
-    fg1:    #${config.colorScheme.colors.base04};
-    fg2:    #${config.colorScheme.colors.base04};
-    fg3:    #${config.colorScheme.colors.base04};
+    *{
+        bg0:    #${config.colorScheme.palette.base00};
+        bg1:    #${config.colorScheme.palette.base01};
+        bg2:    #${config.colorScheme.palette.base02};
+        bg3:    #${config.colorScheme.palette.base03};
+        fg0:    #${config.colorScheme.palette.base04};
+        fg1:    #${config.colorScheme.palette.base04};
+        fg2:    #${config.colorScheme.palette.base04};
+        fg3:    #${config.colorScheme.palette.base04};
 
-}
+    }
 
-* {
-    font:   "Roboto 12";
+    * {
+        font:   "Roboto 12";
 
-    background-color:   transparent;
-    text-color:         @fg0;
+        background-color:   transparent;
+        text-color:         @fg0;
 
-    margin:     0px;
-    padding:    0px;
-    spacing:    0px;
-}
+        margin:     0px;
+        padding:    0px;
+        spacing:    0px;
+    }
 
-window {
-    location:       center;
-    width:          480;
-    border-radius:  24px;
-    
-    background-color:   @bg0;
-}
+    window {
+        location:       center;
+        width:          480;
+        border-radius:  24px;
 
-mainbox {
-    padding:    12px;
-}
+        background-color:   @bg0;
+    }
 
-inputbar {
-    background-color:   @bg1;
-    border-color:       @bg3;
+    mainbox {
+        padding:    12px;
+    }
 
-    border:         2px;
-    border-radius:  16px;
+    inputbar {
+        background-color:   @bg1;
+        border-color:       @bg3;
 
-    padding:    8px 16px;
-    spacing:    8px;
-    children:   [ prompt, entry ];
-}
+        border:         2px;
+        border-radius:  16px;
 
-prompt {
-    text-color: @fg2;
-}
+        padding:    8px 16px;
+        spacing:    8px;
+        children:   [ prompt, entry ];
+    }
 
-entry {
-    placeholder:        "Search";
-    placeholder-color:  @fg3;
-}
+    prompt {
+        text-color: @fg2;
+    }
 
-message {
-    margin:             12px 0 0;
-    border-radius:      16px;
-    border-color:       @bg2;
-    background-color:   @bg2;
-}
+    entry {
+        placeholder:        "Search";
+        placeholder-color:  @fg3;
+    }
 
-textbox {
-    padding:    8px 24px;
-}
+    message {
+        margin:             12px 0 0;
+        border-radius:      16px;
+        border-color:       @bg2;
+        background-color:   @bg2;
+    }
 
-listview {
-    background-color:   transparent;
+    textbox {
+        padding:    8px 24px;
+    }
 
-    margin:     12px 0 0;
-    lines:      8;
-    columns:    1;
+    listview {
+        background-color:   transparent;
 
-    fixed-height: false;
-}
+        margin:     12px 0 0;
+        lines:      8;
+        columns:    1;
 
-element {
-    padding:        8px 16px;
-    spacing:        8px;
-    border-radius:  16px;
-}
+        fixed-height: false;
+    }
 
-element normal active {
-    text-color: @bg3;
-}
+    element {
+        padding:        8px 16px;
+        spacing:        8px;
+        border-radius:  16px;
+    }
 
-element selected normal, element selected active {
-    background-color:   @bg3;
-}
+    element normal active {
+        text-color: @bg3;
+    }
 
-element-icon {
-    size:           1em;
-    vertical-align: 0.5;
-}
+    element selected normal, element selected active {
+        background-color:   @bg3;
+    }
 
-element-text {
-    text-color: inherit;
-}
-'';
+    element-icon {
+        size:           1em;
+        vertical-align: 0.5;
+    }
 
+    element-text {
+        text-color: inherit;
+    }
+  '';
 }

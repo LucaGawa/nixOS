@@ -8,17 +8,17 @@
     nix-colors.url = "github:misterio77/nix-colors";
     # base16.url = "github:SenchoPens/base16.nix";
     xremap-flake.url = "github:xremap/nix-flake";
-    stylix.url = "github:danth/stylix";
-
+    # stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       #inputs.follows = "nixpkgs";
     };
 
-    base16-schemes = {
-      url = "github:base16-project/base16-schemes";
-      flake = false;
-    };
+    # base16-schemes = {
+    #   url = "github:base16-project/base16-schemes";
+    #   flake = false;
+    # };
     # base16-zathura = {
     #   url = "github:haozeke/base16-zathura";
     #   flake = false;
@@ -72,10 +72,10 @@
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in {
-    darwinConfigurations."air" = nix-darwin.lib.darwinSystem {
-      modules = [./hosts/mac/configuration.nix];
-    };
-    darwinPackages = self.darwinConfigurations."mac".pkgs;
+    # darwinConfigurations."air" = nix-darwin.lib.darwinSystem {
+    #   modules = [./hosts/mac/configuration.nix];
+    # };
+    # darwinPackages = self.darwinConfigurations."mac".pkgs;
     nixosConfigurations = {
       laptop = lib.nixosSystem {
         specialArgs = {

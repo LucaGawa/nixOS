@@ -9,22 +9,22 @@
     systemd.enable = true;
     style = ''
 
-      @define-color color0 #${config.colorScheme.colors.base00};
-      @define-color color1 #${config.colorScheme.colors.base01};
-      @define-color color2 #${config.colorScheme.colors.base02};
-      @define-color color3 #${config.colorScheme.colors.base03};
-      @define-color color4 #${config.colorScheme.colors.base04};
-      @define-color color5 #${config.colorScheme.colors.base05};
-      @define-color color6 #${config.colorScheme.colors.base06};
-      @define-color color7 #${config.colorScheme.colors.base07};
-      @define-color color8 #${config.colorScheme.colors.base08};
-      @define-color color9 #${config.colorScheme.colors.base09};
-      @define-color color10 #${config.colorScheme.colors.base0A};
-      @define-color color11 #${config.colorScheme.colors.base0B};
-      @define-color color12 #${config.colorScheme.colors.base0C};
-      @define-color color13 #${config.colorScheme.colors.base0D};
-      @define-color color14 #${config.colorScheme.colors.base0E};
-      @define-color color15 #${config.colorScheme.colors.base0F};
+      @define-color color0  #${config.colorScheme.palette.base00};
+      @define-color color1  #${config.colorScheme.palette.base01};
+      @define-color color2  #${config.colorScheme.palette.base02};
+      @define-color color3  #${config.colorScheme.palette.base03};
+      @define-color color4  #${config.colorScheme.palette.base04};
+      @define-color color5  #${config.colorScheme.palette.base05};
+      @define-color color6  #${config.colorScheme.palette.base06};
+      @define-color color7  #${config.colorScheme.palette.base07};
+      @define-color color8  #${config.colorScheme.palette.base08};
+      @define-color color9  #${config.colorScheme.palette.base09};
+      @define-color color10 #${config.colorScheme.palette.base0A};
+      @define-color color11 #${config.colorScheme.palette.base0B};
+      @define-color color12 #${config.colorScheme.palette.base0C};
+      @define-color color13 #${config.colorScheme.palette.base0D};
+      @define-color color14 #${config.colorScheme.palette.base0E};
+      @define-color color15 #${config.colorScheme.palette.base0F};
 
 
       * {
