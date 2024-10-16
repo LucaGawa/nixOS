@@ -13,6 +13,7 @@ in {
     ./system/programs.nix
     ./system/programs_basic.nix
     ./system/python.nix
+    # ./system/R.nix
   ];
   # Enable networking
   networking.networkmanager.enable = true;

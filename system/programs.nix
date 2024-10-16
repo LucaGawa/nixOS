@@ -119,5 +119,7 @@
     ######
     element-desktop
     restic # backup tool
+    R
+    rWrapper
   ];
 }

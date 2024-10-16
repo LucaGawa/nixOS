@@ -7,7 +7,8 @@
     inputs.xremap-flake.homeManagerModules.default
   ];
   services.xremap = {
-    withHypr = true;
+    # withHypr = true;
+    withWlroots = true;
     config = {
       modmap = [
         {
