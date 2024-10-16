@@ -3,10 +3,9 @@
   pkgs-stable,
   ...
 }: let
-  R-with-my-packages = rWrapper.override {packages = with rPackages; [ggplot2 dplyr xts];};
+  R-with-my-packages = pkgs.rWrapper.override {packages = with pkgs.rPackages; [qsimulatR ggplot2];};
 in {
   environment.systemPackages = with pkgs; [
-    Rwrapper
     R
     R-with-my-packages
   ];
