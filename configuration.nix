@@ -35,7 +35,7 @@ in {
 
   stylix = {
     enable = true;
-    image = /home/luca/nixOS/wallpaper/1.png;
+    image = ./wallpaper/1.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     cursor = {
       package = pkgs.nordzy-cursor-theme;
@@ -299,7 +299,7 @@ in {
   system.stateVersion = "23.05"; # Did you read the comment?
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = "experimental-features = nix-command flakes";
   };
 }
