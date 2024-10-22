@@ -54,7 +54,7 @@
   # # CPU_SCALING_GOVERNOR_ON_BAT = "powersaver";
   # };
   # };
-  powerManagement.enable = true;
+  # powerManagement.enable = true;
   # services.power-profiles-daemon.enable = false;
   powerManagement.powertop.enable = true;
   services.thermald.enable = true;
@@ -78,6 +78,13 @@
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
+    powerManagement = {
+      enable = true;
+      # finegrained = true;
+    };
+    # prime = {
+    #   offload.enable = true;
+    #   intelBusId
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # powerManagement.enable = true;
@@ -92,7 +99,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Do not disable this unless your GPU is unsupported or if you have a good reason to.
-    open = true;
+    open = false;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
