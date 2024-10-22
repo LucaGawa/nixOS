@@ -65,32 +65,26 @@
 
   #wayland.windowManager.hyprland.enableNvidiaPatches = true;
   # Enable OpenGL
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [
-      #	vulkan-validation-layers
-    ];
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia" "intel"];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
-    powerManagement = {
-      enable = true;
-      # finegrained = true;
-    };
-    # prime = {
-    #   offload.enable = true;
-    #   intelBusId
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # powerManagement.enable = true;
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
+    # of just the bare essentials.
+    powerManagement.enable = false;
+
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    #powerManagement.finegrained = false;
+    powerManagement.finegrained = false;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -98,23 +92,21 @@
     # supported GPUs is at:
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
-    # Do not disable this unless your GPU is unsupported or if you have a good reason to.
+    # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
-    #nvidiaSettings = true;
-    # perhabs solve tearing issue
-    #forceFullCompositionPipeline = true;
+    nvidiaSettings = true;
+
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
       sync.enable = true;
-      intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
+      intelBusId = "PCI:0:2:0";
     };
   };
-
   services.hardware.bolt.enable = true;
 }
