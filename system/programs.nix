@@ -121,5 +121,6 @@
     restic # backup tool
     R
     rWrapper
+    geekbench
   ];
 }

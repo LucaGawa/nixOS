@@ -34,10 +34,11 @@
       # tenpy
       #tables
       # pymupdf
+      # qiskit
     ];
 in {
   environment.systemPackages = with pkgs; [
-    (pkgs-stable.python3.withPackages my-python-packages)
+    (pkgs.python3.withPackages my-python-packages)
     mypy
     ruff
     black
