@@ -105,8 +105,8 @@
     # libsForQt5.kdeconnect-kde
     # mailspring
     bitwarden
-    yubikey-manager
-    yubikey-manager-qt
+    # yubikey-manager
+    # yubikey-manager-qt
     pcsc-tools
     pcscliteWithPolkit
     scmccid
@@ -122,5 +122,6 @@
     R
     rWrapper
     geekbench
+    swig # some dependency for a python package
   ];
 }
