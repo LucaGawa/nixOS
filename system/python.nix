@@ -44,5 +44,6 @@ in {
     python311Packages.debugpy
     python311Packages.pip
     python311Packages.cython
+    python312Packages.pyqt6
   ];
 }

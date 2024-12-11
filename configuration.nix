@@ -36,16 +36,38 @@ in {
   stylix = {
     enable = true;
     image = ./wallpaper/1.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    # polarity = "dark";
+    base16Scheme = {
+      "scheme" = "Nord";
+      "author" = "arcticicestudio";
+      "base00" = "2E3440";
+      "base01" = "3B4252";
+      "base02" = "434C5E";
+      "base03" = "4C566A";
+      "base04" = "D8DEE9";
+      "base05" = "E5E9F0";
+      "base06" = "ECEFF4";
+      "base07" = "8FBCBB";
+      "base08" = "88C0D0";
+      "base09" = "81A1C1";
+      "base0A" = "5E81AC";
+      "base0B" = "BF616A";
+      "base0C" = "D08770";
+      "base0D" = "EBCB8B";
+      "base0E" = "A3BE8C";
+      "base0F" = "B48EAD";
+    };
     cursor = {
       package = pkgs.nordzy-cursor-theme;
       name = "Nordzy-cursors";
     };
     fonts = {
-      monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-        name = "FiraCode Nerd Font Mono";
-      };
+      # monospace = {
+      #   # package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+      #   package = pkgs.nerdfonts.droid_sans_mono;
+      #   name = "FiraCode Nerd Font Mono";
+      # };
       sansSerif = {
         package = pkgs.fira;
         name = "Fira Sans Medium";
@@ -253,7 +275,7 @@ in {
   fonts.enableDefaultPackages = true;
   fonts.enableGhostscriptFonts = true;
   fonts.packages = with pkgs; [
-    nerdfonts
+    # nerdfonts
     font-awesome
     google-fonts
     corefonts

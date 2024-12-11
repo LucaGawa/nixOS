@@ -38,6 +38,7 @@
     qt6.qtwayland
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
+    # libsForQt6.qt6.qtwayland
     libva
     cliphist
     wl-clipboard
@@ -98,7 +99,7 @@
     zulu17
     python311Packages.pint
     fityk
-    libstdcxx5
+    # libstdcxx5
     powertop
     kitty
     rofi-wayland
@@ -121,5 +122,8 @@
     restic # backup tool
     R
     rWrapper
+    glxinfo #some info for grapic info
+    plasma5Packages.plasma-thunderbolt
+    geekbench
   ];
 }

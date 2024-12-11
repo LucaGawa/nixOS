@@ -65,12 +65,13 @@
 
   #wayland.windowManager.hyprland.enableNvidiaPatches = true;
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
+    #OpenGL renamed to graphics
     enable = true;
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia" "intel"];
 
   hardware.nvidia = {
     # Modesetting is required.
@@ -103,7 +104,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
-      sync.enable = true;
+      # sync.enable = true;
+      offload.enable = true;
       nvidiaBusId = "PCI:1:0:0";
       intelBusId = "PCI:0:2:0";
     };
