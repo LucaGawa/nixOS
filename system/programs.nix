@@ -106,8 +106,8 @@
     # libsForQt5.kdeconnect-kde
     # mailspring
     bitwarden
-    yubikey-manager
-    yubikey-manager-qt
+    # yubikey-manager
+    # yubikey-manager-qt
     pcsc-tools
     pcscliteWithPolkit
     scmccid
@@ -125,5 +125,6 @@
     glxinfo #some info for grapic info
     plasma5Packages.plasma-thunderbolt
     geekbench
+    swig # some dependency for a python package
   ];
 }
