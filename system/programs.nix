@@ -126,5 +126,6 @@
     plasma5Packages.plasma-thunderbolt
     geekbench
     swig # some dependency for a python package
+    base16-schemes
   ];
 }

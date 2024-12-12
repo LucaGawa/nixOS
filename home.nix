@@ -17,6 +17,10 @@ in {
     BROWSER = "firefox";
   };
 
+  stylix.targets.hyprland = {
+    enable = false;
+  };
+
   # todo find out, why this gives an stack overflow error in the hyprland modul
   wayland.windowManager.hyprland.plugins = [
     # inputs.Hyprspace.packages.x86_64-linux.Hyprspace
