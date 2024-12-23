@@ -273,7 +273,7 @@ in {
   fonts.enableDefaultPackages = true;
   fonts.enableGhostscriptFonts = true;
   fonts.packages = with pkgs; [
-    # nerdfonts
+    nerd-fonts.fira-code
     font-awesome
     google-fonts
     corefonts
