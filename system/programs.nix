@@ -127,5 +127,6 @@
     geekbench
     swig # some dependency for a python package
     base16-schemes
+    hyprland-qtutils
   ];
 }

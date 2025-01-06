@@ -35,6 +35,7 @@
       #tables
       # pymupdf
       # qiskit
+      # pydicom
     ];
 in {
   environment.systemPackages = with pkgs; [
