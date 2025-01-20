@@ -20,8 +20,8 @@ in {
     ../../modules/theming.nix
     ../../modules/fonts.nix
     ../../modules/mimeapps.nix
-    ../../modules/neovim.nix
-    # ../../modules/nvf.nix
+    # ../../modules/neovim.nix
+    ../../modules/nvf.nix
   ];
 
   home.homeDirectory = "/home/" + userName;

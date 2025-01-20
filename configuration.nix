@@ -14,9 +14,12 @@ in {
     ./system/programs_basic.nix
     ./system/python.nix
     ./system/R.nix
+    # ./modules/nvf.nix
   ];
   # Enable networking
   networking.networkmanager.enable = true;
+
+  virtualisation.spiceUSBRedirection.enable = true; #important for redirecting USB devices to quickemu
 
   # Enable scanning
   hardware.sane.enable = true;

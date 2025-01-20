@@ -128,5 +128,15 @@
     swig # some dependency for a python package
     base16-schemes
     hyprland-qtutils
+    steam
+    ## macos virtual machine
+    # qemu
+    quickemu
+    # quickgui
+    usbredir
+    polkit
+    ####
+    # flutter
+    usbutils
   ];
 }
