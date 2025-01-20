@@ -12,9 +12,11 @@
     stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
     hardware.url = "github:nixos/nixos-hardware";
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      #inputs.follows = "nixpkgs";
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
     nvf.url = "github:notashelf/nvf";
 
     home-manager = {
@@ -50,17 +52,48 @@
     hyprland,
     # hyprland-plugins,
     nix-darwin,
+    nix-homebrew,
     nvf,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
+    #system = "x86_64-linux";
+    system = "arch64-darwin";
     userSet = {
       userName = "luca";
     };
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+    nixpkgs.hostPlatform = system;
   in {
+    darwinConfigurations."Lucas-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+      modules = [
+        ./hosts/mbp/configuration.nix
+        inputs.stylix.darwinModules.stylix
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = userSet.userName;
+            autoMigrate = true;
+          };
+        }
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit pkgs-stable;
+            inherit userSet;
+          };
+          home-manager.users.luca = {
+            imports = [./hosts/mbp/home.nix];
+          };
+        }
+      ];
+    };
+
     # darwinConfigurations."air" = nix-darwin.lib.darwinSystem {
     #   modules = [./hosts/mac/configuration.nix];
     # };

@@ -25,9 +25,9 @@
     remapCapsLockToControl = true;
   };
 
-  stylix = {
-    image = ../../wallpaper/1.png;
-  };
+ # stylix = {
+ #   image = ../../wallpaper/1.png;
+ # };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;

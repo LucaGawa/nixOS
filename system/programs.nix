@@ -138,5 +138,6 @@
     ####
     # flutter
     usbutils
+    mathematica
   ];
 }

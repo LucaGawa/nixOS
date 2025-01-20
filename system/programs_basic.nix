@@ -3,7 +3,7 @@
     brave
     thunderbird
     spotify
-    mathematica
+    #mathematica
     starship
     eza #ls replacement
     bat #cat replacement
