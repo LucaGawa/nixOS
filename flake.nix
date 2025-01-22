@@ -17,6 +17,19 @@
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+
     nvf.url = "github:notashelf/nvf";
 
     home-manager = {
@@ -53,6 +66,9 @@
     # hyprland-plugins,
     nix-darwin,
     nix-homebrew,
+    homebrew-core,
+    homebrew-cask,
+    homebrew-bundle,
     nvf,
     ...
   } @ inputs: let
@@ -77,6 +93,12 @@
             enableRosetta = true;
             user = userSet.userName;
             autoMigrate = true;
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+              "homebrew/homebrew-bundle" = homebrew-bundle;
+            };
+            # mutableTaps = false;
           };
         }
         home-manager.darwinModules.home-manager

@@ -498,6 +498,54 @@
         "type": "github"
       }
     },
+    "homebrew-bundle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737427540,
+        "narHash": "sha256-+wl/1TvdN0hwtCwmFkkSIekr5vInZ9xyIfxHqgXD2WA=",
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "rev": "6a3820a338c9b02a77bd1d6d939b12e79c889867",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "type": "github"
+      }
+    },
+    "homebrew-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737489517,
+        "narHash": "sha256-FyViXhOHs8CrbPejnU/j6BZXPf5Wz88dcioFUdPMYJk=",
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "rev": "2292a44aad3e4c4c48288fa0b2f7c18552ac760d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "type": "github"
+      }
+    },
+    "homebrew-core": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737492036,
+        "narHash": "sha256-DqK7Iwrts56kVYV3tb8udW8bghqgUqJ3TIsZhUcQl1M=",
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "rev": "d36c5a0922a96b8e4d2e480896713686e8d3119c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -1057,11 +1105,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737162735,
-        "narHash": "sha256-5T+HkouTMGaRm0rh3kgD4Z1O7ONKfgjyoPQH5rSyreU=",
+        "lastModified": 1737423230,
+        "narHash": "sha256-WEOiNmkcmlaeXy2HGW1PYxYmCPiHdsI7a7SpjhBYxRg=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "87131f51f8256952d1a306b5521cedc2dc61aa08",
+        "rev": "46d0fa4ded0a7532f19870f9bbedaf62269fe3f7",
         "type": "github"
       },
       "original": {
@@ -4237,6 +4285,9 @@
         "Hyprspace": "Hyprspace",
         "hardware": "hardware",
         "home-manager": "home-manager",
+        "homebrew-bundle": "homebrew-bundle",
+        "homebrew-cask": "homebrew-cask",
+        "homebrew-core": "homebrew-core",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "nix-colors": "nix-colors",

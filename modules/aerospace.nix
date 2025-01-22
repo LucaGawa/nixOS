@@ -20,7 +20,10 @@
         alt-k = "focus up";
         alt-l = "focus right";
         alt-enter = "exec-and-forget ${pkgs.alacritty}/bin/alacritty";
-        alt-w = "exec-and-forget $exec-and-forget osascript -e 'tell application \"Safari\" to activate'";
+        alt-w = "exec-and-forget open -n /Applications/Safari.app";
+        # alt-e = "exec-and-forget open -n /Users/luca/";
+        alt-m = "exec-and-forget open -n /Applications/Wolfram.app";
+        alt-c = "exec-and-forget open -n /Applications/ChatGPT.app";
         alt-f = "fullscreen";
         alt-s = "layout tiles horizontal vertical";
         alt-q = "close --quit-if-last-window";
@@ -51,36 +54,75 @@
         alt-8 = "workspace 8";
         alt-9 = "workspace 9";
 
-        alt-shift-1 = "move-node-to-workspace 1";
-        alt-shift-2 = "move-node-to-workspace 2";
-        alt-shift-3 = "move-node-to-workspace 3";
-        alt-shift-4 = "move-node-to-workspace 4";
-        alt-shift-5 = "move-node-to-workspace 5";
-        alt-shift-6 = "move-node-to-workspace 6";
-        alt-shift-7 = "move-node-to-workspace 7";
-        alt-shift-8 = "move-node-to-workspace 8";
-        alt-shift-9 = "move-node-to-workspace 9";
+        alt-shift-1 = "move-node-to-workspace 1 --focus-follows-window";
+        alt-shift-2 = "move-node-to-workspace 2 --focus-follows-window";
+        alt-shift-3 = "move-node-to-workspace 3 --focus-follows-window";
+        alt-shift-4 = "move-node-to-workspace 4 --focus-follows-window";
+        alt-shift-5 = "move-node-to-workspace 5 --focus-follows-window";
+        alt-shift-6 = "move-node-to-workspace 6 --focus-follows-window";
+        alt-shift-7 = "move-node-to-workspace 7 --focus-follows-window";
+        alt-shift-8 = "move-node-to-workspace 8 --focus-follows-window";
+        alt-shift-9 = "move-node-to-workspace 9 --focus-follows-window";
+
+        cmd-h = "focus-monitor left";
+        cmd-j = "focus-monitor down";
+        cmd-k = "focus-monitor up";
+        cmd-l = "focus-monitor right";
+
+        cmd-shift-h = "move-node-to-monitor left --focus-follows-window";
+        cmd-shift-j = "move-node-to-monitor down --focus-follows-window";
+        cmd-shift-k = "move-node-to-monitor up --focus-follows-window";
+        cmd-shift-l = "move-node-to-monitor right --focus-follows-window";
+
+        # cmd-h = []; # Disabel "hide application"
+        cmd-alt-h = []; # Disable "hide others"
 
         alt-tab = "workspace-back-and-forth";
-        alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
+        alt-shift-tab = "move-workspace-to-monitor --wrap-around next ";
 
         alt-shift-semicolon = "mode service";
       };
 
+      mode.service.binding = {
+        esc = ["reload-config" "mode main"];
+        alt-shift-h = ["join-with left" "mode main"];
+        alt-shift-j = ["join-with down" "mode main"];
+        alt-shift-k = ["join-with up" "mode main"];
+        alt-shift-l = ["join-with right" "mode main"];
+        # alt-h = ["split horizontal" "mode main"];
+        # alt-j = ["split vertical" "mode main"];
+        # alt-k = ["split vertical" "mode main"];
+        # alt-l = ["split horizontal" "mode main"];
+      };
+
+      workspace-to-monitor-force-assignment = {
+        "1" = "main";
+        "2" = "main";
+        "3" = "main";
+        "4" = "main";
+        "5" = "main";
+
+        "6" = ["secondary" "main"];
+        "7" = ["secondary" "main"];
+        "8" = ["secondary" "main"];
+        "9" = ["secondary" "main"];
+      };
       # Default settings related to layouts and normalization
       default-root-container-layout = "tiles"; # 'tiles' or 'accordion'
       default-root-container-orientation = "auto"; # 'horizontal', 'vertical', 'auto'
-      accordion-padding = 30;
+      accordion-padding = 50;
       enable-normalization-flatten-containers = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
 
       # Commands for specific macOS behavior
       after-login-command = [];
-      after-startup-command = [];
-      start-at-login = false;
+      after-startup-command = ["exec-and-forget sketchybar"];
+      #   exec-on-workspace-change = ["/bin/bash -c
+      # # sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"];
+      # start-at-login = true;
 
       # Mouse behavior when focus changes
-      on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
+      # on-focused-monitor-changed = ["move-mouse, monitor-lazy-center"];
 
       # macOS behavior for hiding apps
       automatically-unhide-macos-hidden-apps = false;

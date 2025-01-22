@@ -41,7 +41,7 @@ in {
   environment.systemPackages = with pkgs; [
     (pkgs.python3.withPackages my-python-packages)
     mypy
-    ruff
+    # ruff
     black
     python311Packages.debugpy
     python311Packages.pip

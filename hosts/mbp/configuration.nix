@@ -7,6 +7,7 @@
   imports = [
     #../../system/programs_basic.nix
     ../../modules/aerospace.nix
+    ../../system/python.nix
     # ../../modules/zsh.nix
   ];
   # List packages installed in system profile. To search by name, run:
@@ -24,7 +25,28 @@
     zoxide
     neofetch
     atuin
+    speedtest-cli
+    zotero
+    # jankyborders
   ];
+
+  services.jankyborders = {
+    enable = true;
+    hidpi = true;
+    inactive_color = "0x00FFFFFF";
+  };
+
+  services.sketchybar = {
+    enable = true;
+    config = ''
+      sketchybar --bar heigt=24
+      sketychbar --update
+    '';
+  };
+
+  # options.services.jankyborders = {
+  #   enable = true;
+  # };
 
   programs.zsh.interactiveShellInit = ''
     # Set up zoxide.
@@ -36,6 +58,9 @@
 
   homebrew = {
     enable = true;
+    # taps = [
+    #   "FelixKratz/formulae"
+    # ];
     brews = [
       "mas"
     ];
@@ -43,7 +68,16 @@
       "spotify"
       "firefox"
       "bitwarden"
+      "google-drive"
+      "bettertouchtool"
+      "geekbench"
+      "chatgpt"
+      "ukelele"
+      # "displaylink"
     ];
+    # taps = [
+    #   "FelixKratz/formulae"
+    # ];
     masApps = {
       "whatsapp" = 310633997;
       "goodnotes" = 1444383602;
@@ -93,6 +127,8 @@
     remapCapsLockToEscape = true;
   };
 
+  security.pam.enableSudoTouchIdAuth = true;
+
   system.activationScripts.applications.text = let
     env = pkgs.buildEnv {
       name = "system-applications";
@@ -115,6 +151,7 @@
 
   system.defaults = {
     dock.autohide = true;
+    dock.expose-group-apps = true;
   };
 
   # programs.fish.enable = true;
@@ -168,6 +205,15 @@
       desktop = 0.0;
       popups = 1.0;
     };
+  };
+
+  power.sleep = {
+    computer = "never";
+    display = 20;
+  };
+
+  system.defaults.controlcenter = {
+    BatteryShowPercentage = true;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.

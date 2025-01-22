@@ -92,6 +92,8 @@ in {
       update = lib.mkForce "nix flake update /Users/luca/nixOS";
       home = lib.mkForce "nvim /Users/luca/nixOS/hosts/mbp/home.nix";
       config = lib.mkForce "nvim /Users/luca/nixOS/hosts/mbp/configuration.nix";
+      aero = lib.mkForce "nvim /Users/luca/nixOS/modules/aerospace.nix";
+      flake = lib.mkForce "nvim /Users/luca/nixOS/flake.nix";
     };
   };
 
