@@ -44,6 +44,10 @@
     '';
   };
 
+  # services.libinput.mouse = {
+  #   naturalScrolling = true;
+  # };
+
   # options.services.jankyborders = {
   #   enable = true;
   # };

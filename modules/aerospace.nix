@@ -53,6 +53,7 @@
         alt-7 = "workspace 7";
         alt-8 = "workspace 8";
         alt-9 = "workspace 9";
+        alt-0 = "workspace 10";
 
         alt-shift-1 = "move-node-to-workspace 1 --focus-follows-window";
         alt-shift-2 = "move-node-to-workspace 2 --focus-follows-window";
@@ -63,6 +64,7 @@
         alt-shift-7 = "move-node-to-workspace 7 --focus-follows-window";
         alt-shift-8 = "move-node-to-workspace 8 --focus-follows-window";
         alt-shift-9 = "move-node-to-workspace 9 --focus-follows-window";
+        alt-shift-0 = "move-node-to-workspace 10 --focus-follows-window";
 
         cmd-h = "focus-monitor left";
         cmd-j = "focus-monitor down";
@@ -96,16 +98,31 @@
       };
 
       workspace-to-monitor-force-assignment = {
-        "1" = "main";
-        "2" = "main";
-        "3" = "main";
-        "4" = "main";
-        "5" = "main";
+        "1" = 2;
+        "2" = 2;
+        "3" = 2;
+        "4" = 2;
 
-        "6" = ["secondary" "main"];
-        "7" = ["secondary" "main"];
-        "8" = ["secondary" "main"];
-        "9" = ["secondary" "main"];
+        "5" = 1;
+        "6" = 1;
+        "7" = 1;
+
+        "8" = 3;
+        "9" = 3;
+        "10" = 3;
+
+        # "1" = ["2" "1"];
+        # "2" = [2 1];
+        # "3" = [2 1];
+        #
+        # "4" = 1;
+        # "5" = 1;
+        # "6" = 1;
+        # "7" = 1;
+        #
+        # "8" = [3 2 1];
+        # "9" = [3 2 1];
+        # "10" = ["3" 2 1];
       };
       # Default settings related to layouts and normalization
       default-root-container-layout = "tiles"; # 'tiles' or 'accordion'
