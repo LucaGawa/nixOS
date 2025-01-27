@@ -27,6 +27,12 @@
     atuin
     speedtest-cli
     zotero
+    sketchybar
+    fzf
+    lua-language-server
+    # ghostty
+    # sciebo
+    # owncloud-client
     # jankyborders
   ];
 
@@ -36,13 +42,45 @@
     inactive_color = "0x00FFFFFF";
   };
 
-  services.sketchybar = {
-    enable = true;
-    config = ''
-      sketchybar --bar heigt=24
-      sketychbar --update
-    '';
+  system.defaults = { 
+    NSGlobalDomain = {
+      "com.apple.swipescrolldirection" = true;
+      NSWindowShouldDragOnGesture = true;
+    };
+  # "com.apple.SoftwareUpdate" = {
+  #   AutomaticCheckEnabled = true;
+  #   ScheduleFrequency = 1;
+  #   AutomaticDownload = 1;
+  #   CriticalUpdateInstall = 1;
+  # };
   };
+
+  # services.sketchybar = {
+  #   enable = true;
+#     config = ''
+#       sketchybar --bar 
+#                         height=24    \
+#                         position=right \ 
+#        --update \
+#        --add event aerospace_workspace_change \
+#
+# for sid in $(aerospace list-workspaces --all); do
+#     sketchybar --add item space.$sid left \
+#         --subscribe space.$sid aerospace_workspace_change \
+#         --set space.$sid \
+#         background.color=0x44ffffff \
+#         background.corner_radius=5 \
+#         background.height=20 \
+#         background.drawing=off \
+#         label="$sid" \
+#         click_script="aerospace workspace $sid" \
+#         script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+# done
+#
+#
+# sketchybar --add item clock right
+#     '';
+  # };
 
   # services.libinput.mouse = {
   #   naturalScrolling = true;
@@ -73,10 +111,13 @@
       "firefox"
       "bitwarden"
       "google-drive"
-      "bettertouchtool"
+      # "bettertouchtool"
       "geekbench"
       "chatgpt"
       "ukelele"
+      "owncloud"
+      "hammerspoon"
+      "ghostty"
       # "displaylink"
     ];
     # taps = [
@@ -90,6 +131,7 @@
       "kdeconnect" = 1580245991;
       "pages" = 409201541;
       "numbers" = 409203825;
+      "wipr" = 1662217862; 
     };
     onActivation = {
       cleanup = "zap";
@@ -206,9 +248,10 @@
     opacity = {
       applications = 0.9;
       terminal = 0.9;
-      desktop = 0.0;
-      popups = 1.0;
+      # desktop = 0.0;
+      # popups = 1.0;
     };
+    # targets."neovim".enable = false;
   };
 
   power.sleep = {

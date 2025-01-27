@@ -5,12 +5,12 @@
     settings = {
       # Your existing gap settings
       gaps = {
-        inner.horizontal = 8;
-        inner.vertical = 8;
-        outer.left = 8;
-        outer.bottom = 8;
-        outer.top = 8;
-        outer.right = 8;
+        inner.horizontal = 20;
+        inner.vertical = 20;
+        outer.left = 20;
+        outer.bottom = 20;
+        outer.top = 10;
+        outer.right = 80;
       };
 
       # Keybindings in "main" mode (your custom bindings)
@@ -20,8 +20,18 @@
         alt-k = "focus up";
         alt-l = "focus right";
         alt-enter = "exec-and-forget ${pkgs.alacritty}/bin/alacritty";
-        alt-w = "exec-and-forget open -n /Applications/Safari.app";
-        # alt-e = "exec-and-forget open -n /Users/luca/";
+        # alt-w = "exec-and-forget open -n /Applications/Safari.app";
+        alt-w = ''exec-and-forget osascript -e '
+    tell application "Safari"
+        make new document at end of documents
+        activate
+    end tell' '';
+        alt-e = ''exec-and-forget osascript -e '
+    tell application "Finder"
+    activate
+    make new Finder window
+  end tell' '';
+
         alt-m = "exec-and-forget open -n /Applications/Wolfram.app";
         alt-c = "exec-and-forget open -n /Applications/ChatGPT.app";
         alt-f = "fullscreen";
@@ -83,6 +93,8 @@
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next ";
 
         alt-shift-semicolon = "mode service";
+
+        alt-t = "layout floating tiling";
       };
 
       mode.service.binding = {
@@ -125,21 +137,38 @@
         # "10" = ["3" 2 1];
       };
       # Default settings related to layouts and normalization
+
+      on-window-detected = [  
+        {
+    "if".app-name-regex-substring = "finder";
+    run = "layout floating";
+  }
+];
+
+
       default-root-container-layout = "tiles"; # 'tiles' or 'accordion'
       default-root-container-orientation = "auto"; # 'horizontal', 'vertical', 'auto'
-      accordion-padding = 50;
+      accordion-padding = 100;
       enable-normalization-flatten-containers = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
+
+      
 
       # Commands for specific macOS behavior
       after-login-command = [];
       after-startup-command = ["exec-and-forget sketchybar"];
-      #   exec-on-workspace-change = ["/bin/bash -c
-      # # sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"];
+        exec-on-workspace-change = ["/bin/bash"  "-c"
+      "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"];
       # start-at-login = true;
 
       # Mouse behavior when focus changes
       # on-focused-monitor-changed = ["move-mouse, monitor-lazy-center"];
+on-focus-changed = [
+  # The border disappears when there is only one window in the focused workspace.
+  # See https://github.com/FelixKratz/JankyBorders/issues/53#issuecomment-2299849820
+  # See https://github.com/nikitabobko/AeroSpace/issues/846 (TODO Full Screen Situation)
+  "exec-and-forget [ $(/usr/local/bin/aerospace list-windows --workspace focused --count) -eq 1 ] && /usr/local/bin/borders width=0.0 || /usr/local/bin/borders width=2.0"
+]; #todo funktioniert nicht 
 
       # macOS behavior for hiding apps
       automatically-unhide-macos-hidden-apps = false;

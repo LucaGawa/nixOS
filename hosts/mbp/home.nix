@@ -5,6 +5,7 @@
   ...
 }: let
   userName = userSet.userName;
+  home = "/Users/${userName}";
 in {
   imports = [
     #../../modules/kitty.nix
@@ -16,8 +17,14 @@ in {
     ../../modules/neovim.nix
   ];
 
-  home.homeDirectory = lib.mkForce "/Users/luca";
+  home.homeDirectory = lib.mkForce home;
   home.username = userName;
+
+  home.file = {
+
+    "${home}/.config/sketchybar".source = ../../modules/sketchybar;
+    "${home}/.hammerspoon".source = ../../modules/hammerspoon;
+  };
 
   home.stateVersion = "23.05";
 
@@ -56,7 +63,8 @@ in {
     # };
   };
 
-  # stylix = {
+  stylix = {
+    targets.neovim.enable = false;
   #   # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
   #   # fonts = {
   #   #   monospace = {
@@ -84,7 +92,7 @@ in {
   #     desktop = 0.0;
   #     popups = 1.0;
   #   };
-  # };
+  };
 
   programs.fish = {
     shellAbbrs = {

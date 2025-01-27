@@ -13,7 +13,11 @@ require("gitsigns").setup()
 -- vim.opt.number = true
 
 o.clipboard = 'unnamedplus'
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 -- vim.o.tabstop = 2
+--
 
 -- cmd('filetype plugin indent on')
 -- cmd('syntax enable')

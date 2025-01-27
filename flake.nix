@@ -30,7 +30,7 @@
       flake = false;
     };
 
-    nvf.url = "github:notashelf/nvf";
+    # nvf.url = "github:notashelf/nvf";
 
     home-manager = {
       url = github:nix-community/home-manager;
@@ -69,7 +69,7 @@
     homebrew-core,
     homebrew-cask,
     homebrew-bundle,
-    nvf,
+    # nvf,
     ...
   } @ inputs: let
     #system = "x86_64-linux";
@@ -169,7 +169,7 @@
               inherit userSet;
             };
             home-manager.users.${userSet.userName} = {
-              imports = [./home.nix ./hosts/desktop/home.nix nvf.homeManagerModules.default];
+              imports = [./home.nix ./hosts/desktop/home.nix];
             };
           }
         ];

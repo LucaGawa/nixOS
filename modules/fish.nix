@@ -21,6 +21,7 @@
       # vf="nvim '$(fzf --preview=''bat --color=always --style=plain {}'' --bind K:preview-up,J:preview-down --prompt ''Please select a file to edit: '')'";
     };
 
+
     interactiveShellInit = ''
       if status is-interactive
           # Commands to run in interactive sessions can go here
@@ -42,6 +43,10 @@
       set -x HISTCONTROL ignoreboth:erasedups
       set -x PAGER most
       set -x BROWSER firefox
+
+      function ff
+        aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+      end
 
       function ex
           switch $argv[1]

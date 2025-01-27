@@ -33,9 +33,9 @@
       undotree
       vim-fugitive
       null-ls-nvim
-      nvim-dap #for debugger
-      nvim-dap-python
-      nvim-dap-ui
+      # nvim-dap #for debugger
+      # nvim-dap-python
+      # nvim-dap-ui
       vim-nix
       lualine-nvim
       lualine-lsp-progress
@@ -76,6 +76,7 @@
       \]
       luafile ${./nvim/nvim.lua}
       colorscheme nord
+      hi Normal guibg=NONE ctermbg=NONE
     '';
   };
 }
